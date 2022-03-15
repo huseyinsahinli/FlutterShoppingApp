@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
+
+import '../constant/app_constant.dart';
+import '../constant/app_strings.dart';
+import '../constant/icon_enum.dart';
+import '../constant/image_path.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({Key? key}) : super(key: key);
@@ -71,7 +73,7 @@ class HorizontalListView extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {},
-                            child: SvgPicture.asset(ImagePath.addIconPath,
+                            child: SvgPicture.asset(IconEnums.plus.toPath,
                                 height: 17, color: cWhiteColor),
                           ),
                         ),

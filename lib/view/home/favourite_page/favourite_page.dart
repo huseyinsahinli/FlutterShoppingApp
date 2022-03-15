@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
-import '../widgets/divider.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/app_strings.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/widgets/divider.dart';
 
 class FavouritePage extends StatefulWidget {
   FavouritePage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class FavouritePage extends StatefulWidget {
 }
 
 class _FavouritePageState extends State<FavouritePage> {
-  String _imagePath = "assets/images/";
+  final String _imagePath = "assets/images/png/";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +33,20 @@ class _FavouritePageState extends State<FavouritePage> {
             padding: const EdgeInsets.only(bottom: 150),
             child: Column(
               children: [
-                _createFavouriteItems(
-                    "Sprite Can", "325ml", 1.50, _imagePath + "spriteCan.png"),
+                _createFavouriteItems("Sprite Can", "325ml", 1.50,
+                    "assets/images/png/spriteCan.png"),
                 const CustomDivider(),
-                _createFavouriteItems(
-                    "Diet Coke", "325ml", 1.50, _imagePath + "dietCoke.png"),
+                _createFavouriteItems("Diet Coke", "325ml", 1.50,
+                    "assets/images/png/dietCoke.png"),
                 const CustomDivider(),
                 _createFavouriteItems("Coca Cola Can ", "325ml", 1.50,
-                    _imagePath + "cocaCola.png"),
+                    "assets/images/png/cocaCola.png"),
                 const CustomDivider(),
                 _createFavouriteItems("Apple & Grape Juice", "325ml", 1.50,
-                    _imagePath + "juice.png"),
+                    "assets/images/png/juice.png"),
                 const CustomDivider(),
-                _createFavouriteItems(
-                    "Pepsi Can", "325ml", 1.50, _imagePath + "pepsiCan.png"),
+                _createFavouriteItems("Pepsi Can", "325ml", 1.50,
+                    "assets/images/png/pepsiCan.png"),
                 const CustomDivider(),
               ],
             ),
@@ -136,7 +136,7 @@ class _FavouritePageState extends State<FavouritePage> {
                   ),
                   IconButton(
                       onPressed: () {},
-                      icon: ImagePath.backArrowIcon,
+                      icon: IconEnums.backarrow.toImage,
                       iconSize: 24),
                 ],
               ),

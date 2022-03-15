@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nectar_ui/widgets/divider.dart';
+import '../../../core/constant/app_strings.dart';
 
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/widgets/divider.dart';
 
 class AccountPage extends StatefulWidget {
   AccountPage({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class _AccountPageState extends State<AccountPage> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(27),
                           image: const DecorationImage(
-                            image: AssetImage("assets/images/ben.jpg"),
+                            image: AssetImage("assets/images/png/ben.jpg"),
                             fit: BoxFit.cover,
                           ),
                         )),
@@ -55,7 +55,8 @@ class _AccountPageState extends State<AccountPage> {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5),
                               child: IconButton(
-                                  onPressed: () {}, icon: ImagePath.pencilIcon),
+                                  onPressed: () {},
+                                  icon: IconEnums.pencil.toImage),
                             )
                           ],
                         ),
@@ -75,17 +76,17 @@ class _AccountPageState extends State<AccountPage> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  _createMenuItems(Strings.orders, ImagePath.orderIconPath),
+                  _createMenuItems(Strings.orders, IconEnums.order.toImage),
                   _createMenuItems(
-                      Strings.myDetails, ImagePath.detailsIconPath),
+                      Strings.myDetails, IconEnums.details.toImage),
                   _createMenuItems(
-                      Strings.deliveryAddress, ImagePath.addressIconPath),
-                  _createMenuItems(Strings.myCart, ImagePath.creditIconPath),
-                  _createMenuItems(Strings.promoCard, ImagePath.ticketIconPath),
+                      Strings.deliveryAddress, IconEnums.address.toImage),
+                  _createMenuItems(Strings.myCart, IconEnums.credit.toImage),
+                  _createMenuItems(Strings.promoCard, IconEnums.ticket.toImage),
                   _createMenuItems(
-                      Strings.notifecations, ImagePath.bellIconPath),
-                  _createMenuItems(Strings.help, ImagePath.helpIconPath),
-                  _createMenuItems(Strings.about, ImagePath.aboutIconPath),
+                      Strings.notifecations, IconEnums.bell.toImage),
+                  _createMenuItems(Strings.help, IconEnums.help.toImage),
+                  _createMenuItems(Strings.about, IconEnums.about.toImage),
                 ],
               ),
             ),
@@ -109,7 +110,7 @@ class _AccountPageState extends State<AccountPage> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Positioned(left: 24, child: ImagePath.logoutIcon),
+                  Positioned(left: 24, child: IconEnums.logout.toImage),
                   const Text(
                     Strings.logout,
                     style: cAccountLogoutTextStyle,
@@ -123,16 +124,16 @@ class _AccountPageState extends State<AccountPage> {
             FloatingActionButtonLocation.centerDocked);
   }
 
-  _createMenuItems(String name, String iconPath) {
+  _createMenuItems(String name, SvgPicture icon) {
     return Column(children: [
       ListTile(
-        leading: SvgPicture.asset(iconPath),
+        leading: icon,
         iconColor: Colors.black,
         title: Text(
           name,
           style: cAccountPageTitleStyle,
         ),
-        trailing: ImagePath.backArrowIcon,
+        trailing: IconEnums.backarrow.toImage,
       ),
       const CustomDivider(),
     ]);

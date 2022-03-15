@@ -1,8 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/utilities/constants.dart';
-import 'package:nectar_ui/utilities/image_path.dart';
+
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/icon_enum.dart';
 
 class FilterPage extends StatefulWidget {
   FilterPage({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _FilterPageState extends State<FilterPage> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.close),
+          icon: IconEnums.close.toImage,
           color: Colors.black,
         ),
       ),

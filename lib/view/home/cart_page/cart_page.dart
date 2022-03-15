@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/widgets/divider.dart';
-
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/app_strings.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/widgets/divider.dart';
 
 class CartPage extends StatefulWidget {
   CartPage({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  String _imagePath = "assets/images/";
+  String _imagePath = "assets/images/png/";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +144,7 @@ class _CartPageState extends State<CartPage> {
                                 ),
                               ),
                               onPressed: () {},
-                              child: ImagePath.removeIcon),
+                              child: IconEnums.remove.toImage),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 17),
@@ -170,7 +169,7 @@ class _CartPageState extends State<CartPage> {
                                 ),
                               ),
                               onPressed: () {},
-                              child: ImagePath.addIcon),
+                              child: IconEnums.plus.toImage),
                         ),
                       ],
                     )
@@ -188,7 +187,7 @@ class _CartPageState extends State<CartPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  IconButton(onPressed: () {}, icon: ImagePath.closeIcon),
+                  IconButton(onPressed: () {}, icon: IconEnums.close.toImage),
                   Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: Text(

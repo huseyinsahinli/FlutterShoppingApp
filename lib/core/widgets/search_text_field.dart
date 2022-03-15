@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/utilities/strings.dart';
+import 'package:nectar_ui/core/constant/app_strings.dart';
 
-import '../utilities/constants.dart';
+import '../constant/app_constant.dart';
 
 class SearchBarTextField extends StatelessWidget {
   const SearchBarTextField({Key? key}) : super(key: key);

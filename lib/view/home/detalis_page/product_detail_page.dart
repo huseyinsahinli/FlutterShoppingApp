@@ -1,13 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:nectar_ui/utilities/constants.dart';
-import 'package:nectar_ui/utilities/image_path.dart';
-import 'package:nectar_ui/widgets/divider.dart';
-import 'package:expandable/expandable.dart';
 
-import '../utilities/strings.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/icon_enum.dart';
 
 class ProductDetails extends StatefulWidget {
   ProductDetails({Key? key}) : super(key: key);
@@ -50,7 +46,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 padding: EdgeInsets.all(40),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/redApple.png"),
+                      image: AssetImage("assets/images/png/redApple.png"),
                       fit: BoxFit.contain),
                   color: Color(0xffF2F3F2),
                   borderRadius: BorderRadius.only(
@@ -62,7 +58,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
                   child: Container(
                     alignment: Alignment.center,
-                    child: Image.asset("assets/images/redApple.png"),
+                    child: Image.asset("assets/images/png/redApple.png"),
                   ),
                 ),
               ),
@@ -79,7 +75,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold)),
                         IconButton(
-                            onPressed: () {}, icon: ImagePath.favouriteIcon)
+                            onPressed: () {}, icon: IconEnums.favourite.toImage)
                       ],
                     ),
                     Text(
@@ -99,7 +95,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                         Row(
                           children: [
                             IconButton(
-                                onPressed: () {}, icon: ImagePath.removeIcon),
+                                onPressed: () {},
+                                icon: IconEnums.remove.toImage),
                             Container(
                               height: 45,
                               width: 45,
@@ -115,7 +112,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               child: Center(child: Text("1")),
                             ),
                             IconButton(
-                                onPressed: () {}, icon: ImagePath.addIcon),
+                                onPressed: () {}, icon: IconEnums.plus.toImage),
                           ],
                         ),
                         Text(
@@ -130,7 +127,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ),
                     ExpansionTile(
                       trailing: _open
-                          ? ImagePath.backArrowIcon
+                          ? IconEnums.backarrow.toImage
                           : Icon(Icons.keyboard_arrow_down,
                               size: 32, color: Colors.black),
                       onExpansionChanged: _openExpansionTile,
@@ -183,7 +180,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                               ),
                             ),
                             IconButton(
-                                onPressed: () {}, icon: ImagePath.backArrowIcon)
+                                onPressed: () {},
+                                icon: IconEnums.backarrow.toImage)
                           ],
                         )
                       ],
@@ -198,9 +196,10 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/images/star.png"),
+                            Image.asset("assets/images/png/star.png"),
                             IconButton(
-                                onPressed: () {}, icon: ImagePath.backArrowIcon)
+                                onPressed: () {},
+                                icon: IconEnums.backarrow.toImage)
                           ],
                         )
                       ],

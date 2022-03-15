@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nectar_ui/pages/product_detail_page.dart';
+import 'package:nectar_ui/view/home/detalis_page/product_detail_page.dart';
 
-import 'package:nectar_ui/widgets/divider.dart';
-
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
-import 'filters_page.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/app_strings.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/constant/image_path.dart';
+import '../../../core/widgets/divider.dart';
+import '../filters_page/filters_page.dart';
 
 class SearchDetail extends StatelessWidget {
   final String title;
@@ -36,7 +36,7 @@ class SearchDetail extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FilterPage()));
               },
-              icon: SvgPicture.asset("assets/icons/filter.svg"))
+              icon: IconEnums.filter.toImage)
         ],
         bottom: const PreferredSize(
           child: CustomDivider(),
@@ -138,7 +138,7 @@ class SearchDetail extends StatelessWidget {
                                           ),
                                           onPressed: () {},
                                           child: SvgPicture.asset(
-                                              ImagePath.addIconPath,
+                                              IconEnums.plus.toPath,
                                               height: 17,
                                               color: cWhiteColor),
                                         ),

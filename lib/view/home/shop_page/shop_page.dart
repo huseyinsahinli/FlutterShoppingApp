@@ -1,13 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nectar_ui/widgets/list.dart';
-import 'package:nectar_ui/widgets/search_text_field.dart';
+import '../../../core/constant/app_strings.dart';
+import '../../../core/constant/icon_enum.dart';
 
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/image_path.dart';
+import '../../../core/widgets/list.dart';
+import '../../../core/widgets/search_text_field.dart';
 
 class ShopPage extends StatefulWidget {
   ShopPage({Key? key}) : super(key: key);
@@ -30,11 +28,11 @@ class _ShopPageState extends State<ShopPage> {
         title: SizedBox(
           child: Column(
             children: [
-              ImagePath.logoIcon,
+              IconEnums.logo.toImage,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ImagePath.locationIcon,
+                  IconEnums.location.toImage,
                   const Padding(
                     padding: EdgeInsets.only(left: 5),
                     child: Text(
@@ -61,7 +59,7 @@ class _ShopPageState extends State<ShopPage> {
                 height: 15,
               ),
               Image.asset(
-                "assets/images/banner.png",
+                "assets/images/png/banner.png",
                 width: double.infinity,
                 height: 130,
               ),

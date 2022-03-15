@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/pages/explore_detail_page.dart';
+import '../../../core/constant/app_strings.dart';
 
-import '../utilities/constants.dart';
-import '../utilities/image_path.dart';
-import '../utilities/strings.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/constant/image_path.dart';
+import '../detalis_page/explore_detail_page.dart';
 
 class ExplorePage extends StatefulWidget {
   ExplorePage({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class _ExplorePageState extends State<ExplorePage> {
                     suffixIcon: IconButton(
                       // Icon to
                       color: Colors.grey,
-                      icon: ImagePath.deleteIcon,
+                      icon: IconEnums.delete.toImage,
                       onPressed: () {
                         _searchText.text = "";
                       },
