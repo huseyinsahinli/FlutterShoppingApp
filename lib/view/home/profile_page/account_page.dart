@@ -133,7 +133,7 @@ class _AccountPageState extends State<AccountPage> {
           name,
           style: cAccountPageTitleStyle,
         ),
-        trailing: IconEnums.backarrow.toImage,
+        trailing: IconEnums.rightarrow.toImage,
       ),
       const CustomDivider(),
     ]);

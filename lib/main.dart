@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/view/home/home_page/home_page.dart';
+import 'package:nectar_ui/view/home/onboarding_page/view/onboard_view.dart';
 
 import 'core/constant/app_constant.dart';
 
@@ -33,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       title: 'Nectar UI',
-      home: HomePage(),
+      home: OnBoardView(),
     );
   }
 }

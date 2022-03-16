@@ -136,7 +136,7 @@ class _FavouritePageState extends State<FavouritePage> {
                   ),
                   IconButton(
                       onPressed: () {},
-                      icon: IconEnums.backarrow.toImage,
+                      icon: IconEnums.rightarrow.toImage,
                       iconSize: 24),
                 ],
               ),

@@ -4,6 +4,7 @@ const cMainColor = Color(0xff53B175);
 const cTextColor = Color(0xff181725);
 const cWhiteColor = Color(0xffffffff);
 const cSubtitleTextColor = Color(0xff7C7C7C);
+const cSelectedColor = Color.fromARGB(255, 64, 138, 91);
 const List cExploreBackgroundColorLists = [
   [
     Color(0x1053B175),
@@ -61,7 +62,8 @@ const List cGroceriesBackgroundColors = [
 ];
 const cMainTitleStyle =
     TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: cTextColor);
-
+const cFabButtonTextStyle =
+    TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
 const cHeadsTextStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.w900);
 
 const cTextButtonTextStyle =

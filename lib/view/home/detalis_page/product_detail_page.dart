@@ -127,7 +127,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     ),
                     ExpansionTile(
                       trailing: _open
-                          ? IconEnums.backarrow.toImage
+                          ? IconEnums.rightarrow.toImage
                           : Icon(Icons.keyboard_arrow_down,
                               size: 32, color: Colors.black),
                       onExpansionChanged: _openExpansionTile,
@@ -181,7 +181,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             IconButton(
                                 onPressed: () {},
-                                icon: IconEnums.backarrow.toImage)
+                                icon: IconEnums.rightarrow.toImage)
                           ],
                         )
                       ],
@@ -199,7 +199,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             Image.asset("assets/images/png/star.png"),
                             IconButton(
                                 onPressed: () {},
-                                icon: IconEnums.backarrow.toImage)
+                                icon: IconEnums.rightarrow.toImage)
                           ],
                         )
                       ],
