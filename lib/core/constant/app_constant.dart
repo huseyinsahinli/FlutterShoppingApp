@@ -84,8 +84,9 @@ const cAccountPageTitleStyle =
     TextStyle(color: cTextColor, fontSize: 18, fontWeight: FontWeight.w800);
 const cAccountLogoutTextStyle =
     TextStyle(color: cMainColor, fontSize: 18, fontWeight: FontWeight.w800);
-
 const cCartGoToCheckoutButtonTextStyle =
+    TextStyle(color: cWhiteColor, fontSize: 18, fontWeight: FontWeight.w800);
+const cFavouritemAddAllToCartString =
     TextStyle(color: cWhiteColor, fontSize: 18, fontWeight: FontWeight.w800);
 
 const cCartPriceTextStyle =
@@ -99,9 +100,6 @@ const cCartKgTextStyle = TextStyle(
 
 const cCartProductNameTextStyle =
     TextStyle(color: cTextColor, fontSize: 16, fontWeight: FontWeight.bold);
-
-const cFavouritemAddAllToCartString =
-    TextStyle(color: cWhiteColor, fontSize: 18, fontWeight: FontWeight.w800);
 
 const cGroceriesListHeadStyle = TextStyle(
     color: Color(0xff3E423F), fontWeight: FontWeight.w900, fontSize: 20);

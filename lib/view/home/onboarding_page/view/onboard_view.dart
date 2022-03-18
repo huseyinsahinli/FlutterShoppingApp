@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
-import 'package:nectar_ui/core/constant/icon_enum.dart';
-
+import 'package:nectar_ui/view/home/splash_page/view/splash_view.dart';
 import '../../../../core/padding/page_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
-import '../../home_page/home_page.dart';
 import '../viewmodel/onboard_model.dart';
 import '../viewmodel/tab_indicator.dart';
 part './module/start_fab_button.dart';
 
-class OnBoardView extends StatefulWidget {
-  const OnBoardView({Key? key}) : super(key: key);
+class OnBoardPage extends StatefulWidget {
+  const OnBoardPage({Key? key}) : super(key: key);
 
   @override
-  _OnBoardViewState createState() => _OnBoardViewState();
+  _OnBoardPageState createState() => _OnBoardPageState();
 }
 
-class _OnBoardViewState extends State<OnBoardView> {
-  final String _skipTile = 'Skip';
-
+class _OnBoardPageState extends State<OnBoardPage> {
   int _selectedIndex = 0;
 
   bool get _isLastPage =>
@@ -71,16 +66,14 @@ class _OnBoardViewState extends State<OnBoardView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TabIndicator(selectedIndex: _selectedIndex),
-                    _StartFabButton(
-                      isLastPage: _isLastPage,
-                      onPressed: () {
-                        if (_isLastPage) {
-                          _pushReplacenmnet(HomePage());
-                        } else {
-                          _incrementAndChange();
-                        }
-                      },
-                    )
+                    _isLastPage
+                        ? _StartFabButton(
+                            isLastPage: _isLastPage,
+                            onPressed: () {
+                              _pushReplacenmnet(SplashPage());
+                            },
+                          )
+                        : const SizedBox(height: 0.01)
                   ],
                 )
               ],

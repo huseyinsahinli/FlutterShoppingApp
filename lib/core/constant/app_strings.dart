@@ -12,6 +12,8 @@ class Strings {
   ];
   static const List groceriesListHeads = ["Groceries", "Rice", "Groceries"];
   /*app*/
+  static const theme = "Theme";
+  static const settings = "Settings";
   static const myCart = "My Cart";
   static const findProducts = "Find Products";
   static const favourite = "Favourite";

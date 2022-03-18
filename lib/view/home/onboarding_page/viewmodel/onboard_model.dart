@@ -12,11 +12,9 @@ class OnBoardModels {
   static final List<OnBoardModel> onBoardItems = [
     OnBoardModel('Welcome to our store',
         'Get your groceries in as fast as one hour ', 'ic_chef'),
-    OnBoardModel(
-        'Order Your Food',
-        'Now you can order food any time right from your mobile. ',
-        'ic_delivery'),
+    OnBoardModel('Order Your Food',
+        'Now you can order food any time right from your mobile. ', 'ic_order'),
     OnBoardModel('Delivery in Minutes',
-        'Get it delivered within minutes of ordering. ', 'ic_order'),
+        'Get it delivered within minutes of ordering. ', 'ic_delivery'),
   ];
 }

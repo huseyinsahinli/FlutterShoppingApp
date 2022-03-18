@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/app_strings.dart';
-import '../../../core/constant/icon_enum.dart';
-import '../profile_page/account_page.dart';
+import '../account_page/view/account_page.dart';
 import '../cart_page/cart_page.dart';
 import '../favourite_page/favourite_page.dart';
 import '../search_page/explore_page.dart';
@@ -53,50 +49,48 @@ class _HomePageState extends State<HomePage> {
         controller: pageController,
       ),
       bottomNavigationBar: Container(
-        height: 80,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-          boxShadow: [
-            BoxShadow(
-                color: Color.fromARGB(255, 201, 206, 214),
-                spreadRadius: 0,
-                blurRadius: 10),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(20),
-            topLeft: Radius.circular(20),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: [
-              _createBottomBarItem(IconEnums.store.toImage,
-                  IconEnums.store.toImageActive, Strings.shop),
-              _createBottomBarItem(IconEnums.explore.toImage,
-                  IconEnums.explore.toImageActive, Strings.explore),
-              _createBottomBarItem(IconEnums.cart.toImage,
-                  IconEnums.cart.toImageActive, Strings.cart),
-              _createBottomBarItem(IconEnums.favourite.toImage,
-                  IconEnums.favourite.toImageActive, Strings.favourite),
-              _createBottomBarItem(IconEnums.user.toImage,
-                  IconEnums.user.toImageActive, Strings.account),
+        color: Theme.of(context).colorScheme.background,
+        child: Container(
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            boxShadow: [
+              BoxShadow(
+                  color: Theme.of(context).shadowColor,
+                  spreadRadius: 0,
+                  blurRadius: 1),
             ],
-            elevation: 12,
-            iconSize: 24,
-            selectedItemColor: cMainColor,
-            currentIndex: _selectedIndex,
-            onTap: onTap,
+          ),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
+            child: BottomNavigationBar(
+              items: [
+                _createBottomBarItem(
+                    const Icon(Icons.store_mall_directory_outlined),
+                    Strings.shop),
+                _createBottomBarItem(
+                    const Icon(Icons.search_outlined), Strings.explore),
+                _createBottomBarItem(
+                    const Icon(Icons.shopping_cart_outlined), Strings.cart),
+                _createBottomBarItem(const Icon(Icons.favorite_border_outlined),
+                    Strings.favourite),
+                _createBottomBarItem(
+                    const Icon(Icons.person_outlined), Strings.account),
+              ],
+              currentIndex: _selectedIndex,
+              onTap: onTap,
+            ),
           ),
         ),
       ),
     );
   }
 
-  BottomNavigationBarItem _createBottomBarItem(
-      SvgPicture icon, SvgPicture activeIcon, String label) {
-    return BottomNavigationBarItem(
-        icon: icon, activeIcon: activeIcon, label: label);
+  BottomNavigationBarItem _createBottomBarItem(Icon icon, String label) {
+    return BottomNavigationBarItem(icon: icon, label: label);
   }
 }
