@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/view/home/account_page/viewmodel/account_card_model.dart';
 import '../../../../core/constant/app_strings.dart';
 
 import '../../../../core/constant/app_constant.dart';
 import '../../../../core/constant/icon_enum.dart';
-import '../../../../core/widgets/change_theme_button_widget.dart';
 import '../../../../core/widgets/divider.dart';
+import '../viewmodel/account_card_model.dart';
 
 class AccountPage extends StatefulWidget {
   AccountPage({
