@@ -4,7 +4,6 @@ import '../../../core/constant/icon_enum.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/image_path.dart';
-import '../../../core/widgets/change_theme_button_widget.dart';
 import '../../../core/widgets/list.dart';
 import '../../../core/widgets/search_text_field.dart';
 
@@ -22,12 +21,6 @@ class _ShopPageState extends State<ShopPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          ChangeThemeButtonWidget(),
-        ],
-        backgroundColor: Theme.of(context).colorScheme.background,
-        centerTitle: true,
-        elevation: 0,
         toolbarHeight: 80,
         title: SizedBox(
           child: Column(
@@ -40,7 +33,7 @@ class _ShopPageState extends State<ShopPage> {
                   const Padding(
                     padding: EdgeInsets.only(left: 5),
                     child: Text(
-                      "Dhaka, Banassre",
+                      "Istanbul, Zeytinburnu",
                       style: TextStyle(
                           color: Color(0xff4C4F4D),
                           fontSize: 18,
@@ -55,7 +48,6 @@ class _ShopPageState extends State<ShopPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Theme.of(context).colorScheme.background,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             child: Column(
@@ -72,14 +64,20 @@ class _ShopPageState extends State<ShopPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                     Text(
                       Strings.exclusiveOffer,
-                      style: cHeadsTextStyle,
+                      style: Theme.of(context).textTheme.headline1,
                     ),
                     TextButton(
-                        onPressed: () {},
-                        child: const Text(Strings.seeAll,
-                            style: cTextButtonTextStyle))
+                      onPressed: () {},
+                      child: Text(
+                        Strings.seeAll,
+                        style: TextStyle(
+                            color: cMainColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    )
                   ],
                 ),
                 const HorizontalListView(),
@@ -88,14 +86,16 @@ class _ShopPageState extends State<ShopPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                       Text(
                         Strings.bestSelling,
-                        style: cHeadsTextStyle,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                       TextButton(
-                          onPressed: () {},
-                          child: const Text(Strings.seeAll,
-                              style: cTextButtonTextStyle))
+                        onPressed: () {},
+                        child: const Text(
+                          Strings.seeAll,
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -105,14 +105,13 @@ class _ShopPageState extends State<ShopPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                       Text(
                         Strings.groceries,
-                        style: cHeadsTextStyle,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                       TextButton(
                         onPressed: () {},
-                        child: const Text(Strings.seeAll,
-                            style: cTextButtonTextStyle),
+                        child: const Text(Strings.seeAll),
                       )
                     ],
                   ),
@@ -148,7 +147,7 @@ class _ShopPageState extends State<ShopPage> {
                                       padding: const EdgeInsets.only(left: 15),
                                       child: Text(
                                         Strings.groceriesListHeads[index],
-                                        style: cGroceriesListHeadStyle,
+                                        style: Theme.of(context).textTheme.headline3,
                                       ),
                                     ),
                                   ],

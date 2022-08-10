@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
-import 'package:nectar_ui/view/home/splash_page/view/splash_view.dart';
 import '../../../../core/padding/page_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
+import '../../splash_page/view/splash_view.dart';
 import '../viewmodel/onboard_model.dart';
 import '../viewmodel/tab_indicator.dart';
 part './module/start_fab_button.dart';

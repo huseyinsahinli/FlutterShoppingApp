@@ -12,86 +12,98 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  String _imagePath = "assets/images/png/";
+  final String _imagePath = "assets/images/png/";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          bottom: const PreferredSize(
-              child: CustomDivider(), preferredSize: Size.fromHeight(4.0)),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text(
-            Strings.myCart,
-            style: cMainTitleStyle,
-          ),
-          centerTitle: true,
+      appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(4.0),
+          child: CustomDivider(),
         ),
-        body: SingleChildScrollView(
-          child: Column(
+        title: const Text(
+          Strings.myCart,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 117),
+              child: ListView(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  _createCartItems("Bell Pepper Red", "1kg", 2.95,
+                      "${_imagePath}bellPepper.png", 1),
+                  const CustomDivider(),
+                  _createCartItems(
+                      "Banana", "1kg", 1.75, "${_imagePath}bananas.png", 2),
+                  const CustomDivider(),
+                  _createCartItems(
+                      "Ginger", "3kg", 5.95, "${_imagePath}ginger.png", 3),
+                  const CustomDivider(),
+                  _createCartItems("Egg Chicken Red", "4pcs", 1.99,
+                      "${_imagePath}egg.png", 2),
+                  const CustomDivider(),
+                  _createCartItems("Bell Red", "1kg", 2.95,
+                      "${_imagePath}bellPepper.png", 1),
+                  const CustomDivider(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 117),
-                child: ListView(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    _createCartItems("Bell Pepper Red", "1kg", 2.95,
-                        _imagePath + "bellPepper.png", 1),
-                    const CustomDivider(),
-                    _createCartItems(
-                        "Banana", "1kg", 1.75, _imagePath + "bananas.png", 2),
-                    const CustomDivider(),
-                    _createCartItems(
-                        "Ginger", "3kg", 5.95, _imagePath + "ginger.png", 3),
-                    const CustomDivider(),
-                    _createCartItems("Egg Chicken Red", "4pcs", 1.99,
-                        _imagePath + "egg.png", 2),
-                    const CustomDivider(),
-                    _createCartItems("Bell Red", "1kg", 2.95,
-                        _imagePath + "bellPepper.png", 1),
-                    const CustomDivider(),
-                  ],
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FittedBox(
+                    child: Text(
+                      Strings.goToCheckout,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff489E67),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: FittedBox(
+                      child: Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: Text(
+                          "\$ 0.92",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
         ),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: cMainColor,
-              fixedSize: const Size(double.infinity, 67),
-              padding: const EdgeInsets.all(5),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(19.0),
-              ),
-            ),
-            onPressed: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const Text(
-                  Strings.goToCheckout,
-                  style: cCartGoToCheckoutButtonTextStyle,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: const Color(0xff489E67),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  child: const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text("\$12.96",
-                        style: cCartGoToCheckoutButtonTextStyle),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.centerDocked);
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 
   Widget _createCartItems(
@@ -112,7 +124,7 @@ class _CartPageState extends State<CartPage> {
                   children: [
                     Text(
                       name,
-                      style: cCartProductNameTextStyle,
+                      style: Theme.of(context).textTheme.subtitle2,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -120,7 +132,7 @@ class _CartPageState extends State<CartPage> {
                     ),
                     Text(
                       "$kg, Price",
-                      style: cCartKgTextStyle,
+                      style: Theme.of(context).textTheme.bodyText2,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -133,29 +145,32 @@ class _CartPageState extends State<CartPage> {
                           width: 45.67,
                           height: 45.67,
                           child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                onPrimary: Colors.grey,
-                                primary: Colors.white,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  side: const BorderSide(
-                                      color: Color(0xffF0F0F0), width: 1),
-                                  borderRadius: BorderRadius.circular(17.0),
+                            style: ElevatedButton.styleFrom(
+                              onPrimary: Colors.grey,
+                              primary: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(
+                                  color: Color(0xffF0F0F0),
+                                  width: 1,
                                 ),
+                                borderRadius: BorderRadius.circular(17.0),
                               ),
-                              onPressed: () {},
-                              child: IconEnums.remove.toImage),
+                            ),
+                            onPressed: () {},
+                            child: IconEnums.remove.toImage,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 17),
                           child: Text(
                             "$stock",
-                            style: cCartStockTextStyle,
+                            style: Theme.of(context).textTheme.subtitle2,
                           ),
                         ),
                         SizedBox(
-                          width: 45.67,
-                          height: 45.67,
+                          width: 45,
+                          height: 45,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 onPrimary: Colors.grey,
@@ -164,7 +179,9 @@ class _CartPageState extends State<CartPage> {
                                 fixedSize: const Size(45.67, 45.67),
                                 shape: RoundedRectangleBorder(
                                   side: const BorderSide(
-                                      color: Color(0xffF0F0F0), width: 1),
+                                    color: Color(0xffF0F0F0),
+                                    width: 1,
+                                  ),
                                   borderRadius: BorderRadius.circular(17.0),
                                 ),
                               ),
@@ -192,7 +209,7 @@ class _CartPageState extends State<CartPage> {
                     padding: const EdgeInsets.only(right: 15),
                     child: Text(
                       "\$${price.toString()}",
-                      style: cCartProductPriceTextStyle,
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   )
                 ],

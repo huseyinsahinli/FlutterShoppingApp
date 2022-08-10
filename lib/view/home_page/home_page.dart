@@ -49,17 +49,19 @@ class _HomePageState extends State<HomePage> {
         controller: pageController,
       ),
       bottomNavigationBar: Container(
-        color: Theme.of(context).colorScheme.background,
         child: Container(
           height: 80,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
             boxShadow: [
               BoxShadow(
-                  color: Theme.of(context).shadowColor,
-                  spreadRadius: 0,
-                  blurRadius: 1),
+                color: Theme.of(context).shadowColor,
+                spreadRadius: 0,
+                blurRadius: 1,
+              ),
             ],
           ),
           child: ClipRRect(

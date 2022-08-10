@@ -35,7 +35,6 @@ class _FilterPageState extends State<FilterPage> {
         backgroundColor: Colors.transparent,
         title: Text(
           "Filters",
-          style: cMainTitleStyle,
         ),
         centerTitle: true,
         leading: IconButton(

@@ -14,11 +14,11 @@ class _StartFabButton extends StatelessWidget {
     return FloatingActionButton(
       backgroundColor: cMainColor,
       elevation: 4,
+      onPressed: onPressed,
       child: Text(
         isLastPage ? _start : _end,
-        style: cFabButtonTextStyle,
+        style: Theme.of(context).textTheme.subtitle2,
       ),
-      onPressed: onPressed,
     );
   }
 }

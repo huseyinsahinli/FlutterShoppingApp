@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nectar_ui/view/home/detalis_page/product_detail_page.dart';
+import 'package:nectar_ui/view/detalis_page/product_detail_page.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/app_strings.dart';
@@ -42,7 +42,6 @@ class SearchDetail extends StatelessWidget {
           child: CustomDivider(),
           preferredSize: Size.fromHeight(4),
         ),
-        titleTextStyle: cMainTitleStyle,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -97,12 +96,12 @@ class SearchDetail extends StatelessWidget {
                                 ),
                                 Text(
                                   Strings.exploreListHeads[index],
-                                  style: cCartPriceTextStyle,
+                                  style: Theme.of(context).textTheme.bodyText2,
                                   textAlign: TextAlign.center,
                                 ),
-                                const Text(
+                                Text(
                                   "355ml,Price",
-                                  style: cCartKgTextStyle,
+                                  style: Theme.of(context).textTheme.bodyText2,
                                   textAlign: TextAlign.center,
                                 )
                               ],
@@ -119,9 +118,11 @@ class SearchDetail extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const Text(
+                                      Text(
                                         "\$1.99",
-                                        style: cCartProductPriceTextStyle,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .subtitle2,
                                       ),
                                       SizedBox(
                                         width: 45,

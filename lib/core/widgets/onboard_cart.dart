@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 
-import '../../view/home/onboarding_page/viewmodel/onboard_model.dart';
+import '../../view/onboarding_page/viewmodel/onboard_model.dart';
 
 class OnBoardCard extends StatelessWidget {
   const OnBoardCard({Key? key, required this.model}) : super(key: key);

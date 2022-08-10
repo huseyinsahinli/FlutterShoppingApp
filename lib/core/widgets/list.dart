@@ -48,11 +48,11 @@ class HorizontalListView extends StatelessWidget {
                           ),
                           Text(
                             Strings.exploreListHeads[index],
-                            style: cCartPriceTextStyle,
+                            style: Theme.of(context).textTheme.bodyText2,
                           ),
-                          const Text(
+                          Text(
                             "355ml,Price",
-                            style: cCartKgTextStyle,
+                            style: Theme.of(context).textTheme.subtitle2,
                             textAlign: TextAlign.center,
                           )
                         ],
@@ -78,14 +78,14 @@ class HorizontalListView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Positioned(
+                      Positioned(
                         left: 0,
                         bottom: 0,
                         child: Padding(
                           padding: EdgeInsets.symmetric(vertical: 15),
                           child: Text(
                             "\$1.99",
-                            style: cCartProductPriceTextStyle,
+                            style: Theme.of(context).textTheme.subtitle2,
                           ),
                         ),
                       )

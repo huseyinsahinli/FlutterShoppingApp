@@ -18,15 +18,11 @@ class _FavouritePageState extends State<FavouritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
           title: const Text(
             Strings.favourite,
-            style: cMainTitleStyle,
           ),
           bottom: const PreferredSize(
-              child: CustomDivider(), preferredSize: Size.fromHeight(4.0)),
+              preferredSize: Size.fromHeight(4.0), child: CustomDivider()),
         ),
         body: ListView(children: [
           Padding(
@@ -65,12 +61,12 @@ class _FavouritePageState extends State<FavouritePage> {
               ),
             ),
             onPressed: () {},
-            child: const SizedBox(
+            child: SizedBox(
               width: double.infinity,
               child: Center(
                 child: Text(
                   Strings.addAllToCart,
-                  style: cFavouritemAddAllToCartString,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
               ),
             ),
@@ -101,7 +97,7 @@ class _FavouritePageState extends State<FavouritePage> {
                       width: 150,
                       child: Text(
                         name,
-                        style: cCartProductNameTextStyle,
+                        style: Theme.of(context).textTheme.subtitle2,
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -110,7 +106,7 @@ class _FavouritePageState extends State<FavouritePage> {
                     ),
                     Text(
                       "$kg, Price",
-                      style: cCartKgTextStyle,
+                      style: Theme.of(context).textTheme.bodyText2,
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -130,9 +126,9 @@ class _FavouritePageState extends State<FavouritePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "\$1.50",
-                    style: cCartProductNameTextStyle,
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   IconButton(
                       onPressed: () {},
