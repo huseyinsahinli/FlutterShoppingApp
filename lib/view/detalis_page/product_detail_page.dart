@@ -1,8 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/extensions/double_extensions.dart';
+import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/icon_enum.dart';
+import '../../core/constant/app_strings.dart';
 
 class ProductDetails extends StatefulWidget {
   ProductDetails({Key? key}) : super(key: key);
@@ -17,22 +21,10 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
         actions: [
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.file_upload_outlined),
-            color: Colors.black,
           )
         ],
       ),
@@ -40,14 +32,14 @@ class _ProductDetailsState extends State<ProductDetails> {
         child: Column(
           children: [
             Container(
-              height: 250,
-              width: double.infinity,
-              padding: const EdgeInsets.all(40),
+              height: context.screenHeight * 0.3,
+              width: context.screenWidth,
+              padding: const AppPadding.allHigh(),
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/images/png/redApple.png"),
-                    fit: BoxFit.contain),
-                color: Color(0xffF2F3F2),
+                  image: AssetImage("assets/images/png/redApple.png"),
+                  fit: BoxFit.contain,
+                ),
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(25.0),
                   bottomLeft: Radius.circular(25.0),
@@ -62,17 +54,21 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+              padding: const AppPadding.symmetric(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Naturel Red Apple",
-                          style: Theme.of(context).textTheme.headline1),
+                      Text(
+                        "Naturel Red Apple",
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
                       IconButton(
-                          onPressed: () {}, icon: IconEnums.favourite.toImage)
+                        onPressed: () {},
+                        icon: IconEnums.favourite.toImage,
+                      )
                     ],
                   ),
                   Text(
@@ -81,9 +77,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           fontSize: 16,
                         ),
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  10.0.sizedBoxOnlyHeight,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -92,10 +86,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                           IconButton(
                               onPressed: () {}, icon: IconEnums.remove.toImage),
                           Container(
-                            height: 45,
-                            width: 45,
+                            height: context.screenHeight * 0.05,
+                            constraints: BoxConstraints(
+                              minWidth: 50,
+                              minHeight: 50,
+                              maxHeight: context.screenHeight * 0.15,
+                              maxWidth: context.screenWidth * 0.15,
+                            ),
                             decoration: BoxDecoration(
-                              color: Colors.transparent,
                               border: Border.all(
                                 color: Color(0xffE2E2E2),
                                 width: 1,
@@ -103,42 +101,50 @@ class _ProductDetailsState extends State<ProductDetails> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(17)),
                             ),
-                            child: Center(child: Text("1")),
+                            child: Center(
+                              child: FittedBox(
+                                child: Text(
+                                  "1",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                ),
+                              ),
+                            ),
                           ),
                           IconButton(
-                              onPressed: () {}, icon: IconEnums.plus.toImage),
+                            onPressed: () {},
+                            icon: IconEnums.plus.toImage,
+                          ),
                         ],
                       ),
                       Text(
                         "\$4.99",
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              fontSize: 24,
+                            ),
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  10.0.sizedBoxOnlyHeight,
                   ExpansionTile(
-                    trailing: _open
+                    trailing: !_open
                         ? IconEnums.rightarrow.toImage
-                        : const Icon(Icons.keyboard_arrow_down,
-                            size: 32, color: Colors.black),
+                        : const Icon(
+                            Icons.keyboard_arrow_down,
+                          ),
                     onExpansionChanged: _openExpansionTile,
                     tilePadding: const EdgeInsets.only(right: 20),
-                    expandedAlignment: Alignment.topLeft,
-                    iconColor: Colors.black,
                     title: Text(
-                      'Produc Detail',
+                      Strings.productDetail,
                       style: Theme.of(context).textTheme.subtitle2,
                     ),
                     children: <Widget>[
                       Text(
-                        'Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.',
+                        'Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.\n',
                         style: Theme.of(context).textTheme.bodyText2,
                       ),
                     ],
                   ),
+                  10.0.sizedBoxOnlyHeight,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -162,13 +168,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                               ),
                             ),
                           ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: IconEnums.rightarrow.toImage)
                         ],
                       )
                     ],
                   ),
+                  10.0.sizedBoxOnlyHeight,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -176,27 +180,18 @@ class _ProductDetailsState extends State<ProductDetails> {
                         "Review",
                         style: Theme.of(context).textTheme.subtitle2,
                       ),
-                      Row(
-                        children: [
-                          Image.asset("assets/images/png/star.png"),
-                          IconButton(
-                              onPressed: () {},
-                              icon: IconEnums.rightarrow.toImage)
-                        ],
-                      )
+                      Image.asset("assets/images/png/star.png")
                     ],
                   )
                 ],
               ),
             ),
-            SizedBox(
-              height: 150,
-            ),
+            (context.screenHeight * 0.3).sizedBoxOnlyHeight,
           ],
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+        padding: AppPadding.symmetric(),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             elevation: 0,
@@ -209,12 +204,11 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
           onPressed: () {},
           child: SizedBox(
-            width: double.infinity,
-            child: Center(
-              child: Text(
-                "Add To Basket",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
+            width: context.screenWidth,
+            child: Text(
+              Strings.addToBasket,
+              style: Theme.of(context).textTheme.bodyText1,
+              textAlign: TextAlign.center,
             ),
           ),
         ),

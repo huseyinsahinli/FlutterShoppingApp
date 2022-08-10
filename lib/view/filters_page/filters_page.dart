@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
+import '../../core/constant/app_strings.dart';
 
 class FilterPage extends StatefulWidget {
   FilterPage({Key? key}) : super(key: key);
@@ -31,20 +33,18 @@ class _FilterPageState extends State<FilterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          "Filters",
+        title: const Text(
+          Strings.filters,
         ),
-        centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: IconEnums.close.toImage,
-          color: Colors.black,
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xffF2F3F2),
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(30.0),
@@ -54,16 +54,13 @@ class _FilterPageState extends State<FilterPage> {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 25, top: 30),
+              padding: AppPadding.symmetric(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Categories",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                   ListView(
                       shrinkWrap: true,
@@ -108,10 +105,7 @@ class _FilterPageState extends State<FilterPage> {
                   ),
                   Text(
                     "Brand",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w900),
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                   ListView(
                       shrinkWrap: true,

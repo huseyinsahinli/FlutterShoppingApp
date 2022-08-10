@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/constant/app_strings.dart';
-import '../account_page/view/account_page.dart';
+import '../account_page/account_page.dart';
 import '../cart_page/cart_page.dart';
 import '../favourite_page/favourite_page.dart';
 import '../search_page/explore_page.dart';

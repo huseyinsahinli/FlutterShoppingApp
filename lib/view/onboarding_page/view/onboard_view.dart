@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
-import '../../../../core/padding/page_padding.dart';
+import '../../../core/padding/app_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
 import '../../splash_page/view/splash_view.dart';
 import '../viewmodel/onboard_model.dart';
@@ -56,7 +56,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
       body: Container(
         color: cMainColor,
         child: Padding(
-          padding: const PagePadding.all(),
+          padding: const AppPadding.all(),
           child: Padding(
             padding: const EdgeInsets.only(top: 45),
             child: Column(

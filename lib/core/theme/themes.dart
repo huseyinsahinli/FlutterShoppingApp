@@ -45,6 +45,9 @@ class MyThemes {
     ),
     scaffoldBackgroundColor: cWhiteColor,
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
       titleTextStyle: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w400,
@@ -86,6 +89,7 @@ class MyThemes {
     ),
     textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
+      primary: cMainColor,
       textStyle: const TextStyle(
         color: cMainColor,
         fontSize: 16,
@@ -98,7 +102,7 @@ class MyThemes {
         fixedSize: const Size(double.infinity, 67),
         padding: const EdgeInsets.all(5),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(19.0),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
     ),

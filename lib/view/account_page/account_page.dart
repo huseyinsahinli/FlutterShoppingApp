@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/padding/app_padding.dart';
 
-import '../../../../core/constant/app_constant.dart';
-import '../../../../core/constant/icon_enum.dart';
-import '../../../../core/widgets/divider.dart';
-import '../../../core/models/account_card_model.dart';
+import '../../../core/constant/app_constant.dart';
+import '../../../core/constant/icon_enum.dart';
+import '../../../core/widgets/divider.dart';
+import '../../core/models/account_card_model.dart';
 
 class AccountPage extends StatefulWidget {
   AccountPage({
@@ -27,8 +29,7 @@ class _AccountPageState extends State<AccountPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 25, right: 20, bottom: 30, top: 21),
+                  padding: const AppPadding.all(),
                   child: Container(
                       height: 64,
                       width: 64,
@@ -42,35 +43,30 @@ class _AccountPageState extends State<AccountPage> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 21),
+                  padding: const AppPadding.onlyTop(),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.5,
+                            width: context.screenWidth * 0.5,
                             child: FittedBox(
                               child: Text(
                                 "Hüseyin Şahinli",
-                                style: Theme.of(context).textTheme.headline6,
+                                style: Theme.of(context).textTheme.headline1,
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: IconEnums.pencil.toImage,
-                            ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: IconEnums.pencil.toImage,
                           )
                         ],
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
+                        width: context.screenWidth * 0.5,
                         child: FittedBox(
                           child: Text(
                             "huseyinsahinli01@gmail.com",
@@ -86,7 +82,7 @@ class _AccountPageState extends State<AccountPage> {
           ),
           const CustomDivider(),
           Padding(
-            padding: const EdgeInsets.only(bottom: 150, left: 27, right: 27),
+            padding: const AppPadding.leftRightBottom(),
             child: ListView.separated(
               separatorBuilder: (context, index) => const CustomDivider(),
               itemCount: AccountModels.accountCards.length,
@@ -101,9 +97,15 @@ class _AccountPageState extends State<AccountPage> {
                       AccountModels.accountCards[index].leading,
                     ],
                   ),
-                  title: Text(
-                    AccountModels.accountCards[index].title,
-                    style: Theme.of(context).textTheme.headline2,
+                  title: SizedBox(
+                    height: context.screenHeight * 0.03,
+                    child: FittedBox(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        AccountModels.accountCards[index].title,
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                    ),
                   ),
                   trailing: IconEnums.rightarrow.toImage,
                 );

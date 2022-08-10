@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import '../../../core/constant/app_strings.dart';
 
 import '../../../core/constant/app_constant.dart';
@@ -55,11 +56,12 @@ class _ExplorePageState extends State<ExplorePage> {
             GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 189,
-                    mainAxisExtent: 175,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20),
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: context.screenWidth * 0.5,
+                  mainAxisExtent: context.screenHeight * 0.30,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
                 itemCount: 8,
                 itemBuilder: (BuildContext ctx, index) {
                   return InkWell(
@@ -72,8 +74,6 @@ class _ExplorePageState extends State<ExplorePage> {
                                   title: Strings.exploreListHeads[index])));
                     },
                     child: Container(
-                      height: 189,
-                      width: 175,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
@@ -96,11 +96,22 @@ class _ExplorePageState extends State<ExplorePage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(ImagePath.exploreListImagePath[index]),
-                            Text(
-                              Strings.exploreListHeads[index],
-                              style: Theme.of(context).textTheme.subtitle2,
-                              textAlign: TextAlign.center,
+                            SizedBox(
+                              height: context.screenHeight * 0.15,
+                              child: Image.asset(
+                                ImagePath.exploreListImagePath[index],
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            Container(
+                              width: context.screenWidth * 0.25,
+                              child: FittedBox(
+                                child: Text(
+                                  Strings.exploreListHeads[index],
+                                  style: Theme.of(context).textTheme.subtitle2,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
                             )
                           ],
                         ),
