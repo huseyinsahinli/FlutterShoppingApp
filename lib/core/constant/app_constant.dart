@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const cMainColor = Color(0xff53B175);
 const cTextColor = Color(0xff181725);
 const cWhiteColor = Color(0xffffffff);
+const cDividerColor = Color(0xffEBEBEB);
 const List cExploreBackgroundColorLists = [
   [
     Color(0x1053B175),

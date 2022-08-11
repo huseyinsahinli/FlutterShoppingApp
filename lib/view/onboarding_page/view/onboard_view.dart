@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
+import '../../../core/constant/app_strings.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
 import '../../splash_page/view/splash_view.dart';
@@ -19,7 +20,6 @@ class _OnBoardPageState extends State<OnBoardPage> {
 
   bool get _isLastPage =>
       OnBoardModels.onBoardItems.length - 1 == _selectedIndex;
-  bool get _isFirstPage => _selectedIndex == 0;
 
   // ---xx
   ValueNotifier<bool> isBackEnable = ValueNotifier(false);
@@ -58,7 +58,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
         child: Padding(
           padding: const AppPadding.all(),
           child: Padding(
-            padding: const EdgeInsets.only(top: 45),
+            padding: const AppPadding.onlyTop(),
             child: Column(
               children: [
                 Expanded(child: _pageViewItems()),
@@ -66,14 +66,14 @@ class _OnBoardPageState extends State<OnBoardPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TabIndicator(selectedIndex: _selectedIndex),
-                    _isLastPage
-                        ? _StartFabButton(
-                            isLastPage: _isLastPage,
-                            onPressed: () {
-                              _pushReplacenmnet(SplashPage());
-                            },
-                          )
-                        : const SizedBox(height: 0.01)
+                    _StartFabButton(
+                      isLastPage: _isLastPage,
+                      onPressed: () {
+                        _isLastPage
+                            ? _pushReplacenmnet(SplashPage())
+                            : _incrementAndChange();
+                      },
+                    ),
                   ],
                 )
               ],

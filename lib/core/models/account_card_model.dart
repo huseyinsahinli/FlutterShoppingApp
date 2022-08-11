@@ -12,17 +12,18 @@ class AccountModel {
 
 class AccountModels {
   static final List<AccountModel> accountCards = [
-    AccountModel(Strings.orders, Icon(Icons.shop_outlined)),
-    AccountModel(Strings.myDetails, Icon(Icons.badge_outlined)),
-    AccountModel(Strings.deliveryAddress, Icon(Icons.location_on_outlined)),
-    AccountModel(Strings.myCart, Icon(Icons.credit_card_outlined)),
-    AccountModel(Strings.promoCard, Icon(Icons.discount_outlined)),
+    AccountModel(Strings.orders, const Icon(Icons.shop_outlined)),
+    AccountModel(Strings.myDetails, const Icon(Icons.badge_outlined)),
     AccountModel(
-        Strings.notifecations, Icon(Icons.notifications_none_outlined)),
-    AccountModel(Strings.theme, Icon(Icons.brightness_4_outlined)),
-    AccountModel(Strings.settings, Icon(Icons.settings_outlined)),
-    AccountModel(Strings.help, Icon(Icons.help_outline)),
-    AccountModel(Strings.about, Icon(Icons.info_outline)),
-    AccountModel(Strings.logout, Icon(Icons.logout))
+        Strings.deliveryAddress, const Icon(Icons.location_on_outlined)),
+    AccountModel(Strings.myCart, const Icon(Icons.credit_card_outlined)),
+    AccountModel(Strings.promoCard, const Icon(Icons.discount_outlined)),
+    AccountModel(
+        Strings.notifecations, const Icon(Icons.notifications_none_outlined)),
+    AccountModel(Strings.theme, const Icon(Icons.brightness_4_outlined)),
+    AccountModel(Strings.settings, const Icon(Icons.settings_outlined)),
+    AccountModel(Strings.help, const Icon(Icons.help_outline)),
+    AccountModel(Strings.about, const Icon(Icons.info_outline)),
+    AccountModel(Strings.logout, const Icon(Icons.logout))
   ];
 }

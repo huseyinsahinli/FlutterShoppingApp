@@ -37,10 +37,9 @@ class Strings {
   static const goToCheckout = "Go to Checkout";
   static const searchStore = "Search Store";
   static const addAllToCart = "Add All To Cart";
-
   static const addToBasket = "Add To Basket";
-
   static const productDetail = 'Produc Detail';
-
   static const filters = 'Filters';
+  static const next = 'Next';
+  static const start = 'Start';
 }

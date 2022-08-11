@@ -7,7 +7,7 @@ import '../../../core/constant/icon_enum.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/image_path.dart';
-import '../../../core/widgets/list.dart';
+import '../../core/widgets/horizontal_list_view_builder.dart';
 import '../../../core/widgets/search_text_field.dart';
 
 class ShopPage extends StatefulWidget {

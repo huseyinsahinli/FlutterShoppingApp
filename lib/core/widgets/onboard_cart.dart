@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
+import 'package:nectar_ui/core/extensions/double_extensions.dart';
 
 import '../../view/onboarding_page/viewmodel/onboard_model.dart';
+import '../helper/text_scale_size.dart';
 
 class OnBoardCard extends StatelessWidget {
-  const OnBoardCard({Key? key, required this.model}) : super(key: key);
   final OnBoardModel model;
+  const OnBoardCard({Key? key, required this.model}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,21 +16,21 @@ class OnBoardCard extends StatelessWidget {
         Text(
           model.title,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: cWhiteColor, fontSize: 32, fontWeight: FontWeight.w700),
+          style: Theme.of(context).textTheme.headline1!.copyWith(
+                color: cWhiteColor,
+              ),
+          textScaleFactor: ScaleSize.textScaleFactor(context),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        15.0.sizedBoxOnlyHeight,
         Text(
           model.description,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              color: cWhiteColor, fontSize: 20, fontWeight: FontWeight.w200),
+          style: Theme.of(context).textTheme.headline2!.copyWith(
+                color: cWhiteColor,
+              ),
+          textScaleFactor: ScaleSize.textScaleFactor(context),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        15.0.sizedBoxOnlyHeight,
         Image.asset(model.imageWithPath),
       ],
     );

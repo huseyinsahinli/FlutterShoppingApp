@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import '../constant/app_constant.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xffE2E2E2),
+      color: cDividerColor,
       height: 1.0,
     );
   }

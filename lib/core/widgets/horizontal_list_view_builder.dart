@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../constant/app_constant.dart';
 import '../constant/app_strings.dart';
 import '../constant/icon_enum.dart';
 import '../constant/image_path.dart';
+import '../helper/text_scale_size.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class HorizontalListView extends StatelessWidget {
         itemCount: 8,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.only(right: 15),
+            padding: const AppPadding.onlyRight(),
             child: InkWell(
               onTap: () {},
               child: Container(
@@ -33,7 +35,7 @@ class HorizontalListView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const AppPadding.all(),
                   child: Stack(
                     children: [
                       Column(
@@ -49,17 +51,19 @@ class HorizontalListView extends StatelessWidget {
                           Text(
                             Strings.exploreListHeads[index],
                             style: Theme.of(context).textTheme.bodyText2,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                           Text(
                             "355ml,Price",
                             style: Theme.of(context).textTheme.subtitle2,
                             textAlign: TextAlign.center,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           )
                         ],
                       ),
                       Positioned(
-                        bottom: 5,
-                        right: 5,
+                        bottom: 0,
+                        right: 0,
                         child: SizedBox(
                           width: 45,
                           height: 45,
@@ -73,8 +77,11 @@ class HorizontalListView extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {},
-                            child: SvgPicture.asset(IconEnums.plus.toPath,
-                                height: 17, color: cWhiteColor),
+                            child: SvgPicture.asset(
+                              IconEnums.plus.toPath,
+                              height: 17,
+                              color: cWhiteColor,
+                            ),
                           ),
                         ),
                       ),
@@ -82,10 +89,11 @@ class HorizontalListView extends StatelessWidget {
                         left: 0,
                         bottom: 0,
                         child: Padding(
-                          padding: EdgeInsets.symmetric(vertical: 15),
+                          padding: const AppPadding.symmetricOnlyVertical(),
                           child: Text(
                             "\$1.99",
                             style: Theme.of(context).textTheme.subtitle2,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ),
                       )

@@ -10,7 +10,7 @@ class SearchBarTextField extends StatelessWidget {
       autofocus: false,
       decoration: InputDecoration(
           hintText: Strings.searchStore,
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.search,
             color: Colors.black,
           )),

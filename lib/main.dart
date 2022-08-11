@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Nectar UI',
       theme: MyThemes.lightTheme,
-      home: HomePage(),
+      home: OnBoardPage(),
     );
   }
 }
