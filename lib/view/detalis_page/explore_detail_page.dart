@@ -10,6 +10,7 @@ import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/constant/image_path.dart';
 import '../../../core/widgets/divider.dart';
+import '../../core/helper/text_scale_size.dart';
 import '../filters_page/filters_page.dart';
 
 class SearchDetail extends StatelessWidget {
@@ -40,10 +41,11 @@ class SearchDetail extends StatelessWidget {
         child: GridView.builder(
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+            childAspectRatio: 3,
             maxCrossAxisExtent: context.screenWidth * 0.5,
-            mainAxisExtent: context.screenHeight * 0.3 <= 275
-                ? 275
-                : context.screenHeight * 0.35,
+            mainAxisExtent: context.screenHeight * 0.25 > 250
+                ? context.screenHeight * 0.25
+                : 270,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
           ),
@@ -73,26 +75,24 @@ class SearchDetail extends StatelessWidget {
                     10.0.sizedBoxOnlyHeight,
                     Image.asset(
                       ImagePath.exploreListImagePath[index],
-                      height: context.screenHeight * 0.15,
+                      height: 100,
                       fit: BoxFit.contain,
                     ),
                     Padding(
                       padding: const AppPadding.symmetricOnlyHorizontal(),
                       child: Column(
                         children: [
-                          FittedBox(
-                            child: Text(
-                              Strings.exploreListHeads[index],
-                              style: Theme.of(context).textTheme.subtitle1,
-                              textAlign: TextAlign.center,
-                            ),
+                          Text(
+                            Strings.exploreListHeads[index],
+                            style: Theme.of(context).textTheme.subtitle1,
+                            textAlign: TextAlign.center,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
-                          FittedBox(
-                            child: Text(
-                              "355ml,Price",
-                              style: Theme.of(context).textTheme.bodyText2,
-                              textAlign: TextAlign.center,
-                            ),
+                          Text(
+                            "355ml,Price",
+                            style: Theme.of(context).textTheme.bodyText2,
+                            textAlign: TextAlign.center,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ],
                       ),
@@ -104,28 +104,23 @@ class SearchDetail extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Expanded(
-                              child: FittedBox(
-                                child: Text(
-                                  "\$1.10",
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                ),
-                              ),
+                            Text(
+                              "\$1.10",
+                              style: Theme.of(context).textTheme.subtitle2,
+                              textScaleFactor:
+                                  ScaleSize.textScaleFactor(context),
                             ),
-                            Spacer(),
-                            Expanded(
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  onPrimary: Colors.black,
-                                  primary: cMainColor,
-                                  shape: StadiumBorder(),
-                                ),
-                                onPressed: () {},
-                                child: SvgPicture.asset(
-                                  IconEnums.plus.toPath,
-                                  height: 17,
-                                  color: cWhiteColor,
-                                ),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                onPrimary: Colors.black,
+                                primary: cMainColor,
+                                shape: const StadiumBorder(),
+                              ),
+                              onPressed: () {},
+                              child: SvgPicture.asset(
+                                IconEnums.plus.toPath,
+                                height: 17,
+                                color: cWhiteColor,
                               ),
                             )
                           ],

@@ -6,6 +6,7 @@ import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/extensions/double_extensions.dart';
+import '../../core/helper/text_scale_size.dart';
 
 class FavouritePage extends StatefulWidget {
   FavouritePage({Key? key}) : super(key: key);
@@ -99,34 +100,24 @@ class _FavouritePageState extends State<FavouritePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: context.screenWidth * 0.30,
-                      child: FittedBox(
-                        child: Text(
-                          name,
-                          style: Theme.of(context).textTheme.subtitle2,
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.subtitle2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                      textAlign: TextAlign.start,
                     ),
                     10.0.sizedBoxOnlyHeight,
-                    SizedBox(
-                      width: context.screenWidth * 0.20,
-                      child: FittedBox(
-                        child: Text(
-                          "$kg, Price",
-                          style: Theme.of(context).textTheme.bodyText2,
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
+                    Text(
+                      "$kg, Price",
+                      style: Theme.of(context).textTheme.bodyText2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                      textAlign: TextAlign.start,
                     ),
                     10.0.sizedBoxOnlyHeight,
-                    SizedBox(
-                      width: context.screenWidth * 0.25,
-                      child: Text(
-                        "Price \$1.50",
-                        style: Theme.of(context).textTheme.subtitle2,
-                      ),
+                    Text(
+                      "Price \$1.50",
+                      style: Theme.of(context).textTheme.subtitle2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                   ],
                 ),

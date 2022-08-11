@@ -6,6 +6,7 @@ import 'package:nectar_ui/core/padding/app_padding.dart';
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
+import '../../core/helper/text_scale_size.dart';
 
 class CartPage extends StatefulWidget {
   CartPage({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _CartPageState extends State<CartPage> {
         child: ElevatedButton(
           onPressed: () {},
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: 8.0.edgeIntesetsAll,
@@ -63,6 +64,7 @@ class _CartPageState extends State<CartPage> {
                   child: Text(
                     Strings.goToCheckout,
                     style: Theme.of(context).textTheme.bodyText1,
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
                 ),
               ),
@@ -70,18 +72,16 @@ class _CartPageState extends State<CartPage> {
               Padding(
                 padding: const AppPadding.allLow(),
                 child: Container(
-                  width: context.screenWidth * 0.25,
                   decoration: BoxDecoration(
                     color: const Color(0xff489E67),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: FittedBox(
-                    child: Padding(
-                      padding: const AppPadding.allLow(),
-                      child: Text(
-                        "\$20.92",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
+                  child: Padding(
+                    padding: const AppPadding.allLow() / 2,
+                    child: Text(
+                      "\$20.92",
+                      style: Theme.of(context).textTheme.bodyText1,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                   ),
                 ),
@@ -115,20 +115,18 @@ class _CartPageState extends State<CartPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FittedBox(
-                      child: Text(
-                        name,
-                        style: Theme.of(context).textTheme.subtitle2,
-                        textAlign: TextAlign.start,
-                      ),
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.subtitle2,
+                      textAlign: TextAlign.start,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     5.0.sizedBoxOnlyHeight,
-                    FittedBox(
-                      child: Text(
-                        "$kg, Price",
-                        style: Theme.of(context).textTheme.bodyText2,
-                        textAlign: TextAlign.start,
-                      ),
+                    Text(
+                      "$kg, Price",
+                      style: Theme.of(context).textTheme.bodyText2,
+                      textAlign: TextAlign.start,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     10.0.sizedBoxOnlyHeight,
                     Row(
@@ -153,17 +151,12 @@ class _CartPageState extends State<CartPage> {
                             child: IconEnums.remove.toImage,
                           ),
                         ),
-                        SizedBox(
-                          width: context.screenWidth * 0.2,
-                          child: FittedBox(
-                            child: Padding(
-                              padding:
-                                  const AppPadding.symmetricOnlyHorizontal(),
-                              child: Text(
-                                "$stock",
-                                style: Theme.of(context).textTheme.subtitle1,
-                              ),
-                            ),
+                        Padding(
+                          padding: const AppPadding.symmetricOnlyHorizontal(),
+                          child: Text(
+                            "$stock",
+                            style: Theme.of(context).textTheme.subtitle1,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ),
                         SizedBox(
@@ -190,17 +183,15 @@ class _CartPageState extends State<CartPage> {
                     ),
                     10.0.sizedBoxOnlyHeight,
                     Container(
-                      width: context.screenWidth * 0.30,
                       padding: const AppPadding.allLow(),
                       decoration: BoxDecoration(
                         color: cMainColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: FittedBox(
-                        child: Text(
-                          "Total: \$${price * stock}",
-                          style: Theme.of(context).textTheme.bodyText1,
-                        ),
+                      child: Text(
+                        "Total: \$${price * stock}",
+                        style: Theme.of(context).textTheme.bodyText1,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                     )
                   ],

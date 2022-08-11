@@ -7,6 +7,7 @@ import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/icon_enum.dart';
 import '../../core/constant/app_strings.dart';
+import '../../core/helper/text_scale_size.dart';
 
 class ProductDetails extends StatefulWidget {
   ProductDetails({Key? key}) : super(key: key);
@@ -32,6 +33,9 @@ class _ProductDetailsState extends State<ProductDetails> {
         child: Column(
           children: [
             Container(
+              constraints: BoxConstraints(
+                minHeight: 200,
+              ),
               height: context.screenHeight * 0.3,
               width: context.screenWidth,
               padding: const AppPadding.allHigh(),
@@ -64,6 +68,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Text(
                         "Naturel Red Apple",
                         style: Theme.of(context).textTheme.headline1,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                       IconButton(
                         onPressed: () {},
@@ -73,9 +78,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                   ),
                   Text(
                     "1kg,Price",
-                    style: Theme.of(context).textTheme.headline3!.copyWith(
-                          fontSize: 16,
-                        ),
+                    style: Theme.of(context).textTheme.headline3,
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
                   10.0.sizedBoxOnlyHeight,
                   Row(
@@ -86,13 +90,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                           IconButton(
                               onPressed: () {}, icon: IconEnums.remove.toImage),
                           Container(
-                            height: context.screenHeight * 0.05,
-                            constraints: BoxConstraints(
-                              minWidth: 50,
-                              minHeight: 50,
-                              maxHeight: context.screenHeight * 0.15,
-                              maxWidth: context.screenWidth * 0.15,
-                            ),
+                            padding: const AppPadding.symmetricLow(),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: Color(0xffE2E2E2),
@@ -102,11 +100,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   BorderRadius.all(Radius.circular(17)),
                             ),
                             child: Center(
-                              child: FittedBox(
-                                child: Text(
-                                  "1",
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                ),
+                              child: Text(
+                                "1",
+                                style: Theme.of(context).textTheme.bodyText2,
+                                textScaleFactor:
+                                    ScaleSize.textScaleFactor(context),
                               ),
                             ),
                           ),
@@ -118,9 +116,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       Text(
                         "\$4.99",
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              fontSize: 24,
-                            ),
+                        style: Theme.of(context).textTheme.bodyText2,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       )
                     ],
                   ),
@@ -135,12 +132,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                     tilePadding: const EdgeInsets.only(right: 20),
                     title: Text(
                       Strings.productDetail,
+                      textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.subtitle2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     children: <Widget>[
                       Text(
                         'Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.\n',
                         style: Theme.of(context).textTheme.bodyText2,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                     ],
                   ),
@@ -151,6 +151,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Text(
                         "Nutritions",
                         style: Theme.of(context).textTheme.subtitle2,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                       Row(
                         children: [
@@ -165,6 +166,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                               child: Text(
                                 "100gr",
                                 style: Theme.of(context).textTheme.bodyText2,
+                                textScaleFactor:
+                                    ScaleSize.textScaleFactor(context),
                               ),
                             ),
                           ),
@@ -179,6 +182,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Text(
                         "Review",
                         style: Theme.of(context).textTheme.subtitle2,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                       Image.asset("assets/images/png/star.png")
                     ],
@@ -191,7 +195,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: AppPadding.symmetric(),
+        padding: const AppPadding.symmetric(),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             elevation: 0,
@@ -209,6 +213,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Strings.addToBasket,
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
+              textScaleFactor: ScaleSize.textScaleFactor(context),
             ),
           ),
         ),

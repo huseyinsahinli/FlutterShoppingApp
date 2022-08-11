@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/padding/app_padding.dart';
 import '../../../core/constant/app_strings.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/constant/image_path.dart';
+import '../../core/helper/text_scale_size.dart';
 import '../detalis_page/explore_detail_page.dart';
 
 class ExplorePage extends StatefulWidget {
@@ -26,7 +28,7 @@ class _ExplorePageState extends State<ExplorePage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const AppPadding.symmetricOnlyHorizontal(),
         child: ListView(
           shrinkWrap: true,
           children: [
@@ -38,7 +40,6 @@ class _ExplorePageState extends State<ExplorePage> {
                 hintText: Strings.searchStore,
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: Colors.black,
                 ),
                 suffixIcon: IconButton(
                   // Icon to
@@ -58,7 +59,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: context.screenWidth * 0.5,
-                  mainAxisExtent: context.screenHeight * 0.30,
+                  mainAxisExtent: 250,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                 ),
@@ -92,26 +93,23 @@ class _ExplorePageState extends State<ExplorePage> {
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: const AppPadding.all(),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              height: context.screenHeight * 0.15,
+                              height: 100,
                               child: Image.asset(
                                 ImagePath.exploreListImagePath[index],
                                 fit: BoxFit.contain,
                               ),
                             ),
-                            Container(
-                              width: context.screenWidth * 0.25,
-                              child: FittedBox(
-                                child: Text(
-                                  Strings.exploreListHeads[index],
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
+                            Text(
+                              Strings.exploreListHeads[index],
+                              style: Theme.of(context).textTheme.subtitle2,
+                              textScaleFactor:
+                                  ScaleSize.textScaleFactor(context),
+                              textAlign: TextAlign.center,
                             )
                           ],
                         ),
