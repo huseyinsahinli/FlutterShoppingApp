@@ -59,6 +59,7 @@ class _ShopPageState extends State<ShopPage> {
                 "assets/images/png/banner.png",
                 width: context.screenWidth,
                 height: 130,
+                fit: BoxFit.contain,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

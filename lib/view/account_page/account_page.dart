@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
+import '../../core/helper/text_scale_size.dart';
 import '../../core/models/account_card_model.dart';
 
 class AccountPage extends StatefulWidget {
@@ -50,14 +50,10 @@ class _AccountPageState extends State<AccountPage> {
                     children: [
                       Row(
                         children: [
-                          SizedBox(
-                            width: context.screenWidth * 0.5,
-                            child: FittedBox(
-                              child: Text(
-                                "Hüseyin Şahinli",
-                                style: Theme.of(context).textTheme.headline1,
-                              ),
-                            ),
+                          Text(
+                            "Hüseyin Şahinli",
+                            style: Theme.of(context).textTheme.headline1,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                           IconButton(
                             onPressed: () {},
@@ -65,14 +61,10 @@ class _AccountPageState extends State<AccountPage> {
                           )
                         ],
                       ),
-                      SizedBox(
-                        width: context.screenWidth * 0.5,
-                        child: FittedBox(
-                          child: Text(
-                            "huseyinsahinli01@gmail.com",
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
-                        ),
+                      Text(
+                        "huseyinsahinli01@gmail.com",
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ],
                   ),
@@ -97,15 +89,10 @@ class _AccountPageState extends State<AccountPage> {
                       AccountModels.accountCards[index].leading,
                     ],
                   ),
-                  title: SizedBox(
-                    height: context.screenHeight * 0.03,
-                    child: FittedBox(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        AccountModels.accountCards[index].title,
-                        style: Theme.of(context).textTheme.headline2,
-                      ),
-                    ),
+                  title: Text(
+                    AccountModels.accountCards[index].title,
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                   trailing: IconEnums.rightarrow.toImage,
                 );
