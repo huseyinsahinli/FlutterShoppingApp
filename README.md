@@ -2,7 +2,7 @@
 
 I coded classic e-commerce applications for you.
 
-# On Board Pages
+# Onboarding Pages
 
 ![1](https://user-images.githubusercontent.com/43808862/183394173-a2a0d987-490a-4475-a28c-d4debfa62ada.png)
 ![2](https://user-images.githubusercontent.com/43808862/183394177-fb95de43-c622-4d3a-bb40-730fbce8bec4.png)
