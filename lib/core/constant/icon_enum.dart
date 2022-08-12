@@ -28,7 +28,8 @@ enum IconEnums {
   store,
   ticket,
   user,
-  whiteLogo
+  whiteLogo,
+  loginPage
 }
 
 extension ImageEnumsExtension on IconEnums {

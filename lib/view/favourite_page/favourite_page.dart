@@ -122,7 +122,6 @@ class _FavouritePageState extends State<FavouritePage> {
                   ],
                 ),
               ),
-              25.0.sizedBoxOnlyWidth,
               IconButton(
                 onPressed: () {},
                 icon: IconEnums.rightarrow.toImage,

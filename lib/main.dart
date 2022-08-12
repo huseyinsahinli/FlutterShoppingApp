@@ -1,10 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/view/home_page/home_page.dart';
-import 'package:nectar_ui/view/onboarding_page/view/onboard_view.dart';
-
+import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 import 'core/theme/themes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Nectar UI',
       theme: MyThemes.lightTheme,
-      home: OnBoardPage(),
+      home: LoginPage(),
     );
   }
 }

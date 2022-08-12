@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
@@ -16,6 +17,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,20 +83,25 @@ class _AccountPageState extends State<AccountPage> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: ((context, index) {
-                return ListTile(
-                  iconColor: Theme.of(context).iconTheme.color,
-                  leading: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      AccountModels.accountCards[index].leading,
-                    ],
+                return InkWell(
+                  onTap: () {
+                    auth.signOut();
+                  },
+                  child: ListTile(
+                    iconColor: Theme.of(context).iconTheme.color,
+                    leading: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        AccountModels.accountCards[index].leading,
+                      ],
+                    ),
+                    title: Text(
+                      AccountModels.accountCards[index].title,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    trailing: IconEnums.rightarrow.toImage,
                   ),
-                  title: Text(
-                    AccountModels.accountCards[index].title,
-                    textScaleFactor: ScaleSize.textScaleFactor(context),
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  trailing: IconEnums.rightarrow.toImage,
                 );
               }),
             ),
