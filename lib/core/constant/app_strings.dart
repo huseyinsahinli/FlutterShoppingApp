@@ -52,14 +52,32 @@ class Strings {
   static const addToCartSuccessfully = 'Add To Cart Successfully';
   static const removeFromCartSuccessfully = 'Remove From Cart Successfully';
   static const noInternetConnection = 'No Internet Connection';
-  static const login = 'Login';
+  static const login = 'Log In';
   static const welcomeNectarShop = 'Welcome to Nectar Shop';
   static const register = 'Register';
-  static const forgotPassword = 'Forgot Password';
+  static const forgotPassword = 'Forgot Password?';
   static const resetPassword = 'Reset Password';
   static const verifyEmail = 'Verify Email';
   static const verifyEmailSent = 'Verify Email Sent';
   static const verifyEmailSentMessage = 'Verify Email Sent Message';
 
-  static String dontHaveAccount = 'Don\'t have an account?';
+  static const dontHaveAccount = 'Don\'t have an account?\t';
+
+  static const email = 'Email';
+
+  static const password = 'Password';
+
+  static const loginMessage = 'Enter your email and password to login';
+
+  static const signUp = 'Sign Up';
+
+  static const registerMessage = 'Enter your email and password to register';
+
+  static const signIn = 'Sign In';
+
+  static const alreadyHaveAccount = 'Already have an account?\t';
+
+  static const reset = 'Reset';
+
+  static const resetMessage = 'Enter your email to reset password';
 }

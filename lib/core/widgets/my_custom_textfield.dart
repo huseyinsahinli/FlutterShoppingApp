@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
+import 'package:nectar_ui/core/helper/text_scale_size.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -26,35 +27,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      cursorColor: cMainColor,
       controller: widget.controller,
+      enableSuggestions: false,
+      autocorrect: false,
       obscureText: widget.obscureText,
-      decoration: InputDecoration(
-        labelText: widget.hintText,
-        labelStyle: Theme.of(context).textTheme.bodyText2,
-        floatingLabelStyle: const TextStyle(
-          color: cMainColor,
-          fontSize: 20,
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(
-            color: cMainColor,
-            width: 2,
+      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            color: Colors.black,
+            decoration: TextDecoration.none,
+            fontSize: 17,
           ),
-        ),
-        focusColor: cMainColor,
-        fillColor: cWhiteColor,
+      decoration: InputDecoration(
+        fillColor: Colors.white,
+        floatingLabelStyle:
+            Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
+        labelText: widget.hintText,
         filled: true,
-        prefixIcon: Icon(
-          widget.prefixIcon,
-          color: cMainColor,
-        ),
         suffixIcon: widget.hintText == 'Password'
             ? IconButton(
                 icon: Icon(
                   widget.obscureText ? Icons.visibility : Icons.visibility_off,
-                  color: cMainColor,
                 ),
                 onPressed: () {
                   setState(() {
@@ -63,12 +54,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 },
               )
             : null,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-            borderSide: const BorderSide(
-              color: cMainColor,
-              width: 1,
-            )),
+        border: const UnderlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
       ),
     );
   }

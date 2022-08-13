@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
@@ -18,6 +19,23 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   FirebaseAuth auth = FirebaseAuth.instance;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    auth.userChanges().listen((User? user) {
+      if (user == null) {
+        print('Evet');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
+      } else {
+        print('User is currently signed out!');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

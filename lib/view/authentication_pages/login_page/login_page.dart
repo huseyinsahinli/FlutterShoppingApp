@@ -9,6 +9,8 @@ import 'package:nectar_ui/core/helper/text_scale_size.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
+import 'package:nectar_ui/view/authentication_pages/register_page/register_page.dart';
+import 'package:nectar_ui/view/authentication_pages/reset_page/reset_page.dart';
 import 'package:nectar_ui/view/home_page/home_page.dart';
 
 import '../../../core/constant/app_strings.dart';
@@ -57,53 +59,56 @@ class _LoginPageState extends State<LoginPage> {
                   fit: BoxFit.contain,
                 ),
               ),
-              Text(
-                Strings.welcomeNectarShop,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline1!
-                    .copyWith(color: cMainColor),
-                textScaleFactor: ScaleSize.textScaleFactor(context),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      Strings.login,
+                      style: Theme.of(context).textTheme.headline1,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                    ),
+                    Text(
+                      Strings.loginMessage,
+                      style: Theme.of(context).textTheme.bodyText2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                    ),
+                  ],
+                ),
               ),
               CustomTextField(
-                hintText: 'E-mail',
+                hintText: Strings.email,
                 prefixIcon: Icons.mail,
                 controller: _email,
                 obscureText: false,
               ),
               CustomTextField(
-                hintText: 'Password',
+                hintText: Strings.password,
                 prefixIcon: Icons.lock,
                 controller: _password,
                 obscureText: true,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      Strings.forgotPassword,
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                    ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ResetPage()),
+                    );
+                  },
+                  child: Text(
+                    Strings.forgotPassword,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      Strings.dontHaveAccount,
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                    ),
-                  ),
-                ],
+                ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(
-                    context.screenWidth * 0.5,
+                    context.screenWidth,
                     context.screenHeight * 0.06,
                   ),
                 ),
@@ -120,6 +125,31 @@ class _LoginPageState extends State<LoginPage> {
                   Strings.login,
                   style: Theme.of(context).textTheme.bodyText1,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      Strings.dontHaveAccount,
+                      style: Theme.of(context).textTheme.bodyText2,
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                    ),
+                    Text(
+                      Strings.signUp,
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: cMainColor,
+                          ),
+                      textScaleFactor: ScaleSize.textScaleFactor(context),
+                    ),
+                  ],
                 ),
               ),
             ],
