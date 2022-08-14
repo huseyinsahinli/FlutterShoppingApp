@@ -1,7 +1,6 @@
 # Nectar Shop
 
-I coded classic e-commerce applications for you.
-
+An e-commerce application that I have made with the knowledge I have gained about how the classic e-commerce applications used today work in Flutter.
 # Onboarding Pages
 
 ![1](https://user-images.githubusercontent.com/43808862/183394173-a2a0d987-490a-4475-a28c-d4debfa62ada.png)
