@@ -2,12 +2,17 @@
 
 An e-commerce application that I have made with the knowledge I have gained about how the classic e-commerce applications used today work in Flutter.
 # Onboarding Pages
-
 ![1](https://user-images.githubusercontent.com/43808862/183394173-a2a0d987-490a-4475-a28c-d4debfa62ada.png)
 ![2](https://user-images.githubusercontent.com/43808862/183394177-fb95de43-c622-4d3a-bb40-730fbce8bec4.png)
 ![3](https://user-images.githubusercontent.com/43808862/183394183-c99d9426-f1c6-434e-9844-53bc12d6c055.png)
 # Splash Page
 ![4](https://user-images.githubusercontent.com/43808862/183394187-c4768af7-f7b9-4889-b751-ea9d947b5a68.png)
+# Sign In Page
+![signIn](https://user-images.githubusercontent.com/43808862/184691570-b1719957-9ae5-4e1e-8499-6f53f11c2303.png)
+# Sign Up Page
+![signUp](https://user-images.githubusercontent.com/43808862/184691568-2e85292d-b45b-4e77-b9f1-c93b749a58df.png)
+# Password Reset Page
+![reset](https://user-images.githubusercontent.com/43808862/184691572-4eabe799-b4fe-4ada-97a3-df99d7bf0518.png)
 # Home Page
 ![5](https://user-images.githubusercontent.com/43808862/183394190-c1dd6fa4-7ce0-4a96-8a10-d59b411ae774.png)
 # Search Page
