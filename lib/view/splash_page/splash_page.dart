@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/icon_enum.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 
-import '../../../../core/constant/app_constant.dart';
-import '../../home_page/home_page.dart';
+import '../../../core/constant/app_constant.dart';
+import '../home_page/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key}) : super(key: key);
@@ -18,29 +21,13 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ),
-      );
-      // FirebaseAuth.instance.idTokenChanges().listen((User? user) {
-      //   if (user == null) {
-      //     // Navigator.pushReplacement(
-      //     //   context,
-      //     //   MaterialPageRoute(
-      //     //     builder: (context) => LoginPage(),
-      //     //   ),
-      //     // );
-      //   } else {
-      //     Navigator.pushReplacement(
-      //       context,
-      //       MaterialPageRoute(
-      //         builder: (context) =>  HomePage(),
-      //       ),
-      //     );
-      //   }
-      // });
+      FirebaseAuth.instance.idTokenChanges().listen((User? user) {
+        if (user == null) {
+          context.router.replace(const OnBoardRoute());
+        } else {
+          context.router.replace(HomeRoute());
+        }
+      });
     });
   }
 

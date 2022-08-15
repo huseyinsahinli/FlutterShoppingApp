@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/widgets/divider.dart';
 import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 
@@ -36,10 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
       if (user == null) {
         print('User is currently signed out!');
       } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
+        context.router.replace(HomeRoute());
       }
     });
   }
@@ -193,8 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                      context.router.replace(LoginRoute());
                     },
                     child: Text(
                       Strings.signIn,

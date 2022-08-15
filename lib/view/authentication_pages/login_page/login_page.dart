@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,6 +7,7 @@ import 'package:nectar_ui/core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/helper/text_scale_size.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
@@ -34,10 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       if (user == null) {
         print('User is currently signed out!');
       } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
+        context.router.replace(HomeRoute());
       }
     });
   }
@@ -94,10 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ResetPage()),
-                    );
+                    context.router.replace(ResetRoute());
                   },
                   child: Text(
                     Strings.forgotPassword,
@@ -115,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () async {
                   try {
                     await auth.signInWithEmailAndPassword(
-                        email: _email.text.toString(),
+                        email: _email.text.toString().trimRight(),
                         password: _password.text.toString());
                   } on FirebaseAuthException catch (e) {
                     print(e.toString());
@@ -129,10 +125,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
-                  );
+                  context.router.replace(RegisterRoute());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

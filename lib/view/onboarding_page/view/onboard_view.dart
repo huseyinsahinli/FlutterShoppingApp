@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import '../../../core/constant/app_strings.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
-import '../../splash_page/view/splash_view.dart';
 import '../viewmodel/onboard_model.dart';
 import '../viewmodel/tab_indicator.dart';
 part './module/start_fab_button.dart';
@@ -70,7 +71,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                       isLastPage: _isLastPage,
                       onPressed: () {
                         _isLastPage
-                            ? _pushReplacenmnet(SplashPage())
+                            ? context.router.replace(LoginRoute())
                             : _incrementAndChange();
                       },
                     ),
@@ -94,10 +95,5 @@ class _OnBoardPageState extends State<OnBoardPage> {
         return OnBoardCard(model: OnBoardModels.onBoardItems[index]);
       },
     );
-  }
-
-  void _pushReplacenmnet(page) {
-    Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (BuildContext context) => page));
   }
 }

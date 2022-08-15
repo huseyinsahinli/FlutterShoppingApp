@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
@@ -11,6 +12,7 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/constant/image_path.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
+import '../../core/navigator/app_router.dart';
 import '../filters_page/filters_page.dart';
 
 class SearchDetail extends StatelessWidget {
@@ -25,8 +27,7 @@ class SearchDetail extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FilterPage()));
+              context.router.push(FilterRoute());
             },
             icon: IconEnums.filter.toImage,
           )
@@ -53,12 +54,7 @@ class SearchDetail extends StatelessWidget {
           itemBuilder: (BuildContext ctx, index) {
             return InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductDetails(),
-                  ),
-                );
+                context.router.push(ProductDetailsRoute());
               },
               child: Container(
                 decoration: BoxDecoration(

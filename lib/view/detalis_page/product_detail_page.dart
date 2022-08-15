@@ -9,14 +9,14 @@ import '../../../core/constant/icon_enum.dart';
 import '../../core/constant/app_strings.dart';
 import '../../core/helper/text_scale_size.dart';
 
-class ProductDetails extends StatefulWidget {
-  ProductDetails({Key? key}) : super(key: key);
+class ProductDetailsPage extends StatefulWidget {
+  ProductDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<ProductDetails> createState() => _ProductDetailsState();
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
 }
 
-class _ProductDetailsState extends State<ProductDetails> {
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
   bool _open = true;
   @override
   Widget build(BuildContext context) {

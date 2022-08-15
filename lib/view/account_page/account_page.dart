@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
@@ -8,6 +9,7 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/models/account_card_model.dart';
+import '../../core/navigator/app_router.dart';
 
 class AccountPage extends StatefulWidget {
   AccountPage({
@@ -21,15 +23,11 @@ class _AccountPageState extends State<AccountPage> {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     auth.userChanges().listen((User? user) {
       if (user == null) {
-        print('Evet');
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
-        );
+        print('Evet çıktı');
+        context.router.replace(LoginRoute());
       } else {
         print('User is currently signed out!');
       }

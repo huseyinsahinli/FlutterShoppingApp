@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 import 'core/theme/themes.dart';
 
@@ -17,13 +18,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Nectar UI',
       theme: MyThemes.lightTheme,
-      home: LoginPage(),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }
