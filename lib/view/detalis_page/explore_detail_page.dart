@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:nectar_ui/view/detalis_page/product_detail_page.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/app_strings.dart';
@@ -13,7 +12,6 @@ import '../../../core/constant/image_path.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/navigator/app_router.dart';
-import '../filters_page/filters_page.dart';
 
 class SearchDetail extends StatelessWidget {
   final String title;

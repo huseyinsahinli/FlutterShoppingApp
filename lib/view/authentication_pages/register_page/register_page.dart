@@ -67,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Strings.register,
+                      Strings.signUp,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
@@ -171,7 +171,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                            'Fill in all required fields with your information.'),
+                          'Fill in all required fields with your information.',
+                        ),
                         backgroundColor: Colors.red,
                       ),
                     );

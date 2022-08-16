@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';

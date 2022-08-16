@@ -1,13 +1,26 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
-import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
+import 'core/constant/app_constant.dart';
 import 'core/theme/themes.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  await EasyLocalization.ensureInitialized();
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        AppConstant.EN_LOCALE,
+        AppConstant.TR_LOCALE,
+      ],
+      saveLocale: true,
+      fallbackLocale: AppConstant.EN_LOCALE,
+      path: AppConstant.LANG_PATH,
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -25,6 +38,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Nectar UI',
       theme: MyThemes.lightTheme,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
     );

@@ -35,10 +35,11 @@ dependencies:
   firebase_core: ^1.20.1
 
   # localization
-  easy_localization: ^0.9.0
+  easy_localization: ^3.0.1
   # routing
   auto_route: ^4.2.1
   
+  mobx_codegen: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +48,7 @@ dev_dependencies:
   flutter_lints: ^2.0.1
   auto_route_generator: ^4.2.1
   build_runner: ^2.2.0
-
+  
 flutter:
 
   uses-material-design: true
@@ -57,6 +58,7 @@ flutter:
     - assets/images/
     - assets/images/svg/
     - assets/images/png/
+    - assets/lang/
 
   fonts:
     - family: Gilroy

@@ -7,7 +7,6 @@ import 'package:nectar_ui/core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 
 import '../../../core/constant/app_constant.dart';
-import '../home_page/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key}) : super(key: key);
@@ -60,7 +59,7 @@ class _SplashPageState extends State<SplashPage> {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      "online groceriet",
+                      "online groceries",
                       style: TextStyle(
                           fontSize: 18,
                           letterSpacing: 3.75,

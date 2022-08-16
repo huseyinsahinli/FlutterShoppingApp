@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+
+class AppConstant{
+  static const String LANG_PATH = 'assets/lang';
+  static const Locale EN_LOCALE = Locale('en', 'US');
+  static const Locale TR_LOCALE = Locale('tr', 'TR');
+  
+}
 const cMainColor = Color(0xff53B175);
 const cTextColor = Color(0xff181725);
 const cWhiteColor = Color(0xffffffff);

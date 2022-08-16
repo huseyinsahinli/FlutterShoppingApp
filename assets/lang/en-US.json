@@ -1,0 +1,113 @@
+{
+
+    "splash": {
+        "title": "nectar",
+        "subtitle": "online groceries"
+    },
+    "onBoard": {
+        "page1": {
+            "title": "Welcome to our store",
+            "description": "Get your groceries in as fast as one hour"
+
+        },
+        "page2": {
+            "title": "Order Your Food",
+            "description": "Now you can order food any time right from your mobile."
+
+        },
+        "page3": {
+            "title": "Delivery in Minutes",
+            "description": "Get it delivered within minutes of ordering."
+
+        },
+        "onBoardButton": {
+            "start": "Start",
+            "next": "Next"
+        }
+    },
+    "home": {
+        "shop": "Shop",
+        "search": "Search",
+        "cart": "Cart",
+        "favourite": "Favourite",
+        "profile": "Profile"
+    },
+    "account": {
+        "orders": "Orders",
+        "myDetails": "My Details",
+        "deliveryAddres": "Delivery Address",
+        "myCart": "My Cart",
+        "promoCard": "Promo Card",
+        "notifications": "Notifications",
+        "theme": "Theme",
+        "settings": "Settings",
+        "help": "Help",
+        "about": "About",
+        "logout": "Log out"
+    },
+    "auth": {
+        "signUp": {
+            "title": "Sign Up",
+            "subtitle": "Enter your email and password to Sign up",
+            "terms1": "By signing up, you agree to our,",
+            "terms2": "Terms of Service",
+            "terms3": "and",
+            "terms4": "Privacy Policy",
+            "passwordNotMatch": "Passwords do not match",
+            "fillAllFields": "Fill in all required fields with your information.",
+            "orSignUpWithScoial": "Or sign up with social media",
+            "google": "Sign in with Google",
+            "facebook": "Sign in with Facebook"
+        },
+        "signIn": {
+            "title": "Sign In",
+            "subtitle": "Enter your email and password to Sign in",
+            "dontHaveAccount": "Don't have an account?",
+            "or": "Or",
+            "facebook": "Sign in with Facebook",
+            "google": "Sign in with Google"
+        },
+        "reset": {
+            "title": "Reset Password",
+            "subtitle": "Enter your email to reset your password"
+
+        },
+        "hintName": "Enter your name",
+        "forgotPassword": "Forgot Password",
+        "resetPassword": "Reset Password",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+
+
+        "resetPasswordLink": "Reset Password Link"
+    },
+    "cart": {
+        "title": "My Cart",
+        "checkout": "Go to Checkout",
+        "quantity": "Quantity",
+        "total": "Total"
+
+    },
+    "productDetails": {
+        "title": "Product Details",
+        "reviews": "Reviews",
+        "relatedProducts": "Related Products"
+    },
+    "search": {
+        "title": "Find Products",
+        "search": "Search Store"
+    },
+    "favourite": {
+        "title": "Favourite"
+    },
+    "filter": {
+        "title": "Filter",
+        "price": "Price",
+        "rating": "Rating",
+        "discount": "Discount",
+        "reset": "Reset"
+    }
+
+
+}

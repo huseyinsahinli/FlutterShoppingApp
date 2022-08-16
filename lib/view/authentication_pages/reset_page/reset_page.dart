@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
-import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';

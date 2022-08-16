@@ -2,18 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
-import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/helper/text_scale_size.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
-import 'package:nectar_ui/view/authentication_pages/register_page/register_page.dart';
-import 'package:nectar_ui/view/authentication_pages/reset_page/reset_page.dart';
-import 'package:nectar_ui/view/home_page/home_page.dart';
 
 import '../../../core/constant/app_strings.dart';
 
@@ -65,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Strings.login,
+                      Strings.signIn,
                       style: Theme.of(context).textTheme.headline1,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
@@ -118,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 child: Text(
-                  Strings.login,
+                  Strings.signIn,
                   style: Theme.of(context).textTheme.bodyText1,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
@@ -145,10 +142,68 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: cWhiteColor,
+                    side: BorderSide(
+                      color: cMainColor,
+                      width: 1,
+                    ),
+                    fixedSize: Size(
+                      context.screenWidth,
+                      context.screenHeight * 0.06,
+                    ),
+                  ),
+                  onPressed: () {
+                    try {
+                      signInWithGoogle();
+                    } on FirebaseAuthException catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(e.code.toString()),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/png/google.png",
+                        fit: BoxFit.contain,
+                      ),
+                      Text(
+                        " Sign in with Google",
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                              color: cMainColor,
+                            ),
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
+                      )
+                    ],
+                  ))
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
