@@ -13,15 +13,20 @@ import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/navigator/app_router.dart';
 
-class SearchDetail extends StatelessWidget {
+class SearchDetailsPage extends StatefulWidget {
   final String title;
-  SearchDetail({Key? key, required this.title}) : super(key: key);
+  SearchDetailsPage({Key? key, required this.title}) : super(key: key);
 
+  @override
+  State<SearchDetailsPage> createState() => _SearchDetailsPageState();
+}
+
+class _SearchDetailsPageState extends State<SearchDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(widget.title),
         actions: [
           IconButton(
             onPressed: () {
@@ -112,7 +117,7 @@ class SearchDetail extends StatelessWidget {
                               ),
                               onPressed: () {},
                               child: SvgPicture.asset(
-                                IconEnums.plus.toPath,
+                                IconEnums.plus.toPathSvg,
                                 height: 17,
                                 color: cWhiteColor,
                               ),

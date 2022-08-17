@@ -30,7 +30,16 @@
         "search": "Search",
         "cart": "Cart",
         "favourite": "Favourite",
-        "profile": "Profile"
+        "profile": "Profile",
+        "account": "Account"
+    },
+    "shop": {
+        "exclusiveOffer": "Exclusive Offer",
+        "newArrival": "New Arrival",
+        "topSeller": "Top Seller",
+        "groceries": "Groceries",
+        "seeAll": "See All"
+
     },
     "account": {
         "orders": "Orders",
@@ -56,6 +65,7 @@
             "passwordNotMatch": "Passwords do not match",
             "fillAllFields": "Fill in all required fields with your information.",
             "orSignUpWithScoial": "Or sign up with social media",
+            "alreadyHaveAccount": "Already have an account?",
             "google": "Sign in with Google",
             "facebook": "Sign in with Facebook"
         },
@@ -92,14 +102,16 @@
     "productDetails": {
         "title": "Product Details",
         "reviews": "Reviews",
-        "relatedProducts": "Related Products"
+        "relatedProducts": "Related Products",
+        "addToCart": "Add to Cart"
     },
     "search": {
         "title": "Find Products",
         "search": "Search Store"
     },
     "favourite": {
-        "title": "Favourite"
+        "title": "Favourite",
+        "addToAllCart": "Add to All Cart"
     },
     "filter": {
         "title": "Filter",

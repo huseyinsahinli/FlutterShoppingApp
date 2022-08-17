@@ -1,4 +1,125 @@
-
 {
-    "settings": "Settings"
+
+    "splash": {
+        "title": "nectar",
+        "subtitle": "mobil alışveriş"
+    },
+    "onBoard": {
+        "page1": {
+            "title": "Mağazamıza Hoşgeldiniz",
+            "description": "Sebzelerinizi bir saat kadar kısa sürede alın"
+
+        },
+        "page2": {
+            "title": "Yemeklerinizi Sipariş Edin",
+            "description": "Artık cep telefonunuzdan istediğiniz zaman yemek siparişi verebilirsiniz."
+
+        },
+        "page3": {
+            "title": "Dakikalar İçinde Teslimat",
+            "description": "Sipariş verdikten sonra dakikalar içinde teslim alın."
+
+        },
+        "onBoardButton": {
+            "start": "Başla",
+            "next": "Sonraki"
+        }
+    },
+    "home": {
+        "shop": "Market",
+        "search": "Arama",
+        "cart": "Sepet",
+        "favourite": "Favori",
+        "profile": "Profil",
+        "account": "Hesap"
+    },
+    "shop": {
+        "exclusiveOffer": "Özel teklif",
+        "newArrival": "Yeni gelen",
+        "topSeller": "En çok satan",
+        "groceries": "Gıda",
+        "seeAll": "Tümünü gör"
+
+    },
+    "account": {
+        "orders": "Siparişler",
+        "myDetails": "Bilgilerim",
+        "deliveryAddres": "Teslimat adresi",
+        "myCart": "Kredi kartım",
+        "promoCard": "Promosyon kartı",
+        "notifications": "Bildirimler",
+        "theme": "Tema",
+        "settings": "Ayarlar",
+        "help": "Yardım",
+        "about": "Hakkında",
+        "logout": "Çıkış"
+    },
+    "auth": {
+        "signUp": {
+            "title": "Kayıt ol",
+            "subtitle": "Kaydolmak için e-posta adresinizi ve şifrenizi girin",
+            "terms1": "Kaydolarak, aşağıdakileri kabul etmiş olursunuz:",
+            "terms2": "Kullanım Şartları",
+            "terms3": "ve",
+            "terms4": "Gizlilik Politikası",
+            "passwordNotMatch": "Şifreler eşleşmiyor",
+            "fillAllFields": "Tüm alanları doldurun",
+            "orSignUpWithScoial": "Veya sosyal medya ile kaydolun",
+            "alreadyHaveAccount": "Zaten bir hesabınız var mı?",
+            "google": "Google ile kayıt yap",
+            "facebook": "Facebook ile kayıt yap"
+        },
+        "signIn": {
+            "title": "Giriş yap",
+            "subtitle": "Giriş yapmak için e-posta adresinizi ve şifrenizi girin",
+            "dontHaveAccount": "Hesabınız yok mu?",
+            "or": "ya da",
+            "facebook": "Facebook ile giriş yap",
+            "google": "Google ile giriş yap"
+        },
+        "reset": {
+            "title": "Şifre sıfırlama",
+            "subtitle": "Şifrenizi sıfırlamak için e-posta adresinizi girin"
+
+        },
+        "hintName": "Adınızı girin",
+        "forgotPassword": "Şifremi unuttum",
+        "resetPassword": "Şifreyi sıfırla",
+        "email": "E-posta",
+        "password": "Şifre",
+        "confirmPassword": "Şifreyi onayla",
+
+
+        "resetPasswordLink": "Şifrenizi sıfırlamak için buraya tıklayın"
+    },
+    "cart": {
+        "title": "Sepet",
+        "checkout": "Ödeme",
+        "quantity": "Miktar",
+        "total": "Toplam"
+
+    },
+    "productDetails": {
+        "title": "Ürün Detayları",
+        "reviews": "Yorumlar",
+        "relatedProducts": "Benzer Ürünler",
+        "addToCart": "Sepete Ekle"
+    },
+    "search": {
+        "title": "Arama",
+        "search": "Arama"
+    },
+    "favourite": {
+        "title": "Favoriler",
+        "addToAllCart": "Tümünü sepete ekle"
+    },
+    "filter": {
+        "title": "Filtrele",
+        "price": "Fiyat",
+        "rating": "Değerlendirme",
+        "discount": "İndirim",
+        "reset": "Sıfırla"
+    }
+
+
 }

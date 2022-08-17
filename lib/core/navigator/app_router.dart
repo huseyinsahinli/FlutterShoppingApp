@@ -10,6 +10,7 @@ import '../../view/authentication_pages/register_page/register_page.dart';
 import '../../view/authentication_pages/reset_page/reset_page.dart';
 import '../../view/cart_page/cart_page.dart';
 import '../../view/detalis_page/product_detail_page.dart';
+import '../../view/detalis_page/search_detail_page.dart';
 import '../../view/favourite_page/favourite_page.dart';
 import '../../view/onboarding_page/view/onboard_view.dart';
 import '../../view/search_page/search_page.dart';
@@ -41,6 +42,18 @@ part 'app_router.gr.dart';
       path: '/reset',
     ),
     AutoRoute(
+      page: SearchDetailsPage,
+      path: 'search/:query',
+    ),
+    AutoRoute(
+      page: ProductDetailsPage,
+      path: ':id',
+    ),
+    AutoRoute(
+      page: FilterPage,
+      path: 'filter',
+    ),
+    AutoRoute(
       page: HomePage,
       children: [
         AutoRoute(
@@ -48,8 +61,8 @@ part 'app_router.gr.dart';
           path: 'shop',
         ),
         AutoRoute(
-          page: ExplorePage,
-          path: 'explore',
+          page: SearchPage,
+          path: 'search',
         ),
         AutoRoute(
           page: CartPage,
@@ -63,14 +76,6 @@ part 'app_router.gr.dart';
           page: AccountPage,
           path: 'account',
         ),
-        AutoRoute(
-          page: FilterPage,
-          path: 'filter',
-        ),
-        AutoRoute(
-          page: ProductDetailsPage,
-          path: 'product',
-        )
       ],
     ),
   ],

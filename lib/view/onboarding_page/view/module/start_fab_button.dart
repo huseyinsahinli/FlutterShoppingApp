@@ -14,7 +14,9 @@ class _StartFabButton extends StatelessWidget {
       elevation: 4,
       onPressed: onPressed,
       child: Text(
-        isLastPage ? Strings.start : Strings.next,
+        isLastPage
+            ? LocaleKeys.onBoard_onBoardButton_start.locale
+            : LocaleKeys.onBoard_onBoardButton_next.locale,
         style: Theme.of(context).textTheme.subtitle2!.copyWith(
               color: cWhiteColor,
             ),

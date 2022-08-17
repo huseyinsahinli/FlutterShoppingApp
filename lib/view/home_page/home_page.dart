@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_icon.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
-import '../../../core/constant/app_strings.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -17,9 +19,9 @@ class _HomePageState extends State<HomePage> {
       physics: const NeverScrollableScrollPhysics(),
       routes: [
         ShopRoute(),
-        ExploreRoute(),
-        FavouriteRoute(),
+        SearchRoute(),
         CartRoute(),
+        FavouriteRoute(),
         AccountRoute(),
       ],
       builder: (context, child, tabController) {
@@ -48,17 +50,25 @@ class _HomePageState extends State<HomePage> {
               child: BottomNavigationBar(
                 items: [
                   _createBottomBarItem(
-                      const Icon(Icons.store_mall_directory_outlined),
-                      Strings.shop),
+                    AppIcons.shop,
+                    LocaleKeys.home_shop.locale,
+                  ),
                   _createBottomBarItem(
-                      const Icon(Icons.search_outlined), Strings.explore),
+                    AppIcons.search,
+                    LocaleKeys.home_search.locale,
+                  ),
                   _createBottomBarItem(
-                      const Icon(Icons.shopping_cart_outlined), Strings.cart),
+                    AppIcons.cart,
+                    LocaleKeys.home_cart.locale,
+                  ),
                   _createBottomBarItem(
-                      const Icon(Icons.favorite_border_outlined),
-                      Strings.favourite),
+                    AppIcons.favourite,
+                    LocaleKeys.home_favourite.locale,
+                  ),
                   _createBottomBarItem(
-                      const Icon(Icons.person_outlined), Strings.account),
+                    AppIcons.account,
+                    LocaleKeys.home_account.locale,
+                  ),
                 ],
                 onTap: context.tabsRouter.setActiveIndex,
                 currentIndex: context.tabsRouter.activeIndex,

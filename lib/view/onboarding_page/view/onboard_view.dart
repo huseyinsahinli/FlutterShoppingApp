@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import '../../../core/constant/app_strings.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../../core/widgets/onboard_cart.dart';
 import '../viewmodel/onboard_model.dart';

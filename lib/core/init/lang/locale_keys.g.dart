@@ -22,7 +22,14 @@ abstract class  LocaleKeys {
   static const home_cart = 'home.cart';
   static const home_favourite = 'home.favourite';
   static const home_profile = 'home.profile';
+  static const home_account = 'home.account';
   static const home = 'home';
+  static const shop_exclusiveOffer = 'shop.exclusiveOffer';
+  static const shop_newArrival = 'shop.newArrival';
+  static const shop_topSeller = 'shop.topSeller';
+  static const shop_groceries = 'shop.groceries';
+  static const shop_seeAll = 'shop.seeAll';
+  static const shop = 'shop';
   static const account_orders = 'account.orders';
   static const account_myDetails = 'account.myDetails';
   static const account_deliveryAddres = 'account.deliveryAddres';
@@ -44,6 +51,7 @@ abstract class  LocaleKeys {
   static const auth_signUp_passwordNotMatch = 'auth.signUp.passwordNotMatch';
   static const auth_signUp_fillAllFields = 'auth.signUp.fillAllFields';
   static const auth_signUp_orSignUpWithScoial = 'auth.signUp.orSignUpWithScoial';
+  static const auth_signUp_alreadyHaveAccount = 'auth.signUp.alreadyHaveAccount';
   static const auth_signUp_google = 'auth.signUp.google';
   static const auth_signUp_facebook = 'auth.signUp.facebook';
   static const auth_signUp = 'auth.signUp';
@@ -73,11 +81,13 @@ abstract class  LocaleKeys {
   static const productDetails_title = 'productDetails.title';
   static const productDetails_reviews = 'productDetails.reviews';
   static const productDetails_relatedProducts = 'productDetails.relatedProducts';
+  static const productDetails_addToCart = 'productDetails.addToCart';
   static const productDetails = 'productDetails';
   static const search_title = 'search.title';
   static const search_search = 'search.search';
   static const search = 'search';
   static const favourite_title = 'favourite.title';
+  static const favourite_addToAllCart = 'favourite.addToAllCart';
   static const favourite = 'favourite';
   static const filter_title = 'filter.title';
   static const filter_price = 'filter.price';

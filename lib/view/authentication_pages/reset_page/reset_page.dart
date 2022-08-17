@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/my_custom_textfield.dart';
@@ -35,7 +37,7 @@ class _ResetPageState extends State<ResetPage> {
                 height: context.screenHeight * 0.15,
                 width: context.screenWidth * 0.15,
                 child: SvgPicture.asset(
-                  IconEnums.logo.toPath,
+                  IconEnums.logo.toPathSvg,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -46,11 +48,11 @@ class _ResetPageState extends State<ResetPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Strings.reset,
+                      LocaleKeys.auth_reset_title.locale,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      Strings.resetMessage,
+                      LocaleKeys.auth_reset_subtitle.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
@@ -58,7 +60,7 @@ class _ResetPageState extends State<ResetPage> {
               ),
               CustomTextField(
                 controller: TextEditingController(),
-                hintText: Strings.email,
+                hintText: LocaleKeys.auth_email.locale,
                 prefixIcon: Icons.mail,
                 obscureText: false,
               ),
@@ -71,7 +73,7 @@ class _ResetPageState extends State<ResetPage> {
                 ),
                 onPressed: () async {},
                 child: Text(
-                  Strings.reset,
+                  LocaleKeys.auth_reset_title.locale,
                   style: Theme.of(context).textTheme.bodyText1,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),

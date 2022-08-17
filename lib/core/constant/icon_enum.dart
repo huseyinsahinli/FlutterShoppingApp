@@ -32,13 +32,13 @@ enum IconEnums {
   loginPage
 }
 
-extension ImageEnumsExtension on IconEnums {
-  String get toPath => 'assets/images/svg/ic_$name.svg';
+extension IconEnumsExtension on IconEnums {
+  String get toPathSvg => 'assets/images/svg/ic_$name.svg';
   String get toPathPng => 'assets/images/png/ic_$name.png';
 
-  SvgPicture get toImage => SvgPicture.asset(toPath);
+  SvgPicture get toImage => SvgPicture.asset(toPathSvg);
   SvgPicture get toImageActive => SvgPicture.asset(
-        toPath,
+        toPathSvg,
         color: cMainColor,
       );
 }

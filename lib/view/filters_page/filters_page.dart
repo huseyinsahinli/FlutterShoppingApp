@@ -1,11 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
-import '../../core/constant/app_strings.dart';
+import '../../core/init/lang/locale_keys.g.dart';
 
 class FilterPage extends StatefulWidget {
   FilterPage({Key? key}) : super(key: key);
@@ -33,8 +32,8 @@ class _FilterPageState extends State<FilterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          Strings.filters,
+        title: Text(
+          LocaleKeys.filter_title.locale,
         ),
         leading: IconButton(
           onPressed: () {
@@ -54,7 +53,7 @@ class _FilterPageState extends State<FilterPage> {
         child: ListView(
           children: [
             Padding(
-              padding: AppPadding.symmetric(),
+              padding: const AppPadding.symmetric(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -78,7 +78,7 @@ class HorizontalListView extends StatelessWidget {
                             ),
                             onPressed: () {},
                             child: SvgPicture.asset(
-                              IconEnums.plus.toPath,
+                              IconEnums.plus.toPathSvg,
                               height: 17,
                               color: cWhiteColor,
                             ),

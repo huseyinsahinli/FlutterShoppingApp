@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
-import 'package:nectar_ui/core/extensions/double_extensions.dart';
 
 import '../../view/onboarding_page/viewmodel/onboard_model.dart';
 import '../helper/text_scale_size.dart';
+import 'my_custom_column.dart';
 
 class OnBoardCard extends StatelessWidget {
   final OnBoardModel model;
@@ -11,7 +11,8 @@ class OnBoardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return CustomColumn(
+      spaceHeight: 15.0,
       children: [
         Text(
           model.title,
@@ -21,7 +22,6 @@ class OnBoardCard extends StatelessWidget {
               ),
           textScaleFactor: ScaleSize.textScaleFactor(context),
         ),
-        15.0.sizedBoxOnlyHeight,
         Text(
           model.description,
           textAlign: TextAlign.center,
@@ -30,8 +30,7 @@ class OnBoardCard extends StatelessWidget {
               ),
           textScaleFactor: ScaleSize.textScaleFactor(context),
         ),
-        15.0.sizedBoxOnlyHeight,
-        Image.asset(model.imageWithPath),
+        model.image
       ],
     );
   }

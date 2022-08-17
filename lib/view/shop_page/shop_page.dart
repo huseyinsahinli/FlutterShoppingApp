@@ -4,11 +4,13 @@ import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/image_path.dart';
 import '../../core/widgets/horizontal_list_view_builder.dart';
 import '../../../core/widgets/search_text_field.dart';
+import '../../core/init/lang/locale_keys.g.dart';
 
 class ShopPage extends StatefulWidget {
   ShopPage({Key? key}) : super(key: key);
@@ -65,12 +67,12 @@ class _ShopPageState extends State<ShopPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    Strings.exclusiveOffer,
+                    LocaleKeys.shop_exclusiveOffer.locale,
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: const Text(Strings.seeAll),
+                    child: Text(LocaleKeys.shop_seeAll.locale),
                   )
                 ],
               ),
@@ -81,13 +83,13 @@ class _ShopPageState extends State<ShopPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      Strings.bestSelling,
+                      LocaleKeys.shop_topSeller.locale,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
-                        Strings.seeAll,
+                      child: Text(
+                        LocaleKeys.shop_seeAll.locale,
                       ),
                     )
                   ],
@@ -100,12 +102,12 @@ class _ShopPageState extends State<ShopPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      Strings.groceries,
+                      LocaleKeys.shop_groceries.locale,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(Strings.seeAll),
+                      child: Text(LocaleKeys.shop_seeAll.locale),
                     )
                   ],
                 ),

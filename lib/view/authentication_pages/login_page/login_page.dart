@@ -6,7 +6,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/helper/text_scale_size.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
@@ -51,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: context.screenHeight * 0.25,
                 width: context.screenWidth * 0.25,
                 child: SvgPicture.asset(
-                  IconEnums.logo.toPath,
+                  IconEnums.logo.toPathSvg,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -62,12 +64,12 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Strings.signIn,
+                      LocaleKeys.auth_signIn_title.locale,
                       style: Theme.of(context).textTheme.headline1,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     Text(
-                      Strings.loginMessage,
+                      LocaleKeys.auth_signIn_subtitle.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
@@ -75,13 +77,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               CustomTextField(
-                hintText: Strings.email,
+                hintText: LocaleKeys.auth_email.locale,
                 prefixIcon: Icons.mail,
                 controller: _email,
                 obscureText: false,
               ),
               CustomTextField(
-                hintText: Strings.password,
+                hintText: LocaleKeys.auth_password.locale,
                 prefixIcon: Icons.lock,
                 controller: _password,
                 obscureText: true,
@@ -93,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     context.router.replace(ResetRoute());
                   },
                   child: Text(
-                    Strings.forgotPassword,
+                    LocaleKeys.auth_forgotPassword.locale,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ),
@@ -115,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 },
                 child: Text(
-                  Strings.signIn,
+                  LocaleKeys.auth_signIn_title.locale,
                   style: Theme.of(context).textTheme.bodyText1,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
@@ -128,12 +130,12 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      Strings.dontHaveAccount,
+                      LocaleKeys.auth_signIn_dontHaveAccount.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     Text(
-                      Strings.signUp,
+                      LocaleKeys.auth_signUp_title.locale,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: cMainColor,
                           ),
@@ -174,7 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                         fit: BoxFit.contain,
                       ),
                       Text(
-                        " Sign in with Google",
+                        LocaleKeys.auth_signIn_google.locale,
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: cMainColor,
                             ),

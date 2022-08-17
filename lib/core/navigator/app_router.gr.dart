@@ -45,6 +45,24 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: ResetPage(key: args.key));
     },
+    SearchDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchDetailsRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: SearchDetailsPage(key: args.key, title: args.title));
+    },
+    ProductDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductDetailsRouteArgs>(
+          orElse: () => const ProductDetailsRouteArgs());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: ProductDetailsPage(key: args.key));
+    },
+    FilterRoute.name: (routeData) {
+      final args = routeData.argsAs<FilterRouteArgs>(
+          orElse: () => const FilterRouteArgs());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: FilterPage(key: args.key));
+    },
     HomeRoute.name: (routeData) {
       final args =
           routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
@@ -57,11 +75,11 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: ShopPage(key: args.key));
     },
-    ExploreRoute.name: (routeData) {
-      final args = routeData.argsAs<ExploreRouteArgs>(
-          orElse: () => const ExploreRouteArgs());
+    SearchRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchRouteArgs>(
+          orElse: () => const SearchRouteArgs());
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: ExplorePage(key: args.key));
+          routeData: routeData, child: SearchPage(key: args.key));
     },
     CartRoute.name: (routeData) {
       final args =
@@ -80,18 +98,6 @@ class _$AppRouter extends RootStackRouter {
           orElse: () => const AccountRouteArgs());
       return MaterialPageX<dynamic>(
           routeData: routeData, child: AccountPage(key: args.key));
-    },
-    FilterRoute.name: (routeData) {
-      final args = routeData.argsAs<FilterRouteArgs>(
-          orElse: () => const FilterRouteArgs());
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: FilterPage(key: args.key));
-    },
-    ProductDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<ProductDetailsRouteArgs>(
-          orElse: () => const ProductDetailsRouteArgs());
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: ProductDetailsPage(key: args.key));
     }
   };
 
@@ -102,18 +108,17 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LoginRoute.name, path: '/login'),
         RouteConfig(RegisterRoute.name, path: '/register'),
         RouteConfig(ResetRoute.name, path: '/reset'),
+        RouteConfig(SearchDetailsRoute.name, path: 'search/:query'),
+        RouteConfig(ProductDetailsRoute.name, path: ':id'),
+        RouteConfig(FilterRoute.name, path: 'filter'),
         RouteConfig(HomeRoute.name, path: '/home-page', children: [
           RouteConfig(ShopRoute.name, path: 'shop', parent: HomeRoute.name),
-          RouteConfig(ExploreRoute.name,
-              path: 'explore', parent: HomeRoute.name),
+          RouteConfig(SearchRoute.name, path: 'search', parent: HomeRoute.name),
           RouteConfig(CartRoute.name, path: 'cart', parent: HomeRoute.name),
           RouteConfig(FavouriteRoute.name,
               path: 'favourite', parent: HomeRoute.name),
           RouteConfig(AccountRoute.name,
-              path: 'account', parent: HomeRoute.name),
-          RouteConfig(FilterRoute.name, path: 'filter', parent: HomeRoute.name),
-          RouteConfig(ProductDetailsRoute.name,
-              path: 'product', parent: HomeRoute.name)
+              path: 'account', parent: HomeRoute.name)
         ])
       ];
 }
@@ -208,6 +213,72 @@ class ResetRouteArgs {
 }
 
 /// generated route for
+/// [SearchDetailsPage]
+class SearchDetailsRoute extends PageRouteInfo<SearchDetailsRouteArgs> {
+  SearchDetailsRoute({Key? key, required String title})
+      : super(SearchDetailsRoute.name,
+            path: 'search/:query',
+            args: SearchDetailsRouteArgs(key: key, title: title));
+
+  static const String name = 'SearchDetailsRoute';
+}
+
+class SearchDetailsRouteArgs {
+  const SearchDetailsRouteArgs({this.key, required this.title});
+
+  final Key? key;
+
+  final String title;
+
+  @override
+  String toString() {
+    return 'SearchDetailsRouteArgs{key: $key, title: $title}';
+  }
+}
+
+/// generated route for
+/// [ProductDetailsPage]
+class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({Key? key})
+      : super(ProductDetailsRoute.name,
+            path: ':id', args: ProductDetailsRouteArgs(key: key));
+
+  static const String name = 'ProductDetailsRoute';
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ProductDetailsRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [FilterPage]
+class FilterRoute extends PageRouteInfo<FilterRouteArgs> {
+  FilterRoute({Key? key})
+      : super(FilterRoute.name,
+            path: 'filter', args: FilterRouteArgs(key: key));
+
+  static const String name = 'FilterRoute';
+}
+
+class FilterRouteArgs {
+  const FilterRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'FilterRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
   HomeRoute({Key? key, List<PageRouteInfo>? children})
@@ -251,23 +322,23 @@ class ShopRouteArgs {
 }
 
 /// generated route for
-/// [ExplorePage]
-class ExploreRoute extends PageRouteInfo<ExploreRouteArgs> {
-  ExploreRoute({Key? key})
-      : super(ExploreRoute.name,
-            path: 'explore', args: ExploreRouteArgs(key: key));
+/// [SearchPage]
+class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
+  SearchRoute({Key? key})
+      : super(SearchRoute.name,
+            path: 'search', args: SearchRouteArgs(key: key));
 
-  static const String name = 'ExploreRoute';
+  static const String name = 'SearchRoute';
 }
 
-class ExploreRouteArgs {
-  const ExploreRouteArgs({this.key});
+class SearchRouteArgs {
+  const SearchRouteArgs({this.key});
 
   final Key? key;
 
   @override
   String toString() {
-    return 'ExploreRouteArgs{key: $key}';
+    return 'SearchRouteArgs{key: $key}';
   }
 }
 
@@ -330,47 +401,5 @@ class AccountRouteArgs {
   @override
   String toString() {
     return 'AccountRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [FilterPage]
-class FilterRoute extends PageRouteInfo<FilterRouteArgs> {
-  FilterRoute({Key? key})
-      : super(FilterRoute.name,
-            path: 'filter', args: FilterRouteArgs(key: key));
-
-  static const String name = 'FilterRoute';
-}
-
-class FilterRouteArgs {
-  const FilterRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'FilterRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [ProductDetailsPage]
-class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
-  ProductDetailsRoute({Key? key})
-      : super(ProductDetailsRoute.name,
-            path: 'product', args: ProductDetailsRouteArgs(key: key));
-
-  static const String name = 'ProductDetailsRoute';
-}
-
-class ProductDetailsRouteArgs {
-  const ProductDetailsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ProductDetailsRouteArgs{key: $key}';
   }
 }

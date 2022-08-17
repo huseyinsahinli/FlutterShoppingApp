@@ -4,9 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/icon_enum.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 
 import '../../../core/constant/app_constant.dart';
+import '../../core/extensions/double_extensions.dart';
+import '../../core/helper/text_scale_size.dart';
+import '../../core/init/lang/locale_keys.g.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key}) : super(key: key);
@@ -33,45 +37,39 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: cMainColor,
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconEnums.whiteLogo.toImage,
-                const SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "nectar",
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
+      backgroundColor: cMainColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconEnums.whiteLogo.toImage,
+              15.0.sizedBoxOnlyWidth,
+              Column(
+                children: [
+                  Text(
+                    LocaleKeys.splash_title.locale,
+                    textAlign: TextAlign.end,
+                    style: Theme.of(context).textTheme.headline1!.copyWith(
                           color: cWhiteColor,
                           fontSize: 64,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "online groceries",
-                      style: TextStyle(
-                          fontSize: 18,
-                          letterSpacing: 3.75,
-                          color: cWhiteColor,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+                        ),
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
+                  ),
+                  Text(
+                    LocaleKeys.splash_subtitle.locale,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2!
+                        .copyWith(color: cWhiteColor, letterSpacing: 3.75),
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
       bottomSheet: const LinearProgressIndicator(
         backgroundColor: cMainColor,

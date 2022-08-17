@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/app_strings.dart';
@@ -7,6 +8,7 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/extensions/double_extensions.dart';
 import '../../core/helper/text_scale_size.dart';
+import '../../core/init/lang/locale_keys.g.dart';
 
 class FavouritePage extends StatefulWidget {
   FavouritePage({Key? key}) : super(key: key);
@@ -20,8 +22,8 @@ class _FavouritePageState extends State<FavouritePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          Strings.favourite,
+        title: Text(
+          LocaleKeys.favourite_title.locale,
         ),
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(4.0),
@@ -29,6 +31,7 @@ class _FavouritePageState extends State<FavouritePage> {
         ),
       ),
       body: ListView(children: [
+        //TODO: Add favourite items here
         Padding(
           padding: (context.screenHeight * 0.15).edgeIntesetsOnlyBottom,
           child: Column(
@@ -68,7 +71,7 @@ class _FavouritePageState extends State<FavouritePage> {
             width: context.screenWidth,
             child: Center(
               child: Text(
-                Strings.addAllToCart,
+                LocaleKeys.favourite_addToAllCart.locale,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ),

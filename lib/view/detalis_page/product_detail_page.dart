@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/icon_enum.dart';
@@ -131,7 +133,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     onExpansionChanged: _openExpansionTile,
                     tilePadding: const EdgeInsets.only(right: 20),
                     title: Text(
-                      Strings.productDetail,
+                      LocaleKeys.productDetails_title.locale,
                       textAlign: TextAlign.left,
                       style: Theme.of(context).textTheme.subtitle2,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
@@ -210,7 +212,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           child: SizedBox(
             width: context.screenWidth,
             child: Text(
-              Strings.addToBasket,
+              LocaleKeys.productDetails_addToCart.locale,
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
               textScaleFactor: ScaleSize.textScaleFactor(context),

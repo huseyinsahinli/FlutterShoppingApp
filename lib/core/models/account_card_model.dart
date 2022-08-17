@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/constant/app_strings.dart';
+import 'package:nectar_ui/core/constant/app_icon.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 
 class AccountModel {
   final String title;
@@ -12,18 +14,18 @@ class AccountModel {
 
 class AccountModels {
   static final List<AccountModel> accountCards = [
-    AccountModel(Strings.orders, const Icon(Icons.shop_outlined)),
-    AccountModel(Strings.myDetails, const Icon(Icons.badge_outlined)),
+    AccountModel(LocaleKeys.account_orders.locale, AppIcons.accountOrders),
+    AccountModel(LocaleKeys.account_myDetails.locale, AppIcons.accountDetails),
     AccountModel(
-        Strings.deliveryAddress, const Icon(Icons.location_on_outlined)),
-    AccountModel(Strings.myCart, const Icon(Icons.credit_card_outlined)),
-    AccountModel(Strings.promoCard, const Icon(Icons.discount_outlined)),
+        LocaleKeys.account_deliveryAddres.locale, AppIcons.accountAddress),
+    AccountModel(LocaleKeys.account_myCart.locale, AppIcons.accountCart),
+    AccountModel(LocaleKeys.account_promoCard.locale, AppIcons.accountPromo),
     AccountModel(
-        Strings.notifecations, const Icon(Icons.notifications_none_outlined)),
-    AccountModel(Strings.theme, const Icon(Icons.brightness_4_outlined)),
-    AccountModel(Strings.settings, const Icon(Icons.settings_outlined)),
-    AccountModel(Strings.help, const Icon(Icons.help_outline)),
-    AccountModel(Strings.about, const Icon(Icons.info_outline)),
-    AccountModel(Strings.logout, const Icon(Icons.logout))
+        LocaleKeys.account_notifications.locale, AppIcons.accountNotifications),
+    AccountModel(LocaleKeys.account_theme.locale, AppIcons.accountTheme),
+    AccountModel(LocaleKeys.account_settings.locale, AppIcons.accountSettings),
+    AccountModel(LocaleKeys.account_help.locale, AppIcons.accountHelp),
+    AccountModel(LocaleKeys.account_about.locale, AppIcons.accountAbout),
+    AccountModel(LocaleKeys.account_logout.locale, AppIcons.accountLogout),
   ];
 }

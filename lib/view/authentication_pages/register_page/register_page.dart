@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/widgets/divider.dart';
 import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
@@ -12,6 +13,7 @@ import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/my_custom_textfield.dart';
@@ -56,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: context.screenHeight * 0.15,
                 width: context.screenWidth * 0.15,
                 child: SvgPicture.asset(
-                  IconEnums.logo.toPath,
+                  IconEnums.logo.toPathSvg,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -67,11 +69,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      Strings.signUp,
+                      LocaleKeys.auth_signUp_title.locale,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      Strings.registerMessage,
+                      LocaleKeys.auth_signUp_subtitle.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
@@ -79,25 +81,25 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               CustomTextField(
                 controller: TextEditingController(),
-                hintText: 'Name',
+                hintText: LocaleKeys.auth_hintName.locale,
                 prefixIcon: Icons.lock,
                 obscureText: false,
               ),
               CustomTextField(
                 controller: _email,
-                hintText: 'Email',
+                hintText: LocaleKeys.auth_email.locale,
                 prefixIcon: Icons.email,
                 obscureText: false,
               ),
               CustomTextField(
                 controller: _password,
-                hintText: 'Password',
+                hintText: LocaleKeys.auth_password.locale,
                 prefixIcon: Icons.lock,
                 obscureText: true,
               ),
               CustomTextField(
                 controller: _retypePassword,
-                hintText: 'Confirm Password',
+                hintText: LocaleKeys.auth_confirmPassword.locale,
                 prefixIcon: Icons.lock,
                 obscureText: true,
               ),
@@ -107,21 +109,21 @@ class _RegisterPageState extends State<RegisterPage> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'By creating an account, you agree to our ',
+                      text: LocaleKeys.auth_signUp_terms1.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     TextSpan(
-                      text: 'Terms of Service',
+                      text: LocaleKeys.auth_signUp_terms2.locale,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: cMainColor,
                           ),
                     ),
                     TextSpan(
-                      text: ' and ',
+                      text: LocaleKeys.auth_signUp_terms3.locale,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
                     TextSpan(
-                      text: 'Privacy Policy',
+                      text: LocaleKeys.auth_signUp_terms4.locale,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: cMainColor,
                           ),
@@ -162,7 +164,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Passwords do not match.'),
+                          content: Text(
+                              LocaleKeys.auth_signUp_passwordNotMatch.locale),
                           backgroundColor: Colors.red,
                         ),
                       );
@@ -171,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Fill in all required fields with your information.',
+                          LocaleKeys.auth_signUp_fillAllFields.locale,
                         ),
                         backgroundColor: Colors.red,
                       ),
@@ -179,7 +182,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   }
                 },
                 child: Text(
-                  Strings.signUp,
+                  LocaleKeys.auth_signUp_title.locale,
                   style: Theme.of(context).textTheme.bodyText1,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
@@ -188,7 +191,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    Strings.alreadyHaveAccount,
+                    LocaleKeys.auth_signUp_alreadyHaveAccount.locale,
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                   TextButton(
@@ -196,7 +199,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       context.router.replace(LoginRoute());
                     },
                     child: Text(
-                      Strings.signIn,
+                      LocaleKeys.auth_signIn_title.locale,
                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: cMainColor,
                             decoration: TextDecoration.underline,
@@ -206,7 +209,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               Text(
-                'Or sign up with social media',
+                LocaleKeys.auth_signUp_orSignUpWithScoial.locale,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               const CustomDivider(),
@@ -242,7 +245,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         fit: BoxFit.contain,
                       ),
                       Text(
-                        "  Sign up with Google",
+                        LocaleKeys.auth_signUp_google.locale,
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: cMainColor,
                             ),

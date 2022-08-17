@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
@@ -25,8 +26,8 @@ class _CartPageState extends State<CartPage> {
           preferredSize: Size.fromHeight(4.0),
           child: CustomDivider(),
         ),
-        title: const Text(
-          Strings.myCart,
+        title: Text(
+          LocaleKeys.cart_title.locale,
         ),
       ),
       body: ListView(
@@ -62,7 +63,7 @@ class _CartPageState extends State<CartPage> {
                 padding: 8.0.edgeIntesetsAll,
                 child: FittedBox(
                   child: Text(
-                    Strings.goToCheckout,
+                    LocaleKeys.cart_checkout.locale,
                     style: Theme.of(context).textTheme.bodyText1,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),

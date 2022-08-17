@@ -19,6 +19,11 @@ class MyThemes {
         fontWeight: FontWeight.w900,
         fontSize: 20,
       ),
+      headline4: TextStyle(
+        color: cTextColor,
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+      ),
       subtitle1: TextStyle(
         color: cTextColor,
         fontSize: 14,
@@ -40,15 +45,8 @@ class MyThemes {
         fontWeight: FontWeight.w700,
       ),
     ),
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
       primary: cMainColor,
-      // secondary: cSecondaryColor,
-      // surface: cSurfaceColor,
-      // background: cBackgroundColor,
-      // error: cErrorColor,
-      // onPrimary: cOnPrimaryColor,
-      // onSecondary: cOnSecondaryColor,
-      // onSurface: cOnSurfaceColor,
       onBackground: cWhiteColor,
       onError: Colors.red,
       brightness: Brightness.light,

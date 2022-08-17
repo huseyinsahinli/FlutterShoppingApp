@@ -25,8 +25,10 @@ class _TabIndicatorState extends State<TabIndicator>
   @override
   void initState() {
     super.initState();
-    _tabController =
-        TabController(length: OnBoardModels.onBoardItems.length, vsync: this);
+    _tabController = TabController(
+      length: OnBoardModels.onBoardItems.length,
+      vsync: this,
+    );
   }
 
   @override

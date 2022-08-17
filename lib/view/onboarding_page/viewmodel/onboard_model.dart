@@ -1,20 +1,32 @@
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
+
+import '../../../core/constant/image_enum.dart';
+
 class OnBoardModel {
   final String title;
   final String description;
-  final String imageName;
+  final dynamic image;
 
-  OnBoardModel(this.title, this.description, this.imageName);
-
-  String get imageWithPath => 'assets/images/png/$imageName.png';
+  OnBoardModel(this.title, this.description, this.image);
 }
 
 class OnBoardModels {
   static final List<OnBoardModel> onBoardItems = [
-    OnBoardModel('Welcome to our store',
-        'Get your groceries in as fast as one hour ', 'ic_chef'),
-    OnBoardModel('Order Your Food',
-        'Now you can order food any time right from your mobile. ', 'ic_order'),
-    OnBoardModel('Delivery in Minutes',
-        'Get it delivered within minutes of ordering. ', 'ic_delivery'),
+    OnBoardModel(
+      LocaleKeys.onBoard_page1_title.locale,
+      LocaleKeys.onBoard_page1_description.locale,
+      ImageEnums.chef.toImagePng,
+    ),
+    OnBoardModel(
+      LocaleKeys.onBoard_page2_title.locale,
+      LocaleKeys.onBoard_page2_description.locale,
+      ImageEnums.order.toImagePng,
+    ),
+    OnBoardModel(
+      LocaleKeys.onBoard_page3_title.locale,
+      LocaleKeys.onBoard_page3_description.locale,
+      ImageEnums.delivery.toImagePng,
+    ),
   ];
 }
