@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
+import 'package:nectar_ui/core/helper/text_scale_size.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/core/services/firestore.dart';
 import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -110,50 +113,6 @@ class _ShopPageState extends State<ShopPage> {
                       child: Text(LocaleKeys.shop_seeAll.locale),
                     )
                   ],
-                ),
-              ),
-              Padding(
-                padding: const AppPadding.onlyTop(),
-                child: SizedBox(
-                  height: 105,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    cacheExtent: 105,
-                    itemExtent: 250,
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const AppPadding.onlyRight(),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              color: cGroceriesBackgroundColors[index],
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            child: Padding(
-                              padding: const AppPadding.symmetric(),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                      ImagePath.groceriesListImagePath[index]),
-                                  Padding(
-                                    padding: const AppPadding.onlyLeft(),
-                                    child: Text(
-                                      Strings.groceriesListHeads[index],
-                                      style:
-                                          Theme.of(context).textTheme.headline3,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
                 ),
               ),
               20.0.sizedBoxOnlyHeight,
