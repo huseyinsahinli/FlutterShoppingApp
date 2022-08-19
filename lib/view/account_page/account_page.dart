@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:nectar_ui/core/widgets/custom_bottom_sheet.dart';
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
@@ -100,8 +101,17 @@ class _AccountPageState extends State<AccountPage> {
               itemBuilder: ((context, index) {
                 return InkWell(
                   onTap: () {
-                    //auth.signOut();
-                    // context.setLocale(AppConstant.TR_LOCALE);
+                    AccountModels.accountCards[index].bottomSheet ?? false
+                        ? ShowSheetMixin.showCustomSheet(
+                            context: context,
+                            child: AccountModels.accountCards[index].widget ??
+                                Text('Boş'),
+                          )
+                        : context.router.push(
+                            TransactionRoute(
+                              account: AccountModels.accountCards[index],
+                            ),
+                          );
                   },
                   child: ListTile(
                     iconColor: Theme.of(context).iconTheme.color,

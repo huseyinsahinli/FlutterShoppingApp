@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -58,7 +59,19 @@ class _HomePageState extends State<HomePage> {
                     LocaleKeys.home_search.locale,
                   ),
                   _createBottomBarItem(
-                    AppIcons.cart,
+                    Center(
+                      child: Badge(
+                        badgeContent: Text(
+                          '5',
+                          style:
+                              Theme.of(context).textTheme.subtitle2!.copyWith(
+                                    color: Colors.white,
+                                  ),
+                        ),
+                        animationDuration: const Duration(milliseconds: 300),
+                        child: AppIcons.cart,
+                      ),
+                    ),
                     LocaleKeys.home_cart.locale,
                   ),
                   _createBottomBarItem(
@@ -80,7 +93,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  BottomNavigationBarItem _createBottomBarItem(Icon icon, String label) {
+  BottomNavigationBarItem _createBottomBarItem(icon, String label) {
     return BottomNavigationBarItem(icon: icon, label: label);
   }
 }

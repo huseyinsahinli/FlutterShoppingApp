@@ -102,8 +102,6 @@ class _CartPageState extends State<CartPage> {
         Padding(
           padding: const AppPadding.all(),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
                 imagePath,
@@ -111,102 +109,98 @@ class _CartPageState extends State<CartPage> {
                 width: 75,
                 fit: BoxFit.contain,
               ),
-              Padding(
-                padding: const AppPadding.onlyLeft(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      style: Theme.of(context).textTheme.subtitle2,
-                      textAlign: TextAlign.start,
-                      textScaleFactor: ScaleSize.textScaleFactor(context),
-                    ),
-                    5.0.sizedBoxOnlyHeight,
-                    Text(
-                      "$kg, Price",
-                      style: Theme.of(context).textTheme.bodyText2,
-                      textAlign: TextAlign.start,
-                      textScaleFactor: ScaleSize.textScaleFactor(context),
-                    ),
-                    10.0.sizedBoxOnlyHeight,
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 45.67,
-                          height: 45.67,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              onPrimary: Colors.grey,
-                              primary: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: Color(0xffF0F0F0),
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(17.0),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: IconEnums.remove.toImage,
-                          ),
-                        ),
-                        Padding(
-                          padding: const AppPadding.symmetricOnlyHorizontal(),
-                          child: Text(
-                            "$stock",
-                            style: Theme.of(context).textTheme.subtitle1,
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 45.67,
-                          height: 45.67,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              onPrimary: Colors.grey,
-                              primary: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: Color(0xffF0F0F0),
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(17.0),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: IconEnums.plus.toImage,
-                          ),
-                        ),
-                      ],
-                    ),
-                    10.0.sizedBoxOnlyHeight,
-                    Container(
-                      padding: const AppPadding.allLow(),
-                      decoration: BoxDecoration(
-                        color: cMainColor,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        "Total: \$${price * stock}",
-                        style: Theme.of(context).textTheme.bodyText1,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const AppPadding.onlyLeft(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: Theme.of(context).textTheme.subtitle2,
+                        textAlign: TextAlign.start,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
-                    )
-                  ],
+                      5.0.sizedBoxOnlyHeight,
+                      Text(
+                        "$kg",
+                        style: Theme.of(context).textTheme.bodyText2,
+                        textAlign: TextAlign.start,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
+                      ),
+                      10.0.sizedBoxOnlyHeight,
+                      Text(
+                        "\$${price * stock}",
+                        style: Theme.of(context).textTheme.headline2,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
         ),
-        Positioned(
-          top: 0,
-          right: 10,
-          child: IconButton(
-            onPressed: () {},
-            icon: IconEnums.close.toImage,
+        Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: const AppPadding.allLow(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 45.67,
+                  height: 45.67,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      onPrimary: Colors.grey,
+                      primary: Colors.white,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: Color(0xffF0F0F0),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(17.0),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: IconEnums.plus.toImage,
+                  ),
+                ),
+                Padding(
+                  padding: const AppPadding.symmetricOnlyHorizontal(),
+                  child: Text(
+                    "$stock",
+                    style: Theme.of(context).textTheme.subtitle1,
+                    textScaleFactor: ScaleSize.textScaleFactor(context),
+                  ),
+                ),
+                SizedBox(
+                  width: 45.67,
+                  height: 45.67,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      onPrimary: Colors.grey,
+                      primary: Colors.white,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: Color(0xffF0F0F0),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(17.0),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: stock == 1
+                        ? Icon(Icons.delete)
+                        : IconEnums.remove.toImage,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

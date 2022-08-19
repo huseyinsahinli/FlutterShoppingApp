@@ -57,6 +57,12 @@ class _$AppRouter extends RootStackRouter {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: ProductDetailsPage(key: args.key));
     },
+    TransactionRoute.name: (routeData) {
+      final args = routeData.argsAs<TransactionRouteArgs>();
+      return MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: TransactionPage(key: args.key, account: args.account));
+    },
     FilterRoute.name: (routeData) {
       final args = routeData.argsAs<FilterRouteArgs>(
           orElse: () => const FilterRouteArgs());
@@ -110,6 +116,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(ResetRoute.name, path: '/reset'),
         RouteConfig(SearchDetailsRoute.name, path: 'search/:query'),
         RouteConfig(ProductDetailsRoute.name, path: ':id'),
+        RouteConfig(TransactionRoute.name, path: '/transaction'),
         RouteConfig(FilterRoute.name, path: 'filter'),
         RouteConfig(HomeRoute.name, path: '/home-page', children: [
           RouteConfig(ShopRoute.name, path: 'shop', parent: HomeRoute.name),
@@ -254,6 +261,30 @@ class ProductDetailsRouteArgs {
   @override
   String toString() {
     return 'ProductDetailsRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [TransactionPage]
+class TransactionRoute extends PageRouteInfo<TransactionRouteArgs> {
+  TransactionRoute({Key? key, required AccountModel account})
+      : super(TransactionRoute.name,
+            path: '/transaction',
+            args: TransactionRouteArgs(key: key, account: account));
+
+  static const String name = 'TransactionRoute';
+}
+
+class TransactionRouteArgs {
+  const TransactionRouteArgs({this.key, required this.account});
+
+  final Key? key;
+
+  final AccountModel account;
+
+  @override
+  String toString() {
+    return 'TransactionRouteArgs{key: $key, account: $account}';
   }
 }
 
