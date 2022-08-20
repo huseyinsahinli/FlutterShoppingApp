@@ -7,18 +7,14 @@ import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:auto_route/auto_route.dart';
 
-import '../../../core/constant/app_strings.dart';
-
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
-import '../../../core/constant/image_path.dart';
-import '../../core/constant/app_icon.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 import '../../core/services/firestore.dart';
 
 class SearchPage extends StatefulWidget {
-  SearchPage({Key? key}) : super(key: key);
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -47,7 +43,7 @@ class _SearchPageState extends State<SearchPage> {
               decoration: InputDecoration(
                 //TODO: kategorilere göre arama yapılabilir.
                 hintText: LocaleKeys.search_search.locale,
-                prefixIcon: Icon(Icons.search, color: Colors.grey),
+                prefixIcon: const Icon(Icons.search, color: Colors.grey),
                 suffixIcon: IconButton(
                   color: Colors.grey,
                   icon: IconEnums.delete.toImage,
@@ -64,7 +60,7 @@ class _SearchPageState extends State<SearchPage> {
                     return Text('Error: ${snapshot.error}');
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }

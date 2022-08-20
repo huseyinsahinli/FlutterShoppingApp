@@ -8,42 +8,26 @@ import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/widgets/divider.dart';
-import 'package:nectar_ui/view/authentication_pages/login_page/login_page.dart';
 
-import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/my_custom_textfield.dart';
-import '../../home_page/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController _password = TextEditingController();
-  TextEditingController _retypePassword = TextEditingController();
-  TextEditingController _email = TextEditingController();
-  bool _isHiddenPassword = true;
-  bool _isHiddenRetypePassword = true;
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _retypePassword = TextEditingController();
+  final TextEditingController _email = TextEditingController();
   FirebaseAuth auth = FirebaseAuth.instance;
-  @override
-  void initState() {
-    super.initState();
-    auth.userChanges().listen((User? user) {
-      if (user == null) {
-        print('User is currently signed out!');
-      } else {
-        context.router.replace(HomeRoute());
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -151,6 +135,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           email: _email.text.toString(),
                           password: _password.text.toString(),
                         );
+                        if (userCredential.user != null) {
+                          context.router.replace(HomeRoute());
+                        }
                       } on FirebaseAuthException catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -159,7 +146,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         );
                       } catch (e) {
-                        print(e);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(e.toString()),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
                       }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -216,7 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: cWhiteColor,
-                    side: BorderSide(
+                    side: const BorderSide(
                       color: cMainColor,
                       width: 1,
                     ),

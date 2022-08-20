@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/constant/app_constant.dart';
-import 'package:nectar_ui/core/helper/text_scale_size.dart';
 
+// ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   final IconData prefixIcon;
   final IconData? suffixIcon;
-  late bool obscureText;
+  bool obscureText;
   final Function()? onChanged;
   CustomTextField({
     Key? key,

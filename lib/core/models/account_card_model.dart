@@ -36,7 +36,7 @@ class AccountModels {
     AccountModel(
       LocaleKeys.account_logout.locale,
       AppIcons.accountLogout,
-      LogoutSheet(),
+      const LogoutSheet(),
       true,
     ),
   ];

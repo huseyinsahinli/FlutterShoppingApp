@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-class AppConstant{
-  static const String LANG_PATH = 'assets/lang';
-  static const Locale EN_LOCALE = Locale('en', 'US');
-  static const Locale TR_LOCALE = Locale('tr', 'TR');
-  
+class AppConstant {
+  static const langPath = 'assets/lang';
+  static const enLocale = Locale('en', 'US');
+  static const trLocale = Locale('tr', 'TR');
 }
+
 const cMainColor = Color(0xff53B175);
 const cTextColor = Color(0xff181725);
 const cWhiteColor = Color(0xffffffff);
@@ -60,9 +59,4 @@ const List cExploreBackgroundColorLists = [
     Color(0x45D73B77),
     Color(0xffD73B77),
   ]
-];
-const List cGroceriesBackgroundColors = [
-  Color(0x10F8A44C),
-  Color(0x1053B175),
-  Color(0x10F8A44C),
 ];

@@ -10,11 +10,12 @@ class SearchBarTextField extends StatelessWidget {
     return TextField(
       autofocus: false,
       decoration: InputDecoration(
-          hintText: LocaleKeys.search_title.locale,
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.black,
-          )),
+        hintText: LocaleKeys.search_title.locale,
+        prefixIcon: const Icon(
+          Icons.search,
+          color: Colors.black,
+        ),
+      ),
     );
   }
 }

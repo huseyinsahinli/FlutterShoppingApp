@@ -2,8 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 
-import '../padding/app_padding.dart';
-
 mixin ShowSheetMixin {
   static Future<T?> showCustomSheet<T>(
       {required BuildContext context, required Widget child}) {

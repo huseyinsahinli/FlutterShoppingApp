@@ -9,7 +9,7 @@ class ThemeSheet extends StatelessWidget {
       children: [
         const Divider(),
         ListTile(
-          title: Text('Dark Theme'),
+          title: const Text('Dark Theme'),
           trailing: Switch(
             value: true,
             onChanged: (value) {
@@ -20,7 +20,7 @@ class ThemeSheet extends StatelessWidget {
         ),
         const Divider(),
         ListTile(
-          title: Text('Light Theme'),
+          title: const Text('Light Theme'),
           trailing: Switch(
             value: false,
             onChanged: (value) {

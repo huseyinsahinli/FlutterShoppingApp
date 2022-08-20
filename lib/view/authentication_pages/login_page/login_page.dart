@@ -14,10 +14,8 @@ import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
 
-import '../../../core/constant/app_strings.dart';
-
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -26,14 +24,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _password = TextEditingController();
   final TextEditingController _email = TextEditingController();
-  bool _isHidden = true;
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   void initState() {
     super.initState();
     auth.userChanges().listen((User? user) {
       if (user == null) {
-        print('User is currently signed out!');
       } else {
         context.router.replace(HomeRoute());
       }
@@ -92,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    context.router.replace(ResetRoute());
+                    context.router.push(ResetRoute());
                   },
                   child: Text(
                     LocaleKeys.auth_forgotPassword.locale,
@@ -113,7 +109,12 @@ class _LoginPageState extends State<LoginPage> {
                         email: _email.text.toString().trimRight(),
                         password: _password.text.toString());
                   } on FirebaseAuthException catch (e) {
-                    print(e.toString());
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(e.code.toString()),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
                   }
                 },
                 child: Text(
@@ -147,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: cWhiteColor,
-                    side: BorderSide(
+                    side: const BorderSide(
                       color: cMainColor,
                       width: 1,
                     ),

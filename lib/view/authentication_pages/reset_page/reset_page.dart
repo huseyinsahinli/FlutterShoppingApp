@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 
-import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
@@ -12,7 +11,7 @@ import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/my_custom_textfield.dart';
 
 class ResetPage extends StatefulWidget {
-  ResetPage({Key? key}) : super(key: key);
+  const ResetPage({Key? key}) : super(key: key);
 
   @override
   State<ResetPage> createState() => _ResetPageState();

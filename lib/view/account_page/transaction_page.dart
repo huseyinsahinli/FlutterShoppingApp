@@ -3,7 +3,7 @@ import 'package:nectar_ui/core/models/account_card_model.dart';
 
 class TransactionPage extends StatefulWidget {
   final AccountModel account;
-  TransactionPage({Key? key, required this.account}) : super(key: key);
+  const TransactionPage({Key? key, required this.account}) : super(key: key);
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();
@@ -20,7 +20,7 @@ class _TransactionPageState extends State<TransactionPage> {
           ),
         ),
         body: Center(
-          child: widget.account.widget ?? Text('Boş'),
+          child: widget.account.widget ?? const Text('Boş'),
         ));
   }
 }

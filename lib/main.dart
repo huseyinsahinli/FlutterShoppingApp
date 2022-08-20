@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
@@ -12,12 +14,12 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [
-        AppConstant.EN_LOCALE,
-        AppConstant.TR_LOCALE,
+        AppConstant.enLocale,
+        AppConstant.trLocale,
       ],
       saveLocale: true,
-      fallbackLocale: AppConstant.EN_LOCALE,
-      path: AppConstant.LANG_PATH,
+      fallbackLocale: AppConstant.enLocale,
+      path: AppConstant.langPath,
       child: MyApp(),
     ),
   );

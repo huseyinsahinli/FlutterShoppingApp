@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:nectar_ui/core/widgets/custom_bottom_sheet.dart';
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
@@ -12,7 +10,7 @@ import '../../core/models/account_card_model.dart';
 import '../../core/navigator/app_router.dart';
 
 class AccountPage extends StatefulWidget {
-  AccountPage({
+  const AccountPage({
     Key? key,
   }) : super(key: key);
   @override
@@ -26,11 +24,8 @@ class _AccountPageState extends State<AccountPage> {
     super.initState();
     auth.userChanges().listen((User? user) {
       if (user == null) {
-        print('Evet çıktı');
         context.router.replace(LoginRoute());
-      } else {
-        print('User is currently signed out!');
-      }
+      } else {}
     });
   }
 
@@ -101,17 +96,18 @@ class _AccountPageState extends State<AccountPage> {
               itemBuilder: ((context, index) {
                 return InkWell(
                   onTap: () {
-                    AccountModels.accountCards[index].bottomSheet ?? false
-                        ? ShowSheetMixin.showCustomSheet(
-                            context: context,
-                            child: AccountModels.accountCards[index].widget ??
-                                Text('Boş'),
-                          )
-                        : context.router.push(
-                            TransactionRoute(
-                              account: AccountModels.accountCards[index],
-                            ),
-                          );
+                    auth.signOut();
+                    // AccountModels.accountCards[index].bottomSheet ?? false
+                    //     ? ShowSheetMixin.showCustomSheet(
+                    //         context: context,
+                    //         child: AccountModels.accountCards[index].widget ??
+                    //             Text('Boş'),
+                    //       )
+                    //     : context.router.push(
+                    //         TransactionRoute(
+                    //           account: AccountModels.accountCards[index],
+                    //         ),
+                    //       );
                   },
                   child: ListTile(
                     iconColor: Theme.of(context).iconTheme.color,

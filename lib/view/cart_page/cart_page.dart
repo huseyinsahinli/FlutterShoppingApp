@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -10,7 +9,7 @@ import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
 
 class CartPage extends StatefulWidget {
-  CartPage({Key? key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   State<CartPage> createState() => _CartPageState();
@@ -124,7 +123,7 @@ class _CartPageState extends State<CartPage> {
                       ),
                       5.0.sizedBoxOnlyHeight,
                       Text(
-                        "$kg",
+                        kg,
                         style: Theme.of(context).textTheme.bodyText2,
                         textAlign: TextAlign.start,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
@@ -195,7 +194,7 @@ class _CartPageState extends State<CartPage> {
                     ),
                     onPressed: () {},
                     child: stock == 1
-                        ? Icon(Icons.delete)
+                        ? const Icon(Icons.delete)
                         : IconEnums.remove.toImage,
                   ),
                 ),

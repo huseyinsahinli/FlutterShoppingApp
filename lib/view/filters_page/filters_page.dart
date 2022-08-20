@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
@@ -7,7 +8,7 @@ import '../../../core/constant/icon_enum.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
 class FilterPage extends StatefulWidget {
-  FilterPage({Key? key}) : super(key: key);
+  const FilterPage({Key? key}) : super(key: key);
 
   @override
   State<FilterPage> createState() => _FilterPageState();
@@ -84,7 +85,6 @@ class _FilterPageState extends State<FilterPage> {
                                   setState(() {
                                     values[key] = value!;
                                   });
-                                  print(value);
                                 },
                               ),
                             ),
@@ -99,9 +99,7 @@ class _FilterPageState extends State<FilterPage> {
                           ],
                         );
                       }).toList()),
-                  SizedBox(
-                    height: 40,
-                  ),
+                  40.0.sizedBoxOnlyHeight,
                   Text(
                     "Brand",
                     style: Theme.of(context).textTheme.headline1,
@@ -128,7 +126,6 @@ class _FilterPageState extends State<FilterPage> {
                                   setState(() {
                                     brandValues[key] = value!;
                                   });
-                                  print(value);
                                 },
                               ),
                             ),

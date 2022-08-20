@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class CustomColumn extends StatelessWidget {
   final double spaceHeight;
-  List<Widget> children;
-  CustomColumn({
+  final List<Widget> children;
+  const CustomColumn({
     Key? key,
     required this.spaceHeight,
     required this.children,

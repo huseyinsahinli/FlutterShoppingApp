@@ -15,7 +15,7 @@ import '../../core/navigator/app_router.dart';
 
 class SearchDetailsPage extends StatefulWidget {
   final String title;
-  SearchDetailsPage({Key? key, required this.title}) : super(key: key);
+  const SearchDetailsPage({Key? key, required this.title}) : super(key: key);
 
   @override
   State<SearchDetailsPage> createState() => _SearchDetailsPageState();

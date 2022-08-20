@@ -8,11 +8,10 @@ import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../core/constant/icon_enum.dart';
-import '../../core/constant/app_strings.dart';
 import '../../core/helper/text_scale_size.dart';
 
 class ProductDetailsPage extends StatefulWidget {
-  ProductDetailsPage({Key? key}) : super(key: key);
+  const ProductDetailsPage({Key? key}) : super(key: key);
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
@@ -35,7 +34,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         child: Column(
           children: [
             Container(
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minHeight: 200,
               ),
               height: context.screenHeight * 0.3,
@@ -95,11 +94,11 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             padding: const AppPadding.symmetricLow(),
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color(0xffE2E2E2),
+                                color: const Color(0xffE2E2E2),
                                 width: 1,
                               ),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(17)),
+                                  const BorderRadius.all(Radius.circular(17)),
                             ),
                             child: Center(
                               child: Text(

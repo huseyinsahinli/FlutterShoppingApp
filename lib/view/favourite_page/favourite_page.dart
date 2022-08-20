@@ -3,7 +3,6 @@ import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
-import '../../../core/constant/app_strings.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/extensions/double_extensions.dart';
@@ -11,7 +10,7 @@ import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
 class FavouritePage extends StatefulWidget {
-  FavouritePage({Key? key}) : super(key: key);
+  const FavouritePage({Key? key}) : super(key: key);
 
   @override
   State<FavouritePage> createState() => _FavouritePageState();

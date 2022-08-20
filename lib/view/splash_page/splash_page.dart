@@ -13,7 +13,7 @@ import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
 class SplashPage extends StatefulWidget {
-  SplashPage({Key? key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   State<SplashPage> createState() => _SplashPageState();

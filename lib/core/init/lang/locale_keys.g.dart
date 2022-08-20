@@ -1,6 +1,8 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+// ignore_for_file: constant_identifier_names
+
+abstract class LocaleKeys {
   static const splash_title = 'splash.title';
   static const splash_subtitle = 'splash.subtitle';
   static const splash = 'splash';
@@ -50,8 +52,10 @@ abstract class  LocaleKeys {
   static const auth_signUp_terms4 = 'auth.signUp.terms4';
   static const auth_signUp_passwordNotMatch = 'auth.signUp.passwordNotMatch';
   static const auth_signUp_fillAllFields = 'auth.signUp.fillAllFields';
-  static const auth_signUp_orSignUpWithScoial = 'auth.signUp.orSignUpWithScoial';
-  static const auth_signUp_alreadyHaveAccount = 'auth.signUp.alreadyHaveAccount';
+  static const auth_signUp_orSignUpWithScoial =
+      'auth.signUp.orSignUpWithScoial';
+  static const auth_signUp_alreadyHaveAccount =
+      'auth.signUp.alreadyHaveAccount';
   static const auth_signUp_google = 'auth.signUp.google';
   static const auth_signUp_facebook = 'auth.signUp.facebook';
   static const auth_signUp = 'auth.signUp';
@@ -80,7 +84,8 @@ abstract class  LocaleKeys {
   static const cart = 'cart';
   static const productDetails_title = 'productDetails.title';
   static const productDetails_reviews = 'productDetails.reviews';
-  static const productDetails_relatedProducts = 'productDetails.relatedProducts';
+  static const productDetails_relatedProducts =
+      'productDetails.relatedProducts';
   static const productDetails_addToCart = 'productDetails.addToCart';
   static const productDetails = 'productDetails';
   static const search_title = 'search.title';
@@ -95,5 +100,4 @@ abstract class  LocaleKeys {
   static const filter_discount = 'filter.discount';
   static const filter_reset = 'filter.reset';
   static const filter = 'filter';
-
 }
