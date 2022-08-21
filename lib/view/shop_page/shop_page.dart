@@ -52,6 +52,7 @@ class _ShopPageState extends State<ShopPage> {
             children: [
               const SearchBarTextField(),
               10.0.sizedBoxOnlyHeight,
+              //TODO: Yanalara doğru kayan Banner eklenecek
               Image.asset(
                 "assets/images/png/banner.png",
                 width: context.screenWidth,
@@ -71,6 +72,7 @@ class _ShopPageState extends State<ShopPage> {
                   )
                 ],
               ),
+              //TODO: firebaseden ürün çekilecek.
               const HorizontalListView(),
               Padding(
                 padding: const AppPadding.onlyTop(),

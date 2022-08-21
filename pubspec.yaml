@@ -17,7 +17,8 @@ dependencies:
 
   # database
   shared_preferences: ^2.0.13
-
+  firebase_storage: ^10.3.5
+  cloud_firestore: ^3.4.4
   # network
   vexana: ^3.0.1
 
@@ -28,19 +29,18 @@ dependencies:
   flutter_svg: ^1.0.3
   cupertino_icons: ^1.0.2
 
-  # authentication 
+  # authentication and user management
+  firebase_core: ^1.20.1
   firebase_auth: ^3.6.3
   google_sign_in: ^5.4.1
-  firebase_storage: ^10.3.5
-  firebase_core: ^1.20.1
+  
 
-  # localization
+  # localization 
   easy_localization: ^3.0.1
   # routing
   auto_route: ^4.2.1
   
   mobx_codegen: ^2.0.7
-  cloud_firestore: ^3.4.4
   badges: ^2.0.3
 
 dev_dependencies:

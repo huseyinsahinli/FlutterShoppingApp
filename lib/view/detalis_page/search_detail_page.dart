@@ -22,6 +22,7 @@ class SearchDetailsPage extends StatefulWidget {
 }
 
 class _SearchDetailsPageState extends State<SearchDetailsPage> {
+  //TODO gelen kategoriye göre ürün listemesi yapılacak.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

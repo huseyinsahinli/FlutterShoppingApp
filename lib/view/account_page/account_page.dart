@@ -8,6 +8,8 @@ import '../../../core/widgets/divider.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/models/account_card_model.dart';
 import '../../core/navigator/app_router.dart';
+import '../../core/widgets/custom_bottom_sheet.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({
@@ -19,9 +21,12 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   FirebaseAuth auth = FirebaseAuth.instance;
+  late List<AccountModel> accountCards;
+
   @override
   void initState() {
     super.initState();
+    accountCards = AccountModels.accountCards;
     auth.userChanges().listen((User? user) {
       if (user == null) {
         context.router.replace(LoginRoute());
@@ -90,35 +95,30 @@ class _AccountPageState extends State<AccountPage> {
             padding: const AppPadding.leftRightBottom(),
             child: ListView.separated(
               separatorBuilder: (context, index) => const CustomDivider(),
-              itemCount: AccountModels.accountCards.length,
+              itemCount: accountCards.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: ((context, index) {
+                var accountCard = accountCards[index];
                 return InkWell(
                   onTap: () {
-                    auth.signOut();
-                    // AccountModels.accountCards[index].bottomSheet ?? false
-                    //     ? ShowSheetMixin.showCustomSheet(
-                    //         context: context,
-                    //         child: AccountModels.accountCards[index].widget ??
-                    //             Text('Boş'),
-                    //       )
-                    //     : context.router.push(
-                    //         TransactionRoute(
-                    //           account: AccountModels.accountCards[index],
-                    //         ),
-                    //       );
+                    //TODO: buraya gidilecek sayfa yazılacak
+                    AccountModels.accountCards[index].bottomSheet ?? false
+                        ? ShowSheetMixin.showCustomSheet(
+                            context: context,
+                            child: accountCard.widget ?? Text('Boş'),
+                          )
+                        : context.router.push(
+                            TransactionRoute(
+                              account: AccountModels.accountCards[index],
+                            ),
+                          );
                   },
                   child: ListTile(
                     iconColor: Theme.of(context).iconTheme.color,
-                    leading: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AccountModels.accountCards[index].leading,
-                      ],
-                    ),
+                    leading: accountCard.leading,
                     title: Text(
-                      AccountModels.accountCards[index].title,
+                      accountCard.title,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                       style: Theme.of(context).textTheme.headline2,
                     ),

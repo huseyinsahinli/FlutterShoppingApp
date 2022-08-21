@@ -47,12 +47,17 @@
         "deliveryAddres": "Delivery Address",
         "myCart": "My Cart",
         "promoCard": "Promo Card",
-        "notifications": "Notifications",
-        "theme": "Theme",
+        "theme": {
+            "title": "Theme",
+            "light": "Light",
+            "dark": "Dark"
+
+        },
         "settings": "Settings",
         "help": "Help",
         "about": "About",
-        "logout": "Log out"
+        "logout": "Log out",
+        "language": "Language"
     },
     "auth": {
         "signUp": {

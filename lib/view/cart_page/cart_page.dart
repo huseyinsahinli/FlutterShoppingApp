@@ -16,6 +16,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  //TODO provider eklenecek ve cartlarının güncellenmesi sağlanacak.
   final String _imagePath = "assets/images/png/";
   @override
   Widget build(BuildContext context) {

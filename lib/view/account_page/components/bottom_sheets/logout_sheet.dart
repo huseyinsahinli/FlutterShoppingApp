@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
-import '../../../core/extensions/double_extensions.dart';
-import '../../../core/helper/text_scale_size.dart';
+import '../../../../core/extensions/double_extensions.dart';
+import '../../../../core/helper/text_scale_size.dart';
 
 class LogoutSheet extends StatelessWidget {
   const LogoutSheet({Key? key}) : super(key: key);

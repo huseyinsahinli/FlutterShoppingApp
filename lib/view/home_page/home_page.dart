@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //TODO border radiuslar ve paddinglarını düzenle
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(

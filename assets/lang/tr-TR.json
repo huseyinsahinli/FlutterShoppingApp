@@ -47,12 +47,17 @@
         "deliveryAddres": "Teslimat adresi",
         "myCart": "Kredi kartım",
         "promoCard": "Promosyon kartı",
-        "notifications": "Bildirimler",
-        "theme": "Tema",
+        "theme": {
+            "title": "Tema",
+            "light": "Açık",
+            "dark": "Koyu"
+
+        },
         "settings": "Ayarlar",
         "help": "Yardım",
         "about": "Hakkında",
-        "logout": "Çıkış"
+        "logout": "Çıkış",
+        "language": "Dil"
     },
     "auth": {
         "signUp": {

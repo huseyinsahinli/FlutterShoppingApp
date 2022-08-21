@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/models/account_card_model.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 
 import '../../../core/constant/app_constant.dart';
@@ -28,6 +29,7 @@ class _SplashPageState extends State<SplashPage> {
         if (user == null) {
           context.router.replace(const OnBoardRoute());
         } else {
+          setState(() {});
           context.router.replace(HomeRoute());
         }
       });

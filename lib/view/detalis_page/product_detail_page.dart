@@ -18,6 +18,7 @@ class ProductDetailsPage extends StatefulWidget {
 }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  //TODO : Add the product details here
   bool _open = true;
   @override
   Widget build(BuildContext context) {

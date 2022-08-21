@@ -10,10 +10,8 @@ class AppIcons {
   static const Icon accountDetails = Icon(Icons.person_outlined);
   static const Icon accountAddress = Icon(Icons.location_on_outlined);
   static const Icon accountCart = Icon(Icons.credit_card_outlined);
-  static const Icon accountPromo = Icon(Icons.discount_outlined);
-  static const Icon accountNotifications =
-      Icon(Icons.notifications_none_outlined);
-  static const Icon accountTheme = Icon(Icons.brightness_4_outlined);
+  static const Icon accountTheme = Icon(Icons.color_lens_outlined);
+  static const Icon accountLanguage = Icon(Icons.language_outlined);
   static const Icon accountSettings = Icon(Icons.settings_outlined);
   static const Icon accountHelp = Icon(Icons.help_outline);
   static const Icon accountAbout = Icon(Icons.info_outline);
