@@ -20,6 +20,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  //TODO: Edit components for account page
   FirebaseAuth auth = FirebaseAuth.instance;
   late List<AccountModel> accountCards;
 
