@@ -55,9 +55,26 @@
         },
         "settings": "Ayarlar",
         "help": "Yardım",
-        "about": "Hakkında",
-        "logout": "Çıkış",
-        "language": "Dil"
+        "about": {
+            "title": "Hakkında",
+            "description": "Nectar mobil alışveriş uygulaması, ücretsiz ve kullanım kolay bir alışveriş uygulamasıdır.",
+            "info": "Flutter'da günümüzde kullanılan klasik e-ticaret uygulamalarının nasıl çalıştığı hakkında edindiğim bilgilerle yapmış olduğum bir e-ticaret uygulaması.",
+            "contact": "Bize ulaşın"
+        },
+
+        "logout": {
+            "title": "Çıkış Yap",
+            "description": "Çıkış yapmak istediğinizden emin misiniz?",
+            "yes": "Evet",
+            "no": "Hayır"
+
+        },
+        "language": {
+            "title": "Dil",
+            "english": "İngilizce",
+            "turkish": "Türkçe"
+
+        }
     },
     "auth": {
         "signUp": {

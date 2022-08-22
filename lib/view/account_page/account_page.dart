@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/view/account_page/components/top_sheets/profile_edit_page.dart';
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
@@ -9,7 +10,6 @@ import '../../core/helper/text_scale_size.dart';
 import '../../core/models/account_card_model.dart';
 import '../../core/navigator/app_router.dart';
 import '../../core/widgets/custom_bottom_sheet.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({
@@ -74,7 +74,13 @@ class _AccountPageState extends State<AccountPage> {
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProfileEditPage(),
+                                  ));
+                            },
                             icon: IconEnums.pencil.toImage,
                           )
                         ],
@@ -94,11 +100,11 @@ class _AccountPageState extends State<AccountPage> {
           Padding(
             padding: const AppPadding.leftRightBottom(),
             child: ListView.separated(
+              shrinkWrap: true,
               separatorBuilder: (context, index) => const CustomDivider(),
               itemCount: accountCards.length,
-              shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: ((context, index) {
+              itemBuilder: (context, index) {
                 var accountCard = accountCards[index];
                 return InkWell(
                   onTap: () {
@@ -125,7 +131,7 @@ class _AccountPageState extends State<AccountPage> {
                     trailing: IconEnums.rightarrow.toImage,
                   ),
                 );
-              }),
+              },
             ),
           ),
         ],

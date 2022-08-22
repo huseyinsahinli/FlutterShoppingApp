@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../../../../core/extensions/double_extensions.dart';
@@ -16,7 +19,7 @@ class LogoutSheet extends StatelessWidget {
         Padding(
           padding: const AppPadding.all(),
           child: Text(
-            'Çıkmak istediğinize emin misiniz?',
+            LocaleKeys.account_logout_description.locale,
             style: Theme.of(context).textTheme.headline1!.copyWith(
                   color: Colors.black,
                 ),
@@ -29,22 +32,18 @@ class LogoutSheet extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextButton(
-              onPressed: () {
-                context.popRoute();
-              },
+              onPressed: () => FirebaseAuth.instance.signOut(),
               child: Text(
-                'Evet',
+                LocaleKeys.account_logout_yes.locale,
                 style: Theme.of(context).textTheme.headline1!.copyWith(
                       color: Colors.blue,
                     ),
               ),
             ),
             TextButton(
-              onPressed: () {
-                context.popRoute();
-              },
+              onPressed: () => context.popRoute(),
               child: Text(
-                'Hayır',
+                LocaleKeys.account_logout_no.locale,
                 style: Theme.of(context).textTheme.headline1!.copyWith(
                       color: Colors.blue,
                     ),

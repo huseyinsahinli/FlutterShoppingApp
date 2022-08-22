@@ -55,9 +55,24 @@
         },
         "settings": "Settings",
         "help": "Help",
-        "about": "About",
-        "logout": "Log out",
-        "language": "Language"
+        "about": {
+            "title": "About",
+            "description": "Nectar is an online grocery store that provides you with the best quality of groceries at the best price.",
+            "info": "An e-commerce application that I have made with the knowledge I have gained about how the classic e-commerce applications used today work in Flutter.",
+            "contact": "Contact Us :"
+
+        },
+        "logout": {
+            "title": "Logout",
+            "description": "Are you sure you want to logout?",
+            "yes": "Yes",
+            "no": "No"
+        },
+        "language": {
+            "title": "Language",
+            "english": "English",
+            "turkish": "Turkish"
+        }
     },
     "auth": {
         "signUp": {
