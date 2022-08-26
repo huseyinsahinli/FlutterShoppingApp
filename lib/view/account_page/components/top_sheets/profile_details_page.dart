@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
-import '../../../../core/constant/app_constant.dart';
-import '../../../../core/constant/icon_enum.dart';
 import '../../../../core/helper/text_scale_size.dart';
 
 class ProfileDetailsPage extends StatelessWidget {

@@ -4,7 +4,6 @@ import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
-import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
 
 class CreditCartPage extends StatelessWidget {
   const CreditCartPage({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class CreditCartPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Kart numarası'),
+                    const Text('Kart numarası'),
                     TextField(
                       keyboardType: TextInputType.number,
                       inputFormatters: [

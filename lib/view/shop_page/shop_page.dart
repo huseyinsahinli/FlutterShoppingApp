@@ -1,13 +1,16 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/view/shop_page/widgets/custom_dots.dart';
 import '../../../core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 
-import '../../core/widgets/horizontal_list_view_builder.dart';
-import '../../../core/widgets/search_text_field.dart';
+import '../../core/services/firestore.dart';
 import '../../core/init/lang/locale_keys.g.dart';
+import '../../core/widgets/horizontal_list_view_builder.dart';
+import 'widgets/custom_title_and_button.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({Key? key}) : super(key: key);
@@ -17,6 +20,7 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,71 +54,111 @@ class _ShopPageState extends State<ShopPage> {
           padding: const AppPadding.symmetric(),
           child: Column(
             children: [
-              const SearchBarTextField(),
-              10.0.sizedBoxOnlyHeight,
-              //TODO: Yanalara doğru kayan Banner eklenecek
-              Image.asset(
-                "assets/images/png/banner.png",
-                width: context.screenWidth,
-                height: 130,
-                fit: BoxFit.contain,
+              StreamBuilder<QuerySnapshot>(
+                  stream: FireCloudStore.banner,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    }
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    final data = snapshot.requireData;
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CarouselSlider.builder(
+                          itemCount: data.size,
+                          options: customCarouselOptions(),
+                          itemBuilder: (ctx, index, realIdx) {
+                            return InkWell(
+                              onTap: () {},
+                              child: Image.network(
+                                data.docs[index]['image'],
+                                height: 100,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            );
+                          },
+                        ),
+                        CustomDots(data: data, currentIndex: _currentIndex),
+                      ],
+                    );
+                  }),
+              CustomStreamBuilder(
+                title: LocaleKeys.shop_exclusiveOffer.locale,
+                stream: FireCloudStore.exclusive,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    LocaleKeys.shop_exclusiveOffer.locale,
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(LocaleKeys.shop_seeAll.locale),
-                  )
-                ],
+              CustomStreamBuilder(
+                title: LocaleKeys.shop_topSeller.locale,
+                stream: FireCloudStore.exclusive,
               ),
-              //TODO: firebaseden ürün çekilecek.
-              const HorizontalListView(),
-              Padding(
-                padding: const AppPadding.onlyTop(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.shop_topSeller.locale,
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        LocaleKeys.shop_seeAll.locale,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const HorizontalListView(),
-              Padding(
-                padding: const AppPadding.onlyTop(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.shop_groceries.locale,
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(LocaleKeys.shop_seeAll.locale),
-                    )
-                  ],
-                ),
+              CustomStreamBuilder(
+                title: LocaleKeys.shop_groceries.locale,
+                stream: FireCloudStore.exclusive,
               ),
               20.0.sizedBoxOnlyHeight,
-              const HorizontalListView(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  CarouselOptions customCarouselOptions() {
+    return CarouselOptions(
+      enableInfiniteScroll: true,
+      autoPlay: true,
+      autoPlayInterval: const Duration(seconds: 5),
+      autoPlayAnimationDuration: const Duration(milliseconds: 800),
+      pauseAutoPlayOnTouch: true,
+      viewportFraction: 0.75,
+      height: 100,
+      enlargeCenterPage: true,
+      onPageChanged: (index, reason) {
+        _currentIndex = index;
+        setState(() {});
+      },
+    );
+  }
+}
+
+class CustomStreamBuilder extends StatelessWidget {
+  final String title;
+  final Stream<QuerySnapshot> stream;
+  const CustomStreamBuilder({
+    Key? key,
+    required this.stream,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<QuerySnapshot>(
+        stream: stream,
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          final data = snapshot.requireData;
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomTitleAndButton(
+                title: title,
+                data: data,
+              ),
+              HorizontalListView(data: data),
+            ],
+          );
+        });
   }
 }

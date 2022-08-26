@@ -36,7 +36,7 @@ class ProfileEditPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Text(
@@ -47,7 +47,7 @@ class ProfileEditPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Column(
@@ -58,7 +58,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -69,7 +69,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -80,7 +80,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -91,7 +91,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -102,7 +102,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -113,7 +113,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -124,7 +124,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -135,7 +135,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -146,7 +146,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -157,7 +157,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -168,7 +168,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -179,7 +179,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -190,7 +190,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -201,7 +201,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -212,7 +212,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -223,7 +223,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -234,7 +234,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -245,7 +245,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -256,7 +256,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -267,7 +267,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
@@ -278,7 +278,7 @@ class ProfileEditPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText2,
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   TextField(
@@ -289,7 +289,7 @@ class ProfileEditPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],

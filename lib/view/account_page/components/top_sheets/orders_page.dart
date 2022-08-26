@@ -5,7 +5,7 @@ class OrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
+      children: const [
         ListTile(
           title: Text('Order 1'),
           subtitle: Text('Status: Completed'),
