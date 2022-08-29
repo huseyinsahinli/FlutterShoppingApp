@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/view/shop_page/widgets/custom_dots.dart';
+import 'package:nectar_ui/view/shop_page/widgets/custom_stream_builder.dart';
 import '../../../core/constant/icon_enum.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 
 import '../../core/services/firestore.dart';
 import '../../core/init/lang/locale_keys.g.dart';
-import '../../core/widgets/horizontal_list_view_builder.dart';
-import 'widgets/custom_title_and_button.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({Key? key}) : super(key: key);
@@ -84,7 +83,10 @@ class _ShopPageState extends State<ShopPage> {
                             );
                           },
                         ),
-                        CustomDots(data: data, currentIndex: _currentIndex),
+                        CustomDots(
+                          dataSize: data.size,
+                          currentIndex: _currentIndex,
+                        ),
                       ],
                     );
                   }),
@@ -94,11 +96,11 @@ class _ShopPageState extends State<ShopPage> {
               ),
               CustomStreamBuilder(
                 title: LocaleKeys.shop_topSeller.locale,
-                stream: FireCloudStore.exclusive,
+                stream: FireCloudStore.topSeller,
               ),
               CustomStreamBuilder(
                 title: LocaleKeys.shop_groceries.locale,
-                stream: FireCloudStore.exclusive,
+                stream: FireCloudStore.groceries,
               ),
               20.0.sizedBoxOnlyHeight,
             ],
@@ -123,42 +125,5 @@ class _ShopPageState extends State<ShopPage> {
         setState(() {});
       },
     );
-  }
-}
-
-class CustomStreamBuilder extends StatelessWidget {
-  final String title;
-  final Stream<QuerySnapshot> stream;
-  const CustomStreamBuilder({
-    Key? key,
-    required this.stream,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-        stream: stream,
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          final data = snapshot.requireData;
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomTitleAndButton(
-                title: title,
-                data: data,
-              ),
-              HorizontalListView(data: data),
-            ],
-          );
-        });
   }
 }

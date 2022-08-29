@@ -64,23 +64,61 @@ class _SeeAllPageState extends State<SeeAllPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(
-                            dataItems['image'],
-                            height: 100,
-                            fit: BoxFit.contain,
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(18),
+                              topRight: Radius.circular(18),
+                            ),
+                            child: Image(
+                              image: NetworkImage(
+                                dataItems['image'],
+                              ),
+                              fit: BoxFit.cover,
+                              width: context.screenWidth,
+                              height: 100,
+                            ),
                           ),
-                          Text(
-                            dataItems['name'],
-                            style: Theme.of(context).textTheme.bodyText2,
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
-                          ),
-                          Text(
-                            "355ml,Price",
-                            style: Theme.of(context).textTheme.subtitle2,
-                            textAlign: TextAlign.center,
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
+                          // Image.network(
+                          //   dataItems['image'],
+                          //   height: 100,
+                          //   width: context.screenWidth,
+                          //   fit: BoxFit.cover,
+                          // ),
+                          Padding(
+                            padding: const AppPadding.onlyTop(),
+                            child: SizedBox(
+                              width: context.screenWidth,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    dataItems['name'],
+                                    style:
+                                        Theme.of(context).textTheme.subtitle2,
+                                    textScaleFactor:
+                                        ScaleSize.textScaleFactor(context),
+                                  ),
+                                  Text(
+                                    "355ml,Price",
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
+                                    textScaleFactor:
+                                        ScaleSize.textScaleFactor(context),
+                                  ),
+                                ],
+                              ),
+                            ),
                           )
                         ],
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        child: Text(
+                          "\$${dataItems['price']}",
+                          style: Theme.of(context).textTheme.headline1,
+                          textAlign: TextAlign.right,
+                          textScaleFactor: ScaleSize.textScaleFactor(context),
+                        ),
                       ),
                       Positioned(
                         bottom: 0,
@@ -106,18 +144,6 @@ class _SeeAllPageState extends State<SeeAllPage> {
                           ),
                         ),
                       ),
-                      Positioned(
-                        left: 0,
-                        bottom: 0,
-                        child: Padding(
-                          padding: const AppPadding.symmetricOnlyVertical(),
-                          child: Text(
-                            "\$ ${dataItems['price']}",
-                            style: Theme.of(context).textTheme.subtitle2,
-                            textScaleFactor: ScaleSize.textScaleFactor(context),
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),

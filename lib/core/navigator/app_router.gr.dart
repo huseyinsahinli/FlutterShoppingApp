@@ -41,7 +41,8 @@ class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<SearchDetailsRouteArgs>();
       return MaterialPageX<dynamic>(
           routeData: routeData,
-          child: SearchDetailsPage(key: args.key, title: args.title));
+          child:
+              SearchDetailsPage(key: args.key, title: args.title, id: args.id));
     },
     ProductDetailsRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -156,24 +157,27 @@ class ResetRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [SearchDetailsPage]
 class SearchDetailsRoute extends PageRouteInfo<SearchDetailsRouteArgs> {
-  SearchDetailsRoute({Key? key, required String title})
+  SearchDetailsRoute({Key? key, required String title, required String id})
       : super(SearchDetailsRoute.name,
             path: 'search/:query',
-            args: SearchDetailsRouteArgs(key: key, title: title));
+            args: SearchDetailsRouteArgs(key: key, title: title, id: id));
 
   static const String name = 'SearchDetailsRoute';
 }
 
 class SearchDetailsRouteArgs {
-  const SearchDetailsRouteArgs({this.key, required this.title});
+  const SearchDetailsRouteArgs(
+      {this.key, required this.title, required this.id});
 
   final Key? key;
 
   final String title;
 
+  final String id;
+
   @override
   String toString() {
-    return 'SearchDetailsRouteArgs{key: $key, title: $title}';
+    return 'SearchDetailsRouteArgs{key: $key, title: $title, id: $id}';
   }
 }
 

@@ -7,18 +7,18 @@ import '../../../core/constant/app_constant.dart';
 class CustomDots extends StatelessWidget {
   const CustomDots({
     Key? key,
-    required this.data,
+    required this.dataSize,
     required int currentIndex,
   })  : _currentIndex = currentIndex,
         super(key: key);
 
-  final QuerySnapshot<Object?> data;
+  final int dataSize;
   final int _currentIndex;
 
   @override
   Widget build(BuildContext context) {
     return DotsIndicator(
-      dotsCount: data.size,
+      dotsCount: dataSize,
       position: _currentIndex.toDouble(),
       decorator: DotsDecorator(
         activeColor: cMainColor,

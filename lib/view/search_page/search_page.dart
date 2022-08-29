@@ -81,50 +81,64 @@ class _SearchPageState extends State<SearchPage> {
                         return InkWell(
                           onTap: () {
                             FocusScope.of(context).unfocus();
+                            print('Evet');
+                            try {} catch (e) {}
+                            //print('${data.docs[index]['products-feed']}');
                             context.router.push(
                               SearchDetailsRoute(
-                                title: data.docs[index]['name'],
-                              ),
+                                  title: data.docs[index]['name'],
+                                  id: 'BLkV0d48W60TgIwHBcp2' //data.docs[index].id,
+                                  ),
                             );
                           },
                           child: Container(
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: [
-                                  cExploreBackgroundColorLists[index][0],
-                                  cExploreBackgroundColorLists[index][1],
-                                  cExploreBackgroundColorLists[index][2],
-                                ],
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  data.docs[index]['image'],
+                                ),
+                                fit: BoxFit.cover,
                               ),
                               shape: BoxShape.rectangle,
                               border: Border.all(
-                                color: cExploreBackgroundColorLists[index][3],
+                                color: Colors.black,
                                 width: 1,
                               ),
                               borderRadius: BorderRadius.circular(18.0),
                             ),
                             child: Padding(
                               padding: const AppPadding.all(),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Image.network(
-                                    data.docs[index]['image'],
-                                    height: 100,
-                                    fit: BoxFit.contain,
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.3),
+                                        spreadRadius: 10,
+                                        blurRadius: 5,
+                                        offset: Offset(
+                                          0,
+                                          7,
+                                        ), // changes position of shadow
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    data.docs[index]['name'],
-                                    style:
-                                        Theme.of(context).textTheme.subtitle2,
-                                    textScaleFactor:
-                                        ScaleSize.textScaleFactor(context),
-                                    textAlign: TextAlign.center,
-                                  )
-                                ],
+                                  child: Expanded(
+                                    child: Text(
+                                      data.docs[index]['name'],
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline2!
+                                          .copyWith(
+                                            color: cWhiteColor,
+                                          ),
+                                      textScaleFactor:
+                                          ScaleSize.textScaleFactor(context),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
