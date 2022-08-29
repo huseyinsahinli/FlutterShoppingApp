@@ -29,7 +29,6 @@ class CustomTitleAndButton extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              print('Evet OROSPUNUN OĞLU ÇALIŞMIYOR');
               context.router.push(
                 SeeAllRoute(title: title, data: data),
               );

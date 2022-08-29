@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
       physics: const NeverScrollableScrollPhysics(),
-      routes: [
+      routes: const [
         ShopRoute(),
         SearchRoute(),
         CartRoute(),

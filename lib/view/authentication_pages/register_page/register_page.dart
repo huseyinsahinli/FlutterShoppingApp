@@ -136,7 +136,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           password: _password.text.toString(),
                         );
                         if (userCredential.user != null) {
-                          context.router.replace(HomeRoute());
+                          context.router.replace(const HomeRoute());
                         }
                       } on FirebaseAuthException catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -188,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      context.router.replace(LoginRoute());
+                      context.router.replace(const LoginRoute());
                     },
                     child: Text(
                       LocaleKeys.auth_signIn_title.locale,

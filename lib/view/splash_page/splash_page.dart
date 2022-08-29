@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
           context.router.replace(const OnBoardRoute());
         } else {
           setState(() {});
-          context.router.replace(HomeRoute());
+          context.router.replace(const HomeRoute());
         }
       });
     });

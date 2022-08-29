@@ -74,7 +74,7 @@ class _OnBoardPageState extends State<OnBoardPage> {
                       isLastPage: _isLastPage,
                       onPressed: () {
                         _isLastPage
-                            ? context.router.replace(LoginRoute())
+                            ? context.router.replace(const LoginRoute())
                             : _incrementAndChange();
                       },
                     ),

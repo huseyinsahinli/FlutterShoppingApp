@@ -26,7 +26,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
       appBar: AppBar(title: Text(widget.title), actions: [
         IconButton(
           onPressed: () {
-            context.router.push(FilterRoute());
+            context.router.push(const FilterRoute());
           },
           icon: IconEnums.filter.toImage,
         )
@@ -66,7 +66,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                   return InkWell(
                     onTap: () {
                       FocusScope.of(context).unfocus();
-                      context.router.push(ProductDetailsRoute());
+                      context.router.push(const ProductDetailsRoute());
                     },
                     child: Container(
                       decoration: BoxDecoration(

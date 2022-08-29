@@ -81,9 +81,9 @@ class _SearchPageState extends State<SearchPage> {
                         return InkWell(
                           onTap: () {
                             FocusScope.of(context).unfocus();
-                            print('Evet');
-                            try {} catch (e) {}
-                            //print('${data.docs[index]['products-feed']}');
+                            // print('Evet');
+                            // try {} catch (e) {}
+                            // //print('${data.docs[index]['products-feed']}');
                             context.router.push(
                               SearchDetailsRoute(
                                   title: data.docs[index]['name'],
@@ -117,7 +117,7 @@ class _SearchPageState extends State<SearchPage> {
                                         color: Colors.black.withOpacity(0.3),
                                         spreadRadius: 10,
                                         blurRadius: 5,
-                                        offset: Offset(
+                                        offset: const Offset(
                                           0,
                                           7,
                                         ), // changes position of shadow

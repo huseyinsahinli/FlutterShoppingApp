@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     auth.userChanges().listen((User? user) {
       if (user == null) {
       } else {
-        context.router.replace(HomeRoute());
+        context.router.replace(const HomeRoute());
       }
     });
   }
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    context.router.push(ResetRoute());
+                    context.router.push(const ResetRoute());
                   },
                   child: Text(
                     LocaleKeys.auth_forgotPassword.locale,
@@ -125,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                 onPressed: () {
-                  context.router.replace(RegisterRoute());
+                  context.router.replace(const RegisterRoute());
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

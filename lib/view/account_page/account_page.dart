@@ -29,7 +29,7 @@ class _AccountPageState extends State<AccountPage> {
     accountCards = AccountModels.accountCards;
     auth.userChanges().listen((User? user) {
       if (user == null) {
-        context.router.replace(LoginRoute());
+        context.router.replace(const LoginRoute());
       } else {}
     });
   }
