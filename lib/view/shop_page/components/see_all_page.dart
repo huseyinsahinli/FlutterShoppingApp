@@ -45,7 +45,7 @@ class _SeeAllPageState extends State<SeeAllPage> {
             return InkWell(
               onTap: () {
                 FocusScope.of(context).unfocus();
-                context.router.push(const ProductDetailsRoute());
+                context.router.push(ProductDetailsRoute(data: dataItems));
               },
               child: Container(
                 decoration: BoxDecoration(

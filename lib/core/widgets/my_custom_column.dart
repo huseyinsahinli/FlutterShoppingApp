@@ -13,6 +13,7 @@ class CustomColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: children
           .map((e) => Padding(
                 padding: EdgeInsets.only(top: spaceHeight),

@@ -66,7 +66,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                   return InkWell(
                     onTap: () {
                       FocusScope.of(context).unfocus();
-                      context.router.push(const ProductDetailsRoute());
+                      context.router.push(ProductDetailsRoute(data: dataItems));
                     },
                     child: Container(
                       decoration: BoxDecoration(

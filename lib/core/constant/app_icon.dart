@@ -16,4 +16,5 @@ class AppIcons {
   static const Icon accountHelp = Icon(Icons.help_outline);
   static const Icon accountAbout = Icon(Icons.info_outline);
   static const Icon accountLogout = Icon(Icons.logout);
+  static const Icon productsShare = Icon(Icons.share);
 }

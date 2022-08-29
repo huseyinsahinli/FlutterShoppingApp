@@ -45,8 +45,10 @@ class _$AppRouter extends RootStackRouter {
               SearchDetailsPage(key: args.key, title: args.title, id: args.id));
     },
     ProductDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductDetailsRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ProductDetailsPage());
+          routeData: routeData,
+          child: ProductDetailsPage(key: args.key, data: args.data));
     },
     TransactionRoute.name: (routeData) {
       final args = routeData.argsAs<TransactionRouteArgs>();
@@ -183,10 +185,25 @@ class SearchDetailsRouteArgs {
 
 /// generated route for
 /// [ProductDetailsPage]
-class ProductDetailsRoute extends PageRouteInfo<void> {
-  const ProductDetailsRoute() : super(ProductDetailsRoute.name, path: ':id');
+class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({Key? key, required QueryDocumentSnapshot<Object?> data})
+      : super(ProductDetailsRoute.name,
+            path: ':id', args: ProductDetailsRouteArgs(key: key, data: data));
 
   static const String name = 'ProductDetailsRoute';
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({this.key, required this.data});
+
+  final Key? key;
+
+  final QueryDocumentSnapshot<Object?> data;
+
+  @override
+  String toString() {
+    return 'ProductDetailsRouteArgs{key: $key, data: $data}';
+  }
 }
 
 /// generated route for

@@ -1,33 +1,49 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_constant.dart';
+import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/core/widgets/divider.dart';
+import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 
 import '../../../core/constant/icon_enum.dart';
 import '../../core/helper/text_scale_size.dart';
 
 class ProductDetailsPage extends StatefulWidget {
-  const ProductDetailsPage({Key? key}) : super(key: key);
+  final QueryDocumentSnapshot data;
+
+  const ProductDetailsPage({Key? key, required this.data}) : super(key: key);
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
 }
 
+int noOfPaletteColors = 4;
+
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
-  //TODO : Add the product details here
   bool _open = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          widget.data['name'],
+        ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.file_upload_outlined),
+            icon: AppIcons.productsShare,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: IconEnums.favourite.toImage,
           )
         ],
       ),
@@ -40,90 +56,135 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               ),
               height: context.screenHeight * 0.3,
               width: context.screenWidth,
-              padding: const AppPadding.allHigh(),
-              decoration: const BoxDecoration(
+              padding: const AppPadding.symmetric(),
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/png/redApple.png"),
-                  fit: BoxFit.contain,
-                ),
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(25.0),
-                  bottomLeft: Radius.circular(25.0),
+                  image: NetworkImage(widget.data['image']),
+                  opacity: 0.9,
+                  fit: BoxFit.cover,
                 ),
               ),
               child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Image.asset("assets/images/png/redApple.png"),
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                  child: Image.network(
+                    widget.data['image'],
+                    fit: BoxFit.cover,
+                    width: context.screenWidth / 2,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const AppPadding.symmetric(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: CustomColumn(
+                spaceHeight: 10,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Naturel Red Apple",
+                        widget.data['name'],
                         style: Theme.of(context).textTheme.headline1,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: IconEnums.favourite.toImage,
-                      )
-                    ],
-                  ),
-                  Text(
-                    "1kg,Price",
-                    style: Theme.of(context).textTheme.headline3,
-                    textScaleFactor: ScaleSize.textScaleFactor(context),
-                  ),
-                  10.0.sizedBoxOnlyHeight,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+                      Column(
                         children: [
-                          IconButton(
-                              onPressed: () {}, icon: IconEnums.remove.toImage),
-                          Container(
-                            padding: const AppPadding.symmetricLow(),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: const Color(0xffE2E2E2),
-                                width: 1,
-                              ),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(17)),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "1",
-                                style: Theme.of(context).textTheme.bodyText2,
-                                textScaleFactor:
-                                    ScaleSize.textScaleFactor(context),
-                              ),
-                            ),
+                          Text(
+                            '1kg,Price',
+                            style: Theme.of(context).textTheme.headline3,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: IconEnums.plus.toImage,
+                          Text(
+                            "\$${widget.data['price']}",
+                            style: Theme.of(context).textTheme.headline3,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ],
                       ),
-                      Text(
-                        "\$4.99",
-                        style: Theme.of(context).textTheme.bodyText2,
-                        textScaleFactor: ScaleSize.textScaleFactor(context),
-                      )
                     ],
                   ),
-                  10.0.sizedBoxOnlyHeight,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color(0xffE2E2E2),
+                            width: 1,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(17)),
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: IconEnums.remove.toImage,
+                        ),
+                      ),
+                      Padding(
+                        padding: const AppPadding.symmetric(),
+                        child: Expanded(
+                          child: Text(
+                            "1 kg",
+                            style: Theme.of(context).textTheme.headline2,
+                            textScaleFactor: ScaleSize.textScaleFactor(context),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color(0xffE2E2E2),
+                            width: 1,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(17)),
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: IconEnums.plus.toImage,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: cMainColor,
+                              width: 1,
+                            ),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(
+                                25,
+                              ),
+                            )),
+                        child: Padding(
+                          padding: const AppPadding.allLow(),
+                          child: RichText(
+                            text: TextSpan(children: [
+                              TextSpan(
+                                text: 'Total Price: ',
+                                style: Theme.of(context).textTheme.headline2,
+                              ),
+                              TextSpan(
+                                text: '\$5',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline2!
+                                    .copyWith(
+                                      color: cMainColor,
+                                    ),
+                              )
+                            ]),
+                          ),
+                        ),
+                      )),
                   ExpansionTile(
                     trailing: !_open
                         ? IconEnums.rightarrow.toImage
@@ -146,49 +207,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       ),
                     ],
                   ),
-                  10.0.sizedBoxOnlyHeight,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Nutritions",
-                        style: Theme.of(context).textTheme.subtitle2,
-                        textScaleFactor: ScaleSize.textScaleFactor(context),
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: const BoxDecoration(
-                              color: Color(0xffEBEBEB),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "100gr",
-                                style: Theme.of(context).textTheme.bodyText2,
-                                textScaleFactor:
-                                    ScaleSize.textScaleFactor(context),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  10.0.sizedBoxOnlyHeight,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Review",
-                        style: Theme.of(context).textTheme.subtitle2,
-                        textScaleFactor: ScaleSize.textScaleFactor(context),
-                      ),
-                      Image.asset("assets/images/png/star.png")
-                    ],
-                  )
                 ],
               ),
             ),
@@ -199,15 +217,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
       floatingActionButton: Padding(
         padding: const AppPadding.symmetric(),
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            primary: const Color(0xff53B175),
-            fixedSize: const Size(double.infinity, 67),
-            padding: const EdgeInsets.all(5),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(19.0),
-            ),
-          ),
           onPressed: () {},
           child: SizedBox(
             width: context.screenWidth,

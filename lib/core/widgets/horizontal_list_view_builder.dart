@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 
 import '../constant/app_constant.dart';
@@ -26,7 +28,8 @@ class HorizontalListView extends StatelessWidget {
           return Padding(
             padding: const AppPadding.onlyRight(),
             child: InkWell(
-              onTap: () {},
+              onTap: () =>
+                  context.router.push(ProductDetailsRoute(data: dataItems)),
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
