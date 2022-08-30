@@ -13,4 +13,12 @@ class FireCloudStore {
       FirebaseFirestore.instance.collection('groceries').snapshots();
   static Stream<QuerySnapshot> topSeller =
       FirebaseFirestore.instance.collection('top-seller').snapshots();
+
+  static Stream<QuerySnapshot> categoryProducts(String docId) {
+    return FirebaseFirestore.instance
+        .collection('category')
+        .doc(docId)
+        .collection('products-feed')
+        .snapshots();
+  }
 }

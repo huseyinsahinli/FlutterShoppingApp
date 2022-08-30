@@ -8,6 +8,7 @@ import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/navigator/app_router.dart';
+import '../../core/services/firestore.dart';
 
 class SearchDetailsPage extends StatefulWidget {
   final String title;
@@ -34,11 +35,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
       body: Padding(
         padding: const AppPadding.symmetricLow(),
         child: StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('category')
-                .doc(widget.id)
-                .collection('products-feed')
-                .snapshots(),
+            stream: FireCloudStore.categoryProducts(widget.id),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
@@ -85,20 +82,29 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Image.network(
-                                  dataItems['image'],
-                                  height: 100,
-                                  fit: BoxFit.contain,
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                  child: Image(
+                                    image: NetworkImage(
+                                      dataItems['image'],
+                                    ),
+                                    fit: BoxFit.cover,
+                                    width: context.screenWidth,
+                                    height: 120,
+                                  ),
                                 ),
                                 Text(
                                   dataItems['name'],
-                                  style: Theme.of(context).textTheme.bodyText2,
+                                  style: Theme.of(context).textTheme.subtitle2,
                                   textScaleFactor:
                                       ScaleSize.textScaleFactor(context),
                                 ),
                                 Text(
                                   "355ml,Price",
-                                  style: Theme.of(context).textTheme.subtitle2,
+                                  style: Theme.of(context).textTheme.bodyText2,
                                   textAlign: TextAlign.center,
                                   textScaleFactor:
                                       ScaleSize.textScaleFactor(context),

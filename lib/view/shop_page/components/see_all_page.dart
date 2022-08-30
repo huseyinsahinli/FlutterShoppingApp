@@ -78,12 +78,6 @@ class _SeeAllPageState extends State<SeeAllPage> {
                               height: 100,
                             ),
                           ),
-                          // Image.network(
-                          //   dataItems['image'],
-                          //   height: 100,
-                          //   width: context.screenWidth,
-                          //   fit: BoxFit.cover,
-                          // ),
                           Padding(
                             padding: const AppPadding.onlyTop(),
                             child: SizedBox(

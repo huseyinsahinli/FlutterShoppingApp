@@ -9,7 +9,6 @@ import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:nectar_ui/core/widgets/divider.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 
 import '../../../core/constant/icon_enum.dart';

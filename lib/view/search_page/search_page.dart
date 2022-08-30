@@ -8,10 +8,10 @@ import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:auto_route/auto_route.dart';
 
 import '../../../core/constant/app_constant.dart';
-import '../../../core/constant/icon_enum.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 import '../../core/services/firestore.dart';
+import '../../core/widgets/search_text_field.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -36,20 +36,9 @@ class _SearchPageState extends State<SearchPage> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            TextField(
-              autofocus: false,
+            SearchBarTextField(
               controller: _searchTextController,
-              style: Theme.of(context).textTheme.subtitle2,
-              decoration: InputDecoration(
-                //TODO: kategorilere göre arama yapılabilir.
-                hintText: LocaleKeys.search_search.locale,
-                prefixIcon: const Icon(Icons.search, color: Colors.grey),
-                suffixIcon: IconButton(
-                  color: Colors.grey,
-                  icon: IconEnums.delete.toImage,
-                  onPressed: () => _searchTextController.clear(),
-                ),
-              ),
+              hintText: LocaleKeys.search_search.locale,
             ),
             20.0.sizedBoxOnlyHeight,
             StreamBuilder<QuerySnapshot>(
@@ -81,14 +70,11 @@ class _SearchPageState extends State<SearchPage> {
                         return InkWell(
                           onTap: () {
                             FocusScope.of(context).unfocus();
-                            // print('Evet');
-                            // try {} catch (e) {}
-                            // //print('${data.docs[index]['products-feed']}');
                             context.router.push(
                               SearchDetailsRoute(
-                                  title: data.docs[index]['name'],
-                                  id: 'BLkV0d48W60TgIwHBcp2' //data.docs[index].id,
-                                  ),
+                                title: data.docs[index]['name'],
+                                id: data.docs[index].id,
+                              ),
                             );
                           },
                           child: Container(

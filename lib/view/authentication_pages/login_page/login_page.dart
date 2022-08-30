@@ -12,7 +12,7 @@ import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/core/widgets/my_custom_column.dart';
-import 'package:nectar_ui/core/widgets/my_custom_textfield.dart';
+import 'package:nectar_ui/core/widgets/custom_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

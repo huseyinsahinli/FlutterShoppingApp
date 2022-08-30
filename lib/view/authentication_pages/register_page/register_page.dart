@@ -14,7 +14,7 @@ import '../../../core/helper/text_scale_size.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
 import '../../../core/widgets/my_custom_column.dart';
-import '../../../core/widgets/my_custom_textfield.dart';
+import '../../../core/widgets/custom_text_field.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
