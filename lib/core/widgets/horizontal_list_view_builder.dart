@@ -5,26 +5,37 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:provider/provider.dart';
 
 import '../constant/app_constant.dart';
 import '../constant/icon_enum.dart';
+import '../helper/db_helper.dart';
 import '../helper/text_scale_size.dart';
+import '../models/cart_model.dart';
+import '../providers/cart_provider.dart';
 
-class HorizontalListView extends StatelessWidget {
+class HorizontalListView extends StatefulWidget {
   final QuerySnapshot data;
   const HorizontalListView({Key? key, required this.data}) : super(key: key);
 
   @override
+  State<HorizontalListView> createState() => _HorizontalListViewState();
+}
+
+class _HorizontalListViewState extends State<HorizontalListView> {
+  DBHelper? dbHelper = DBHelper();
+  @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<CartProvider>(context);
     return SizedBox(
       height: 250,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         cacheExtent: 250,
         itemExtent: 170,
-        itemCount: data.size,
+        itemCount: widget.data.size,
         itemBuilder: (context, index) {
-          var dataItems = data.docs[index];
+          var dataItems = widget.data.docs[index];
           return Padding(
             padding: const AppPadding.onlyRight(),
             child: InkWell(
@@ -61,12 +72,6 @@ class HorizontalListView extends StatelessWidget {
                               height: 100,
                             ),
                           ),
-                          // Image.network(
-                          //   dataItems['image'],
-                          //   height: 100,
-                          //   width: context.screenWidth,
-                          //   fit: BoxFit.cover,
-                          // ),
                           Padding(
                             padding: const AppPadding.onlyTop(),
                             child: SizedBox(
@@ -118,7 +123,50 @@ class HorizontalListView extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(17.0),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              cart.addItemsIndex(dataItems.id.toString());
+
+                              if (!cart.sameItemCheck) {
+                                dbHelper!
+                                    .insert(Product(
+                                  id: dataItems.id,
+                                  productId: dataItems.id,
+                                  productName: dataItems['name'].toString(),
+                                  productInitialPrice: double.parse(
+                                      dataItems['price'].toString()),
+                                  productPrice: double.parse(
+                                      dataItems['price'].toString()),
+                                  productStock: 100,
+                                  productQuantity: 1,
+                                  productImage: dataItems['image'].toString(),
+                                ))
+                                    .then((value) {
+                                  cart.addTotalprice(double.parse(
+                                      dataItems['price'].toString()));
+                                  cart.addCounter();
+
+                                  const snackBar = SnackBar(
+                                    backgroundColor: Colors.green,
+                                    content: Text('Product is added to cart'),
+                                    duration: Duration(seconds: 1),
+                                  );
+
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }).onError((error, StackTrace stackTrace) {
+                                  // print("$error");
+                                });
+                              } else {
+                                const snackBar = SnackBar(
+                                    backgroundColor: Colors.red,
+                                    content: Text(
+                                        'Product is already added in cart'),
+                                    duration: Duration(seconds: 1));
+
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
+                            },
                             child: SvgPicture.asset(
                               IconEnums.plus.toPathSvg,
                               height: 17,

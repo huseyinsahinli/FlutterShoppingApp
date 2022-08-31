@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nectar_ui">
    <application
-        android:label="nectar_ui"
+        android:label="Nectar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

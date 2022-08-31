@@ -66,7 +66,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(15),
                   ),
                   child: Image.network(

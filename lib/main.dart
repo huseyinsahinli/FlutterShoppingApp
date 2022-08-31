@@ -3,6 +3,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
+import 'package:nectar_ui/core/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 import 'core/constant/app_constant.dart';
 import 'core/theme/themes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -36,15 +38,20 @@ class _MyAppState extends State<MyApp> {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'Nectar UI',
-      theme: MyThemes.lightTheme,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
+    return ChangeNotifierProvider(
+      create: (_) => CartProvider(),
+      child: Builder(builder: (BuildContext context) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: 'Nectar',
+          theme: MyThemes.lightTheme,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          routerDelegate: _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+        );
+      }),
     );
   }
 }
