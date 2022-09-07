@@ -21,9 +21,6 @@ class _TransactionPageState extends State<TransactionPage> {
             child: CustomDivider(),
           ),
           title: Text(widget.account.title),
-          iconTheme: const IconThemeData(
-            color: Colors.black,
-          ),
         ),
         body: widget.account.widget ?? const Text('Boş'));
   }

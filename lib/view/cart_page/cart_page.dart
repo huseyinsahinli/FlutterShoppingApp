@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
@@ -55,16 +56,13 @@ class _CartPageState extends State<CartPage> {
                                   padding: const AppPadding.all(),
                                   child: Row(
                                     children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image(
-                                          image: NetworkImage(
-                                            product.productImage!,
-                                          ),
-                                          fit: BoxFit.cover,
-                                          width: 100,
-                                          height: 100,
+                                      Image(
+                                        image: NetworkImage(
+                                          product.productImage!,
                                         ),
+                                        fit: BoxFit.contain,
+                                        width: 100,
+                                        height: 100,
                                       ),
                                       Align(
                                         alignment: Alignment.centerLeft,
@@ -127,8 +125,8 @@ class _CartPageState extends State<CartPage> {
                                             height: 45.67,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                onPrimary: Colors.grey,
-                                                primary: Colors.white,
+                                                foregroundColor: Colors.grey,
+                                                backgroundColor: Colors.white,
                                                 elevation: 0,
                                                 shape: RoundedRectangleBorder(
                                                   side: const BorderSide(
@@ -205,8 +203,8 @@ class _CartPageState extends State<CartPage> {
                                             height: 45.67,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                onPrimary: Colors.grey,
-                                                primary: Colors.white,
+                                                foregroundColor: Colors.grey,
+                                                backgroundColor: Colors.white,
                                                 elevation: 0,
                                                 shape: RoundedRectangleBorder(
                                                   side: const BorderSide(
@@ -261,27 +259,15 @@ class _CartPageState extends State<CartPage> {
                                                             stackTrace) {});
                                                   } else {
                                                     isTappedRemove = false;
-
-                                                    cart.removeCartItem(
-                                                        product.id.toString());
-                                                    dbHelper
-                                                        .delete(product.id!);
-                                                    cart.removeConter();
-
-                                                    cart.removeTotalPrice(
-                                                        double.parse(product
-                                                            .productPrice
-                                                            .toString()));
+                                                    cart.removeProductItem(
+                                                        product);
                                                   }
                                                 }
                                               },
-                                              child:
-                                                  product.productQuantity! > 1
-                                                      ? IconEnums.remove.toImage
-                                                      : const Icon(
-                                                          Icons.delete,
-                                                          color: Colors.grey,
-                                                        ),
+                                              child: product.productQuantity! >
+                                                      1
+                                                  ? AppIcons.productsRemove
+                                                  : AppIcons.productsRemoveAll,
                                             ),
                                           ),
                                         ]),
@@ -295,11 +281,15 @@ class _CartPageState extends State<CartPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Your cart is empty',
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green[200]),
+                              LocaleKeys.cart_productCart_emptyCart.locale,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline1!
+                                  .copyWith(
+                                    color: Colors.green[200],
+                                    fontSize:
+                                        ScaleSize.textScaleFactor(context),
+                                  ),
                             ),
                           ],
                         )),

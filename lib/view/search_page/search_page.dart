@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_border_radius.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -90,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
                                 color: Colors.black,
                                 width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(18.0),
+                              borderRadius: AppBorderRadius.circular20,
                             ),
                             child: Padding(
                               padding: const AppPadding.all(),

@@ -116,7 +116,19 @@
         "title": "My Cart",
         "checkout": "Go to Checkout",
         "quantity": "Quantity",
-        "total": "Total"
+        "total": "Total",
+
+        "productCart": {
+            "title": "Product Cart",
+            "price": "Price",
+            "quantity": "Quantity",
+            "total": "Total",
+            "remove": "Remove",
+            "emptyCart": "Your cart is empty",
+            "allreadyInCart": "This product is allready in your cart",
+            "addedToCart": "Added to cart"
+
+        }
 
     },
     "productDetails": {

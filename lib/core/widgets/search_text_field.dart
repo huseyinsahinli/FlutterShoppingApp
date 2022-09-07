@@ -26,7 +26,6 @@ class SearchBarTextField extends StatelessWidget {
             width: 1.0,
           ),
         ),
-        //TODO: kategorilere göre arama yapılabilir.
         hintText: LocaleKeys.search_search.locale,
         prefixIcon: const Icon(Icons.search, color: Colors.grey),
         suffixIcon: controller.text.isNotEmpty

@@ -28,14 +28,15 @@ class _FavouritePageState extends State<FavouritePage> {
       ),
       body: const Center(
         child: Text(
-          'Boş Sayfa',
+          'Empty Favourite',
+          style: TextStyle(fontSize: 20),
         ),
       ),
       floatingActionButton: Padding(
         padding: const AppPadding.symmetric(),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: const Color(0xff53B175),
+            backgroundColor: const Color(0xff53B175),
             fixedSize: const Size(double.infinity, 67),
             padding: const EdgeInsets.all(5),
             shape: RoundedRectangleBorder(

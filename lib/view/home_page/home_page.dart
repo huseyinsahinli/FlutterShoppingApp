@@ -1,10 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_border_radius.dart';
 import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
+import 'package:nectar_ui/core/helper/text_scale_size.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
+import 'package:nectar_ui/core/providers/cart_provider.dart';
+
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  //TODO border radiuslar ve paddinglarını düzenle
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
@@ -32,10 +36,7 @@ class _HomePageState extends State<HomePage> {
           bottomNavigationBar: Container(
             height: 80,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20),
-              ),
+              borderRadius: AppBorderRadius.topLeftRight20,
               boxShadow: [
                 BoxShadow(
                   color: Theme.of(context).shadowColor,
@@ -45,41 +46,49 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20),
-              ),
+              borderRadius: AppBorderRadius.topLeftRight20,
               child: BottomNavigationBar(
                 items: [
-                  _createBottomBarItem(
+                  createBottomBarItem(
                     AppIcons.shop,
                     LocaleKeys.home_shop.locale,
                   ),
-                  _createBottomBarItem(
+                  createBottomBarItem(
                     AppIcons.search,
                     LocaleKeys.home_search.locale,
                   ),
-                  _createBottomBarItem(
-                    Center(
-                      child: Badge(
-                        badgeContent: Text(
-                          '5',
-                          style:
-                              Theme.of(context).textTheme.subtitle2!.copyWith(
-                                    color: Colors.white,
-                                  ),
-                        ),
-                        animationDuration: const Duration(milliseconds: 300),
-                        child: AppIcons.cart,
-                      ),
-                    ),
+                  createBottomBarItem(
+                    Consumer<CartProvider>(builder: (context, value, child) {
+                      return value.counter == 0
+                          ? AppIcons.cart
+                          : Center(
+                              child: Badge(
+                                badgeContent: Text(
+                                  "${value.counter}",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle2!
+                                      .copyWith(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
+                                  textScaleFactor:
+                                      ScaleSize.textScaleFactor(context),
+                                ),
+                                animationType: BadgeAnimationType.scale,
+                                animationDuration:
+                                    const Duration(milliseconds: 600),
+                                child: AppIcons.cart,
+                              ),
+                            );
+                    }),
                     LocaleKeys.home_cart.locale,
                   ),
-                  _createBottomBarItem(
+                  createBottomBarItem(
                     AppIcons.favourite,
                     LocaleKeys.home_favourite.locale,
                   ),
-                  _createBottomBarItem(
+                  createBottomBarItem(
                     AppIcons.account,
                     LocaleKeys.home_account.locale,
                   ),
@@ -94,7 +103,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  BottomNavigationBarItem _createBottomBarItem(icon, String label) {
+  BottomNavigationBarItem createBottomBarItem(Widget icon, String label) {
     return BottomNavigationBarItem(icon: icon, label: label);
   }
 }

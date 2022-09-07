@@ -6,6 +6,7 @@ class AppIcons {
   static const Icon favourite = Icon(Icons.favorite_border_outlined);
   static const Icon cart = Icon(Icons.shopping_cart_outlined);
   static const Icon account = Icon(Icons.person_outlined);
+  static const Icon accountForward = Icon(Icons.arrow_forward_ios);
   static const Icon accountOrders = Icon(Icons.shop_outlined);
   static const Icon accountDetails = Icon(Icons.person_outlined);
   static const Icon accountAddress = Icon(Icons.location_on_outlined);
@@ -17,4 +18,8 @@ class AppIcons {
   static const Icon accountAbout = Icon(Icons.info_outline);
   static const Icon accountLogout = Icon(Icons.logout);
   static const Icon productsShare = Icon(Icons.share);
+  static const Icon productsAdd = Icon(Icons.add);
+  static const Icon productsRemove = Icon(Icons.remove);
+  static const Icon productsRemoveAll = Icon(Icons.delete);
+  static const Icon productsEdit = Icon(Icons.edit);
 }

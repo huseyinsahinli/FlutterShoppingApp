@@ -68,66 +68,60 @@ class CreditCartPage extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Son kullanma tarihi'),
-                          TextField(
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: cMainColor,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              hintText: 'Ay/Yıl',
-                            ),
-                          )
-                        ],
+                const Align(
+                    alignment: Alignment.topLeft,
+                    child: Text('Son kullanma tarihi')),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: SizedBox(
+                    width: context.screenWidth * 0.25,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: cMainColor,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Ay/Yıl',
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: const [
-                              Text('Güvenlik kodu'),
-                              Icon(
-                                Icons.help_outline,
-                                color: Colors.black,
-                              ),
-                            ],
-                          ),
-                          TextField(
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            keyboardType: TextInputType.number,
-                            maxLength: 3,
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: cMainColor,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              hintText: 'CVC/CVV',
-                            ),
-                          )
-                        ],
-                      ),
+                  ),
+                ),
+                Row(
+                  children: const [
+                    Text('Güvenlik kodu'),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(
+                      Icons.help_outline,
+                      color: Colors.black,
                     ),
                   ],
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: SizedBox(
+                    width: context.screenWidth * 0.45,
+                    child: TextField(
+                      inputFormatters: [
+                        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                      ],
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: cMainColor,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'CVC/CVV',
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -118,7 +118,19 @@
         "title": "Sepet",
         "checkout": "Ödeme",
         "quantity": "Miktar",
-        "total": "Toplam"
+        "total": "Toplam",
+        "productCart": {
+            "title": "Ürün",
+            "price": "Fiyat",
+            "quantity": "Miktar",
+            "total": "Toplam",
+            "remove": "Kaldır",
+            "emptyCart": "Sepetiniz boş",
+            "addedToCart": "Sepete eklendi",
+            "allreadyInCart": "Zaten sepete eklediniz"
+
+
+        }
 
     },
     "productDetails": {

@@ -36,7 +36,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fontSize: 17,
           ),
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: Theme.of(context).backgroundColor,
         floatingLabelStyle:
             Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18),
         labelText: widget.hintText,

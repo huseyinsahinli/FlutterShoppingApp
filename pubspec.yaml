@@ -39,7 +39,6 @@ dependencies:
   firebase_core: ^1.20.1
   firebase_auth: ^3.6.3
   google_sign_in: ^5.4.1
-  
 
   # localization 
   easy_localization: ^3.0.1

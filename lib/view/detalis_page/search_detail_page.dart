@@ -119,8 +119,8 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                                 height: 45,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    onPrimary: Colors.black,
-                                    primary: cMainColor,
+                                    foregroundColor: Colors.black,
+                                    backgroundColor: cMainColor,
                                     elevation: 0,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(17.0),

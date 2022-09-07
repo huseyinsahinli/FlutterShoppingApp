@@ -20,9 +20,7 @@ class LogoutSheet extends StatelessWidget {
           padding: const AppPadding.all(),
           child: Text(
             LocaleKeys.account_logout_description.locale,
-            style: Theme.of(context).textTheme.headline1!.copyWith(
-                  color: Colors.black,
-                ),
+            style: Theme.of(context).textTheme.headline1,
             textScaleFactor: ScaleSize.textScaleFactor(context),
             textAlign: TextAlign.center,
           ),
@@ -31,24 +29,26 @@ class LogoutSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextButton(
-              onPressed: () => FirebaseAuth.instance.signOut(),
-              child: Text(
-                LocaleKeys.account_logout_yes.locale,
-                style: Theme.of(context).textTheme.headline1!.copyWith(
-                      color: Colors.blue,
-                    ),
-              ),
-            ),
-            TextButton(
-              onPressed: () => context.popRoute(),
-              child: Text(
-                LocaleKeys.account_logout_no.locale,
-                style: Theme.of(context).textTheme.headline1!.copyWith(
-                      color: Colors.blue,
-                    ),
-              ),
-            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const AppPadding.all(),
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                ),
+                onPressed: () => FirebaseAuth.instance.signOut(),
+                child: Text(
+                  LocaleKeys.account_logout_yes.locale,
+                  style: Theme.of(context).textTheme.headline1,
+                )),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const AppPadding.all(),
+                  backgroundColor: Theme.of(context).backgroundColor,
+                ),
+                onPressed: () => context.popRoute(),
+                child: Text(
+                  LocaleKeys.account_logout_no.locale,
+                  style: Theme.of(context).textTheme.headline1,
+                )),
           ],
         ),
         50.0.sizedBoxOnlyHeight,

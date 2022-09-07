@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_border_radius.dart';
 
 import '../../../core/constant/app_constant.dart';
 
@@ -24,7 +25,7 @@ class CustomDots extends StatelessWidget {
         size: const Size.square(9.0),
         activeSize: const Size(18.0, 9.0),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: AppBorderRadius.circular5,
         ),
       ),
     );

@@ -20,6 +20,7 @@ class OnBoardPage extends StatefulWidget {
 }
 
 class _OnBoardPageState extends State<OnBoardPage> {
+  final controller = PageController();
   int _selectedIndex = 0;
 
   bool get _isLastPage =>
@@ -65,19 +66,20 @@ class _OnBoardPageState extends State<OnBoardPage> {
             padding: const AppPadding.onlyTop(),
             child: Column(
               children: [
-                Expanded(child: _pageViewItems()),
+                Expanded(child: _pageViewItems(_selectedIndex)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TabIndicator(selectedIndex: _selectedIndex),
                     _StartFabButton(
-                      isLastPage: _isLastPage,
-                      onPressed: () {
-                        _isLastPage
-                            ? context.router.replace(const LoginRoute())
-                            : _incrementAndChange();
-                      },
-                    ),
+                        isLastPage: _isLastPage,
+                        onPressed: () {
+                          _isLastPage
+                              ? context.router.replace(const LoginRoute())
+                              : controller.nextPage(
+                                  curve: Curves.easeInOut,
+                                  duration: const Duration(milliseconds: 500));
+                        }),
                   ],
                 )
               ],
@@ -88,8 +90,9 @@ class _OnBoardPageState extends State<OnBoardPage> {
     );
   }
 
-  Widget _pageViewItems() {
+  Widget _pageViewItems([int? index]) {
     return PageView.builder(
+      controller: controller,
       onPageChanged: (value) {
         _incrementAndChange(value);
       },

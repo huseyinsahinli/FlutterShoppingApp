@@ -24,14 +24,17 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 2), () {
-      FirebaseAuth.instance.idTokenChanges().listen((User? user) {
-        if (user == null) {
-          context.router.replace(const OnBoardRoute());
-        } else {
-          setState(() {});
-          context.router.replace(const HomeRoute());
-        }
-      });
+      try {
+        FirebaseAuth.instance.idTokenChanges().listen((User? user) {
+          if (user == null) {
+            context.router.replace(const OnBoardRoute());
+          } else {
+            setState(() {});
+            context.router.replace(const HomeRoute());
+          }
+        });
+        // ignore: empty_catches
+      } on Exception {}
     });
   }
 

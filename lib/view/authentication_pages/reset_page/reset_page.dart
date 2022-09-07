@@ -21,11 +21,7 @@ class _ResetPageState extends State<ResetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.black,
-        ),
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Container(
           margin: const AppPadding.symmetric(),

@@ -36,7 +36,7 @@ class _ShopPageState extends State<ShopPage> {
                 children: [
                   IconEnums.location.toImage,
                   Padding(
-                    padding: const EdgeInsets.only(left: 5),
+                    padding: const AppPadding.onlyLeft(),
                     child: Text(
                       "Istanbul, Zeytinburnu",
                       style: Theme.of(context).textTheme.headline2,

@@ -95,6 +95,16 @@ abstract class LocaleKeys {
   static const cart_checkout = 'cart.checkout';
   static const cart_quantity = 'cart.quantity';
   static const cart_total = 'cart.total';
+  static const cart_productCart_title = 'cart.productCart.title';
+  static const cart_productCart_price = 'cart.productCart.price';
+  static const cart_productCart_quantity = 'cart.productCart.quantity';
+  static const cart_productCart_total = 'cart.productCart.total';
+  static const cart_productCart_remove = 'cart.productCart.remove';
+  static const cart_productCart_emptyCart = 'cart.productCart.emptyCart';
+  static const cart_productCart_allreadyInCart =
+      'cart.productCart.allreadyInCart';
+  static const cart_productCart_addedToCart = 'cart.productCart.addedToCart';
+  static const cart_productCart = 'cart.productCart';
   static const cart = 'cart';
   static const productDetails_title = 'productDetails.title';
   static const productDetails_reviews = 'productDetails.reviews';

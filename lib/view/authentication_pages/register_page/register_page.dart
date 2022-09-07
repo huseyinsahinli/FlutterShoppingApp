@@ -207,7 +207,7 @@ class _RegisterPageState extends State<RegisterPage> {
               const CustomDivider(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: cWhiteColor,
+                    backgroundColor: Theme.of(context).backgroundColor,
                     side: const BorderSide(
                       color: cMainColor,
                       width: 1,

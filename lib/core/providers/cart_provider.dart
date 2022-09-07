@@ -98,4 +98,13 @@ class CartProvider with ChangeNotifier {
     _getPrefItems();
     notifyListeners();
   }
+
+  void removeProductItem(Product product) {
+    _totalPrice -= product.productPrice!;
+    _counter--;
+    _alreadyCartItems.remove(product.id!);
+    db.delete(product.id!);
+    _setPrefItems();
+    notifyListeners();
+  }
 }

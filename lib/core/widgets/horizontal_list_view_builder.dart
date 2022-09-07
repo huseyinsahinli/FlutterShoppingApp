@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/core/widgets/snack_bars.dart';
 import 'package:provider/provider.dart';
 
 import '../constant/app_constant.dart';
@@ -58,19 +59,13 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(18),
-                              topRight: Radius.circular(18),
+                          Image(
+                            image: NetworkImage(
+                              dataItems['image'],
                             ),
-                            child: Image(
-                              image: NetworkImage(
-                                dataItems['image'],
-                              ),
-                              fit: BoxFit.cover,
-                              width: context.screenWidth,
-                              height: 100,
-                            ),
+                            fit: BoxFit.contain,
+                            width: context.screenWidth,
+                            height: 100,
                           ),
                           Padding(
                             padding: const AppPadding.onlyTop(),
@@ -116,8 +111,8 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                           height: 45,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              onPrimary: Colors.black,
-                              primary: cMainColor,
+                              foregroundColor: Colors.black,
+                              backgroundColor: cMainColor,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(17.0),
@@ -145,26 +140,14 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                                       dataItems['price'].toString()));
                                   cart.addCounter();
 
-                                  const snackBar = SnackBar(
-                                    backgroundColor: Colors.green,
-                                    content: Text('Product is added to cart'),
-                                    duration: Duration(seconds: 1),
-                                  );
-
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      CustomSnackBar.successSnackBar);
                                 }).onError((error, StackTrace stackTrace) {
                                   // print("$error");
                                 });
                               } else {
-                                const snackBar = SnackBar(
-                                    backgroundColor: Colors.red,
-                                    content: Text(
-                                        'Product is already added in cart'),
-                                    duration: Duration(seconds: 1));
-
                                 ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
+                                    .showSnackBar(CustomSnackBar.errorSnackBar);
                               }
                             },
                             child: SvgPicture.asset(

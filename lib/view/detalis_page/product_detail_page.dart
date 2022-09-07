@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:nectar_ui/core/constant/app_border_radius.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
@@ -116,8 +117,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             color: const Color(0xffE2E2E2),
                             width: 1,
                           ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(17)),
+                          borderRadius: AppBorderRadius.circular20,
                         ),
                         child: IconButton(
                           onPressed: () {},
@@ -158,11 +158,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               color: cMainColor,
                               width: 1,
                             ),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(
-                                25,
-                              ),
-                            )),
+                            borderRadius: AppBorderRadius.circular20),
                         child: Padding(
                           padding: const AppPadding.allLow(),
                           child: RichText(

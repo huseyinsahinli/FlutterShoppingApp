@@ -28,7 +28,6 @@ class CustomStreamBuilder extends StatelessWidget {
           }
           final data = snapshot.requireData;
           return Column(
-            mainAxisSize: MainAxisSize.min,
             children: [
               CustomTitleAndButton(
                 title: title,
