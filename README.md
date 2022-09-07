@@ -1,6 +1,18 @@
 # Nectar Shop
 
 An e-commerce application that I have made with the knowledge I have gained about how the classic e-commerce applications used today work in Flutter.
+
+## Libraries used in the project
+- State Management: [provider](https://pub.dev/packages/provider)
+- Localization: [easy_localization](https://pub.dev/packages/easy_localization)
+- Navigate: [Auto Route](https://pub.dev/packages/auto_route)
+- Database: [shared_preferences](https://pub.dev/packages/shared_preferences),[firebase_storage](https://pub.dev/packages/firebase_storage),[cloud_firestore](https://pub.dev/packages/cloud_firestore),[sqflite](https://pub.dev/packages/sqflite)
+- Authentication: [firebase_core](https://pub.dev/packages/firebase_core),[firebase_auth](https://pub.dev/packages/firebase_auth),[google_sign_in](https://pub.dev/packages/google_sign_in)
+## Fonts used in the Project
+- [Gilroy](https://www.dafontfree.io/gilroy-font-family/)
+
+
+# Screenshots
 <table>
   <tr>
      <td><b>Onboarding Pages</b></td>
