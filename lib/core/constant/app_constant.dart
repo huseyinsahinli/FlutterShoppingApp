@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppConstant {
+  static const appName = "Nectar";
   static const langPath = 'assets/lang';
   static const enLocale = Locale('en', 'US');
   static const trLocale = Locale('tr', 'TR');
