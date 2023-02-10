@@ -19,7 +19,16 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  var _currentIndex = 0;
+  //var _currentIndex = 0;
+  
+  ValueNotifier<int> valueNotifier = ValueNotifier(0);
+
+  @override
+  void dispose() {
+    valueNotifier.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,9 +92,18 @@ class _ShopPageState extends State<ShopPage> {
                             );
                           },
                         ),
-                        CustomDots(
-                          dataSize: data.size,
-                          currentIndex: _currentIndex,
+//                         CustomDots(
+//                           dataSize: data.size,
+//                           currentIndex: _currentIndex,
+//                         ),
+                        ValueListenableBuilder(
+                          valueListenable: valueNotifier,
+                          builder: (BuildContext context, int value, Widget? child) {
+                            return CustomDots(
+                              dataSize: data.size,
+                              currentIndex: value,
+                            );
+                          },
                         ),
                       ],
                     );
@@ -121,8 +139,9 @@ class _ShopPageState extends State<ShopPage> {
       height: 100,
       enlargeCenterPage: true,
       onPageChanged: (index, reason) {
-        _currentIndex = index;
-        setState(() {});
+        //_currentIndex = index;
+        //setState(() {});
+        valueNotifier.value = index;
       },
     );
   }
