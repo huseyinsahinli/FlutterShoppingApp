@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_border_radius.dart';
@@ -6,7 +7,6 @@ import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:auto_route/auto_route.dart';
 
 import '../../../core/constant/app_constant.dart';
 import '../../core/helper/text_scale_size.dart';
@@ -14,8 +14,9 @@ import '../../core/init/lang/locale_keys.g.dart';
 import '../../core/services/firestore.dart';
 import '../../core/widgets/search_text_field.dart';
 
+@RoutePage()
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -44,8 +45,7 @@ class _SearchPageState extends State<SearchPage> {
             20.0.sizedBoxOnlyHeight,
             StreamBuilder<QuerySnapshot>(
                 stream: FireCloudStore.category,
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
                   }
@@ -60,9 +60,7 @@ class _SearchPageState extends State<SearchPage> {
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: context.screenWidth * 0.5,
-                        mainAxisExtent: context.screenHeight * 0.5 <= 200
-                            ? context.screenHeight * 0.5
-                            : 200,
+                        mainAxisExtent: context.screenHeight * 0.5 <= 200 ? context.screenHeight * 0.5 : 200,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 20,
                       ),
@@ -114,14 +112,10 @@ class _SearchPageState extends State<SearchPage> {
                                   child: Expanded(
                                     child: Text(
                                       data.docs[index]['name'],
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline2!
-                                          .copyWith(
+                                      style: Theme.of(context).textTheme.displayMedium!.copyWith(
                                             color: cWhiteColor,
                                           ),
-                                      textScaleFactor:
-                                          ScaleSize.textScaleFactor(context),
+                                      textScaleFactor: ScaleSize.textScaleFactor(context),
                                       textAlign: TextAlign.center,
                                     ),
                                   ),

@@ -3,18 +3,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../core/helper/text_scale_size.dart';
-import '../../core/navigator/app_router.dart';
 import '../../core/services/firestore.dart';
 
+@RoutePage()
 class SearchDetailsPage extends StatefulWidget {
   final String title;
   final String id;
-  const SearchDetailsPage({Key? key, required this.title, required this.id})
-      : super(key: key);
+  const SearchDetailsPage({super.key, required this.title, required this.id});
 
   @override
   State<SearchDetailsPage> createState() => _SearchDetailsPageState();
@@ -36,8 +37,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
         padding: const AppPadding.symmetricLow(),
         child: StreamBuilder<QuerySnapshot>(
             stream: FireCloudStore.categoryProducts(widget.id),
-            builder:
-                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               }
@@ -51,9 +51,7 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: context.screenWidth * 0.5,
-                  mainAxisExtent: context.screenHeight * 0.5 <= 270
-                      ? context.screenHeight * 0.5
-                      : 270,
+                  mainAxisExtent: context.screenHeight * 0.5 <= 270 ? context.screenHeight * 0.5 : 270,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                 ),
@@ -98,16 +96,14 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                                 ),
                                 Text(
                                   dataItems['name'],
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                  textScaleFactor:
-                                      ScaleSize.textScaleFactor(context),
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                  textScaleFactor: ScaleSize.textScaleFactor(context),
                                 ),
                                 Text(
                                   "355ml,Price",
-                                  style: Theme.of(context).textTheme.bodyText2,
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                   textAlign: TextAlign.center,
-                                  textScaleFactor:
-                                      ScaleSize.textScaleFactor(context),
+                                  textScaleFactor: ScaleSize.textScaleFactor(context),
                                 )
                               ],
                             ),
@@ -139,13 +135,11 @@ class _SearchDetailsPageState extends State<SearchDetailsPage> {
                               left: 0,
                               bottom: 0,
                               child: Padding(
-                                padding:
-                                    const AppPadding.symmetricOnlyVertical(),
+                                padding: const AppPadding.symmetricOnlyVertical(),
                                 child: Text(
                                   "\$ ${dataItems['price']}",
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                  textScaleFactor:
-                                      ScaleSize.textScaleFactor(context),
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                  textScaleFactor: ScaleSize.textScaleFactor(context),
                                 ),
                               ),
                             )

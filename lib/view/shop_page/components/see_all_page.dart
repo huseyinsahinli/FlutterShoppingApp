@@ -11,11 +11,11 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
 import '../../../core/padding/app_padding.dart';
 
+@RoutePage()
 class SeeAllPage extends StatefulWidget {
   final QuerySnapshot data;
   final String title;
-  const SeeAllPage({Key? key, required this.title, required this.data})
-      : super(key: key);
+  const SeeAllPage({super.key, required this.title, required this.data});
 
   @override
   State<SeeAllPage> createState() => _SeeAllPageState();
@@ -34,9 +34,7 @@ class _SeeAllPageState extends State<SeeAllPage> {
           shrinkWrap: true,
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: context.screenWidth * 0.5,
-            mainAxisExtent: context.screenHeight * 0.5 <= 270
-                ? context.screenHeight * 0.5
-                : 270,
+            mainAxisExtent: context.screenHeight * 0.5 <= 270 ? context.screenHeight * 0.5 : 270,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
           ),
@@ -83,15 +81,13 @@ class _SeeAllPageState extends State<SeeAllPage> {
                               children: [
                                 Text(
                                   dataItems['name'],
-                                  style: Theme.of(context).textTheme.subtitle2,
-                                  textScaleFactor:
-                                      ScaleSize.textScaleFactor(context),
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                  textScaleFactor: ScaleSize.textScaleFactor(context),
                                 ),
                                 Text(
                                   "355ml,Price",
-                                  style: Theme.of(context).textTheme.bodyText2,
-                                  textScaleFactor:
-                                      ScaleSize.textScaleFactor(context),
+                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  textScaleFactor: ScaleSize.textScaleFactor(context),
                                 ),
                               ],
                             ),
@@ -103,7 +99,7 @@ class _SeeAllPageState extends State<SeeAllPage> {
                       bottom: 0,
                       child: Text(
                         "\$${dataItems['price']}",
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.displayLarge,
                         textAlign: TextAlign.right,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),

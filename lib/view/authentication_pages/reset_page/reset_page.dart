@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
@@ -7,9 +8,10 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
-import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/my_custom_column.dart';
 
+@RoutePage()
 class ResetPage extends StatefulWidget {
   const ResetPage({Key? key}) : super(key: key);
 
@@ -44,11 +46,11 @@ class _ResetPageState extends State<ResetPage> {
                   children: [
                     Text(
                       LocaleKeys.auth_reset_title.locale,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                     Text(
                       LocaleKeys.auth_reset_subtitle.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -69,7 +71,7 @@ class _ResetPageState extends State<ResetPage> {
                 onPressed: () async {},
                 child: Text(
                   LocaleKeys.auth_reset_title.locale,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
               ),

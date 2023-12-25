@@ -13,11 +13,12 @@ import '../../../core/constant/icon_enum.dart';
 import '../../../core/helper/text_scale_size.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../../../core/padding/app_padding.dart';
-import '../../../core/widgets/my_custom_column.dart';
 import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/my_custom_column.dart';
 
+@RoutePage()
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -54,11 +55,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     Text(
                       LocaleKeys.auth_signUp_title.locale,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                     Text(
                       LocaleKeys.auth_signUp_subtitle.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -94,21 +95,21 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     TextSpan(
                       text: LocaleKeys.auth_signUp_terms1.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     TextSpan(
                       text: LocaleKeys.auth_signUp_terms2.locale,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: cMainColor,
                           ),
                     ),
                     TextSpan(
                       text: LocaleKeys.auth_signUp_terms3.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     TextSpan(
                       text: LocaleKeys.auth_signUp_terms4.locale,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: cMainColor,
                           ),
                     ),
@@ -123,15 +124,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 onPressed: () async {
-                  if (_email.text.isNotEmpty &&
-                      _password.text.isNotEmpty &&
-                      _retypePassword.text.isNotEmpty) {
-                    if (_password.text.toString() ==
-                        _retypePassword.text.toString()) {
+                  if (_email.text.isNotEmpty && _password.text.isNotEmpty && _retypePassword.text.isNotEmpty) {
+                    if (_password.text.toString() == _retypePassword.text.toString()) {
                       try {
-                        UserCredential userCredential = await FirebaseAuth
-                            .instance
-                            .createUserWithEmailAndPassword(
+                        UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                           email: _email.text.toString(),
                           password: _password.text.toString(),
                         );
@@ -156,8 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text(
-                              LocaleKeys.auth_signUp_passwordNotMatch.locale),
+                          content: Text(LocaleKeys.auth_signUp_passwordNotMatch.locale),
                           backgroundColor: Colors.red,
                         ),
                       );
@@ -175,7 +170,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
                 child: Text(
                   LocaleKeys.auth_signUp_title.locale,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
               ),
@@ -184,7 +179,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     LocaleKeys.auth_signUp_alreadyHaveAccount.locale,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   TextButton(
                     onPressed: () {
@@ -192,7 +187,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                     child: Text(
                       LocaleKeys.auth_signIn_title.locale,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: cMainColor,
                             decoration: TextDecoration.underline,
                           ),
@@ -202,12 +197,12 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               Text(
                 LocaleKeys.auth_signUp_orSignUpWithScoial.locale,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const CustomDivider(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                     side: const BorderSide(
                       color: cMainColor,
                       width: 1,
@@ -238,7 +233,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Text(
                         LocaleKeys.auth_signUp_google.locale,
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: cMainColor,
                             ),
                         textScaleFactor: ScaleSize.textScaleFactor(context),
@@ -257,8 +252,7 @@ class _RegisterPageState extends State<RegisterPage> {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(

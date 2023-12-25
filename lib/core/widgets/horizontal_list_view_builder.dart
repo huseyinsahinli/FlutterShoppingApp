@@ -17,7 +17,7 @@ import '../providers/cart_provider.dart';
 
 class HorizontalListView extends StatefulWidget {
   final QuerySnapshot data;
-  const HorizontalListView({Key? key, required this.data}) : super(key: key);
+  const HorizontalListView({super.key, required this.data});
 
   @override
   State<HorizontalListView> createState() => _HorizontalListViewState();
@@ -40,8 +40,13 @@ class _HorizontalListViewState extends State<HorizontalListView> {
           return Padding(
             padding: const AppPadding.onlyRight(),
             child: InkWell(
-              onTap: () =>
-                  context.router.push(ProductDetailsRoute(data: dataItems)),
+              onTap: () {
+                context.router.push(
+                  ProductDetailsRoute(
+                    data: dataItems,
+                  ),
+                );
+              },
               child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -76,17 +81,13 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                                 children: [
                                   Text(
                                     dataItems['name'],
-                                    style:
-                                        Theme.of(context).textTheme.subtitle2,
-                                    textScaleFactor:
-                                        ScaleSize.textScaleFactor(context),
+                                    style: Theme.of(context).textTheme.titleSmall,
+                                    textScaleFactor: ScaleSize.textScaleFactor(context),
                                   ),
                                   Text(
                                     "355ml,Price",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText2,
-                                    textScaleFactor:
-                                        ScaleSize.textScaleFactor(context),
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                    textScaleFactor: ScaleSize.textScaleFactor(context),
                                   ),
                                 ],
                               ),
@@ -98,7 +99,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                         bottom: 0,
                         child: Text(
                           "\$${dataItems['price']}",
-                          style: Theme.of(context).textTheme.headline1,
+                          style: Theme.of(context).textTheme.displayLarge,
                           textAlign: TextAlign.right,
                           textScaleFactor: ScaleSize.textScaleFactor(context),
                         ),
@@ -127,27 +128,22 @@ class _HorizontalListViewState extends State<HorizontalListView> {
                                   id: dataItems.id,
                                   productId: dataItems.id,
                                   productName: dataItems['name'].toString(),
-                                  productInitialPrice: double.parse(
-                                      dataItems['price'].toString()),
-                                  productPrice: double.parse(
-                                      dataItems['price'].toString()),
+                                  productInitialPrice: double.parse(dataItems['price'].toString()),
+                                  productPrice: double.parse(dataItems['price'].toString()),
                                   productStock: 100,
                                   productQuantity: 1,
                                   productImage: dataItems['image'].toString(),
                                 ))
                                     .then((value) {
-                                  cart.addTotalprice(double.parse(
-                                      dataItems['price'].toString()));
+                                  cart.addTotalprice(double.parse(dataItems['price'].toString()));
                                   cart.addCounter();
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      CustomSnackBar.successSnackBar);
+                                  ScaffoldMessenger.of(context).showSnackBar(CustomSnackBar.successSnackBar);
                                 }).onError((error, StackTrace stackTrace) {
                                   // print("$error");
                                 });
                               } else {
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(CustomSnackBar.errorSnackBar);
+                                ScaffoldMessenger.of(context).showSnackBar(CustomSnackBar.errorSnackBar);
                               }
                             },
                             child: SvgPicture.asset(

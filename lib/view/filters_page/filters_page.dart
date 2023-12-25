@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -7,6 +8,7 @@ import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
+@RoutePage()
 class FilterPage extends StatefulWidget {
   const FilterPage({Key? key}) : super(key: key);
 
@@ -60,7 +62,7 @@ class _FilterPageState extends State<FilterPage> {
                 children: [
                   Text(
                     "Categories",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   ListView(
                       shrinkWrap: true,
@@ -71,16 +73,14 @@ class _FilterPageState extends State<FilterPage> {
                               scale: 1.3,
                               child: Checkbox(
                                 checkColor: Colors.white,
-                                fillColor:
-                                    MaterialStateProperty.all(cMainColor),
+                                fillColor: MaterialStateProperty.all(cMainColor),
                                 activeColor: cMainColor,
                                 value: values[key],
                                 side: const BorderSide(
                                   // set border color here
                                   color: Color(0xffC2C2C2),
                                 ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6)),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                                 onChanged: (bool? value) {
                                   setState(() {
                                     values[key] = value!;
@@ -90,11 +90,7 @@ class _FilterPageState extends State<FilterPage> {
                             ),
                             Text(
                               key,
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w700,
-                                  color:
-                                      values[key]! ? cMainColor : cTextColor),
+                              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: values[key]! ? cMainColor : cTextColor),
                             )
                           ],
                         );
@@ -102,7 +98,7 @@ class _FilterPageState extends State<FilterPage> {
                   40.0.sizedBoxOnlyHeight,
                   Text(
                     "Brand",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   ListView(
                       shrinkWrap: true,
@@ -117,11 +113,9 @@ class _FilterPageState extends State<FilterPage> {
                                   color: Color(0xffC2C2C2),
                                 ),
                                 checkColor: Colors.white,
-                                fillColor:
-                                    MaterialStateProperty.all(cMainColor),
+                                fillColor: MaterialStateProperty.all(cMainColor),
                                 value: brandValues[key],
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6)),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                                 onChanged: (bool? value) {
                                   setState(() {
                                     brandValues[key] = value!;
@@ -131,12 +125,7 @@ class _FilterPageState extends State<FilterPage> {
                             ),
                             Text(
                               key,
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w700,
-                                  color: brandValues[key]!
-                                      ? cMainColor
-                                      : cTextColor),
+                              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w700, color: brandValues[key]! ? cMainColor : cTextColor),
                             )
                           ],
                         );

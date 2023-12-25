@@ -1,175 +1,331 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 part of 'app_router.dart';
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    OnBoardRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const OnBoardPage());
+    AccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AccountPage(),
+      );
     },
-    SplashRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const SplashPage());
+    CartRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CartPage(),
+      );
+    },
+    FavouriteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FavouritePage(),
+      );
+    },
+    FilterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FilterPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
     },
     LoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const LoginPage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
     },
-    RegisterRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const RegisterPage());
-    },
-    ResetRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ResetPage());
-    },
-    SearchDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<SearchDetailsRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child:
-              SearchDetailsPage(key: args.key, title: args.title, id: args.id));
+    OnBoardRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OnBoardPage(),
+      );
     },
     ProductDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<ProductDetailsRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: ProductDetailsPage(key: args.key, data: args.data));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProductDetailsPage(
+          key: args.key,
+          data: args.data,
+        ),
+      );
     },
-    TransactionRoute.name: (routeData) {
-      final args = routeData.argsAs<TransactionRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: TransactionPage(key: args.key, account: args.account));
+    RegisterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegisterPage(),
+      );
     },
-    FilterRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const FilterPage());
+    ResetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ResetPage(),
+      );
+    },
+    SearchDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchDetailsPage(
+          key: args.key,
+          title: args.title,
+          id: args.id,
+        ),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SearchPage(),
+      );
     },
     SeeAllRoute.name: (routeData) {
       final args = routeData.argsAs<SeeAllRouteArgs>();
-      return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: SeeAllPage(key: args.key, title: args.title, data: args.data));
-    },
-    HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HomePage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SeeAllPage(
+          key: args.key,
+          title: args.title,
+          data: args.data,
+        ),
+      );
     },
     ShopRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const ShopPage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ShopPage(),
+      );
     },
-    SearchRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const SearchPage());
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashPage(),
+      );
     },
-    CartRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const CartPage());
+    TransactionRoute.name: (routeData) {
+      final args = routeData.argsAs<TransactionRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TransactionPage(
+          key: args.key,
+          account: args.account,
+        ),
+      );
     },
-    FavouriteRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const FavouritePage());
-    },
-    AccountRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const AccountPage());
-    }
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(OnBoardRoute.name, path: '/onboard'),
-        RouteConfig(SplashRoute.name, path: '/'),
-        RouteConfig(LoginRoute.name, path: '/login'),
-        RouteConfig(RegisterRoute.name, path: '/register'),
-        RouteConfig(ResetRoute.name, path: '/reset'),
-        RouteConfig(SearchDetailsRoute.name, path: 'search/:query'),
-        RouteConfig(ProductDetailsRoute.name, path: ':id'),
-        RouteConfig(TransactionRoute.name, path: '/transaction'),
-        RouteConfig(FilterRoute.name, path: 'filter'),
-        RouteConfig(SeeAllRoute.name, path: 'seeAll'),
-        RouteConfig(HomeRoute.name, path: '/home-page', children: [
-          RouteConfig(ShopRoute.name, path: 'shop', parent: HomeRoute.name),
-          RouteConfig(SearchRoute.name, path: 'search', parent: HomeRoute.name),
-          RouteConfig(CartRoute.name, path: 'cart', parent: HomeRoute.name),
-          RouteConfig(FavouriteRoute.name,
-              path: 'favourite', parent: HomeRoute.name),
-          RouteConfig(AccountRoute.name,
-              path: 'account', parent: HomeRoute.name)
-        ])
-      ];
 }
 
 /// generated route for
-/// [OnBoardPage]
-class OnBoardRoute extends PageRouteInfo<void> {
-  const OnBoardRoute() : super(OnBoardRoute.name, path: '/onboard');
+/// [AccountPage]
+class AccountRoute extends PageRouteInfo<void> {
+  const AccountRoute({List<PageRouteInfo>? children})
+      : super(
+          AccountRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'OnBoardRoute';
+  static const String name = 'AccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [SplashPage]
-class SplashRoute extends PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/');
+/// [CartPage]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute({List<PageRouteInfo>? children})
+      : super(
+          CartRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'SplashRoute';
+  static const String name = 'CartRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FavouritePage]
+class FavouriteRoute extends PageRouteInfo<void> {
+  const FavouriteRoute({List<PageRouteInfo>? children})
+      : super(
+          FavouriteRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FavouriteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FilterPage]
+class FilterRoute extends PageRouteInfo<void> {
+  const FilterRoute({List<PageRouteInfo>? children})
+      : super(
+          FilterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FilterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/login');
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OnBoardPage]
+class OnBoardRoute extends PageRouteInfo<void> {
+  const OnBoardRoute({List<PageRouteInfo>? children})
+      : super(
+          OnBoardRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OnBoardRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProductDetailsPage]
+class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({
+    Key? key,
+    required QueryDocumentSnapshot<Object?> data,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProductDetailsRoute.name,
+          args: ProductDetailsRouteArgs(
+            key: key,
+            data: data,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProductDetailsRoute';
+
+  static const PageInfo<ProductDetailsRouteArgs> page =
+      PageInfo<ProductDetailsRouteArgs>(name);
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({
+    this.key,
+    required this.data,
+  });
+
+  final Key? key;
+
+  final QueryDocumentSnapshot<Object?> data;
+
+  @override
+  String toString() {
+    return 'ProductDetailsRouteArgs{key: $key, data: $data}';
+  }
 }
 
 /// generated route for
 /// [RegisterPage]
 class RegisterRoute extends PageRouteInfo<void> {
-  const RegisterRoute() : super(RegisterRoute.name, path: '/register');
+  const RegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'RegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [ResetPage]
 class ResetRoute extends PageRouteInfo<void> {
-  const ResetRoute() : super(ResetRoute.name, path: '/reset');
+  const ResetRoute({List<PageRouteInfo>? children})
+      : super(
+          ResetRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'ResetRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [SearchDetailsPage]
 class SearchDetailsRoute extends PageRouteInfo<SearchDetailsRouteArgs> {
-  SearchDetailsRoute({Key? key, required String title, required String id})
-      : super(SearchDetailsRoute.name,
-            path: 'search/:query',
-            args: SearchDetailsRouteArgs(key: key, title: title, id: id));
+  SearchDetailsRoute({
+    Key? key,
+    required String title,
+    required String id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchDetailsRoute.name,
+          args: SearchDetailsRouteArgs(
+            key: key,
+            title: title,
+            id: id,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'SearchDetailsRoute';
+
+  static const PageInfo<SearchDetailsRouteArgs> page =
+      PageInfo<SearchDetailsRouteArgs>(name);
 }
 
 class SearchDetailsRouteArgs {
-  const SearchDetailsRouteArgs(
-      {this.key, required this.title, required this.id});
+  const SearchDetailsRouteArgs({
+    this.key,
+    required this.title,
+    required this.id,
+  });
 
   final Key? key;
 
@@ -184,74 +340,48 @@ class SearchDetailsRouteArgs {
 }
 
 /// generated route for
-/// [ProductDetailsPage]
-class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
-  ProductDetailsRoute({Key? key, required QueryDocumentSnapshot<Object?> data})
-      : super(ProductDetailsRoute.name,
-            path: ':id', args: ProductDetailsRouteArgs(key: key, data: data));
+/// [SearchPage]
+class SearchRoute extends PageRouteInfo<void> {
+  const SearchRoute({List<PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'ProductDetailsRoute';
-}
+  static const String name = 'SearchRoute';
 
-class ProductDetailsRouteArgs {
-  const ProductDetailsRouteArgs({this.key, required this.data});
-
-  final Key? key;
-
-  final QueryDocumentSnapshot<Object?> data;
-
-  @override
-  String toString() {
-    return 'ProductDetailsRouteArgs{key: $key, data: $data}';
-  }
-}
-
-/// generated route for
-/// [TransactionPage]
-class TransactionRoute extends PageRouteInfo<TransactionRouteArgs> {
-  TransactionRoute({Key? key, required AccountModel account})
-      : super(TransactionRoute.name,
-            path: '/transaction',
-            args: TransactionRouteArgs(key: key, account: account));
-
-  static const String name = 'TransactionRoute';
-}
-
-class TransactionRouteArgs {
-  const TransactionRouteArgs({this.key, required this.account});
-
-  final Key? key;
-
-  final AccountModel account;
-
-  @override
-  String toString() {
-    return 'TransactionRouteArgs{key: $key, account: $account}';
-  }
-}
-
-/// generated route for
-/// [FilterPage]
-class FilterRoute extends PageRouteInfo<void> {
-  const FilterRoute() : super(FilterRoute.name, path: 'filter');
-
-  static const String name = 'FilterRoute';
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [SeeAllPage]
 class SeeAllRoute extends PageRouteInfo<SeeAllRouteArgs> {
-  SeeAllRoute(
-      {Key? key, required String title, required QuerySnapshot<Object?> data})
-      : super(SeeAllRoute.name,
-            path: 'seeAll',
-            args: SeeAllRouteArgs(key: key, title: title, data: data));
+  SeeAllRoute({
+    Key? key,
+    required String title,
+    required QuerySnapshot<Object?> data,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SeeAllRoute.name,
+          args: SeeAllRouteArgs(
+            key: key,
+            title: title,
+            data: data,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'SeeAllRoute';
+
+  static const PageInfo<SeeAllRouteArgs> page = PageInfo<SeeAllRouteArgs>(name);
 }
 
 class SeeAllRouteArgs {
-  const SeeAllRouteArgs({this.key, required this.title, required this.data});
+  const SeeAllRouteArgs({
+    this.key,
+    required this.title,
+    required this.data,
+  });
 
   final Key? key;
 
@@ -266,50 +396,67 @@ class SeeAllRouteArgs {
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-      : super(HomeRoute.name, path: '/home-page', initialChildren: children);
-
-  static const String name = 'HomeRoute';
-}
-
-/// generated route for
 /// [ShopPage]
 class ShopRoute extends PageRouteInfo<void> {
-  const ShopRoute() : super(ShopRoute.name, path: 'shop');
+  const ShopRoute({List<PageRouteInfo>? children})
+      : super(
+          ShopRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'ShopRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [SearchPage]
-class SearchRoute extends PageRouteInfo<void> {
-  const SearchRoute() : super(SearchRoute.name, path: 'search');
+/// [SplashPage]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'SearchRoute';
+  static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [CartPage]
-class CartRoute extends PageRouteInfo<void> {
-  const CartRoute() : super(CartRoute.name, path: 'cart');
+/// [TransactionPage]
+class TransactionRoute extends PageRouteInfo<TransactionRouteArgs> {
+  TransactionRoute({
+    Key? key,
+    required AccountModel account,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TransactionRoute.name,
+          args: TransactionRouteArgs(
+            key: key,
+            account: account,
+          ),
+          initialChildren: children,
+        );
 
-  static const String name = 'CartRoute';
+  static const String name = 'TransactionRoute';
+
+  static const PageInfo<TransactionRouteArgs> page =
+      PageInfo<TransactionRouteArgs>(name);
 }
 
-/// generated route for
-/// [FavouritePage]
-class FavouriteRoute extends PageRouteInfo<void> {
-  const FavouriteRoute() : super(FavouriteRoute.name, path: 'favourite');
+class TransactionRouteArgs {
+  const TransactionRouteArgs({
+    this.key,
+    required this.account,
+  });
 
-  static const String name = 'FavouriteRoute';
-}
+  final Key? key;
 
-/// generated route for
-/// [AccountPage]
-class AccountRoute extends PageRouteInfo<void> {
-  const AccountRoute() : super(AccountRoute.name, path: 'account');
+  final AccountModel account;
 
-  static const String name = 'AccountRoute';
+  @override
+  String toString() {
+    return 'TransactionRouteArgs{key: $key, account: $account}';
+  }
 }

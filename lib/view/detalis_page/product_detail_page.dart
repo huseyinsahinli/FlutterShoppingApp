@@ -1,12 +1,12 @@
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_border_radius.dart';
 import 'package:nectar_ui/core/constant/app_constant.dart';
 import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
-import 'package:nectar_ui/core/extensions/double_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
@@ -15,10 +15,11 @@ import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../core/helper/text_scale_size.dart';
 
+@RoutePage()
 class ProductDetailsPage extends StatefulWidget {
   final QueryDocumentSnapshot data;
 
-  const ProductDetailsPage({Key? key, required this.data}) : super(key: key);
+  const ProductDetailsPage({super.key, required this.data});
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
@@ -88,19 +89,19 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       Text(
                         widget.data['name'],
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.displayLarge,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                       Column(
                         children: [
                           Text(
                             '1kg,Price',
-                            style: Theme.of(context).textTheme.headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                           Text(
                             "\$${widget.data['price']}",
-                            style: Theme.of(context).textTheme.headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ],
@@ -129,7 +130,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         child: Expanded(
                           child: Text(
                             "1 kg",
-                            style: Theme.of(context).textTheme.headline2,
+                            style: Theme.of(context).textTheme.displayMedium,
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ),
@@ -140,8 +141,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             color: const Color(0xffE2E2E2),
                             width: 1,
                           ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(17)),
+                          borderRadius: const BorderRadius.all(Radius.circular(17)),
                         ),
                         child: IconButton(
                           onPressed: () {},
@@ -150,36 +150,31 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       ),
                     ],
                   ),
-                  Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: cMainColor,
-                              width: 1,
-                            ),
-                            borderRadius: AppBorderRadius.circular20),
-                        child: Padding(
-                          padding: const AppPadding.allLow(),
-                          child: RichText(
-                            text: TextSpan(children: [
-                              TextSpan(
-                                text: 'Total Price: ',
-                                style: Theme.of(context).textTheme.headline2,
-                              ),
-                              TextSpan(
-                                text: '\$5',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline2!
-                                    .copyWith(
-                                      color: cMainColor,
-                                    ),
-                              )
-                            ]),
-                          ),
+                  Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: cMainColor,
+                          width: 1,
                         ),
-                      )),
+                        borderRadius: AppBorderRadius.circular20),
+                    child: Padding(
+                      padding: const AppPadding.allLow(),
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Total Price: ',
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                          TextSpan(
+                            text: '\$5',
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: cMainColor,
+                                ),
+                          )
+                        ]),
+                      ),
+                    ),
+                  ),
                   ExpansionTile(
                     trailing: !_open
                         ? IconEnums.rightarrow.toImage
@@ -191,13 +186,13 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     title: Text(
                       LocaleKeys.productDetails_title.locale,
                       textAlign: TextAlign.left,
-                      style: Theme.of(context).textTheme.subtitle2,
+                      style: Theme.of(context).textTheme.titleSmall,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     children: <Widget>[
                       Text(
                         'Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.\n',
-                        style: Theme.of(context).textTheme.bodyText2,
+                        style: Theme.of(context).textTheme.bodyMedium,
                         textScaleFactor: ScaleSize.textScaleFactor(context),
                       ),
                     ],
@@ -205,7 +200,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 ],
               ),
             ),
-            (context.screenHeight * 0.3).sizedBoxOnlyHeight,
           ],
         ),
       ),
@@ -217,7 +211,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             width: context.screenWidth,
             child: Text(
               LocaleKeys.productDetails_addToCart.locale,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
               textScaleFactor: ScaleSize.textScaleFactor(context),
             ),

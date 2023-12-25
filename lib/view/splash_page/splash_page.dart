@@ -12,8 +12,9 @@ import '../../core/extensions/double_extensions.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
+@RoutePage()
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -55,7 +56,7 @@ class _SplashPageState extends State<SplashPage> {
                   Text(
                     LocaleKeys.splash_title.locale,
                     textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.headline1!.copyWith(
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
                           color: cWhiteColor,
                           fontSize: 64,
                         ),
@@ -63,10 +64,7 @@ class _SplashPageState extends State<SplashPage> {
                   ),
                   Text(
                     LocaleKeys.splash_subtitle.locale,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline2!
-                        .copyWith(color: cWhiteColor, letterSpacing: 3.75),
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(color: cWhiteColor, letterSpacing: 3.75),
                     textScaleFactor: ScaleSize.textScaleFactor(context),
                   ),
                 ],

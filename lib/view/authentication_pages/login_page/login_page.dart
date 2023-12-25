@@ -11,11 +11,12 @@ import 'package:nectar_ui/core/helper/text_scale_size.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
-import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 import 'package:nectar_ui/core/widgets/custom_text_field.dart';
+import 'package:nectar_ui/core/widgets/my_custom_column.dart';
 
+@RoutePage()
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -61,12 +62,12 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       LocaleKeys.auth_signIn_title.locale,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     Text(
                       LocaleKeys.auth_signIn_subtitle.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                   ],
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text(
                     LocaleKeys.auth_forgotPassword.locale,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
               ),
@@ -105,9 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () async {
                   try {
-                    await auth.signInWithEmailAndPassword(
-                        email: _email.text.toString().trimRight(),
-                        password: _password.text.toString());
+                    await auth.signInWithEmailAndPassword(email: _email.text.toString().trimRight(), password: _password.text.toString());
                   } on FirebaseAuthException catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -119,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text(
                   LocaleKeys.auth_signIn_title.locale,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textScaleFactor: ScaleSize.textScaleFactor(context),
                 ),
               ),
@@ -132,12 +131,12 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       LocaleKeys.auth_signIn_dontHaveAccount.locale,
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       textScaleFactor: ScaleSize.textScaleFactor(context),
                     ),
                     Text(
                       LocaleKeys.auth_signUp_title.locale,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: cMainColor,
                           ),
                       textScaleFactor: ScaleSize.textScaleFactor(context),
@@ -147,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                     side: const BorderSide(
                       color: cMainColor,
                       width: 1,
@@ -178,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Text(
                         LocaleKeys.auth_signIn_google.locale,
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: cMainColor,
                             ),
                         textScaleFactor: ScaleSize.textScaleFactor(context),
@@ -202,8 +201,7 @@ class _LoginPageState extends State<LoginPage> {
     if (googleUser == null) return null;
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(

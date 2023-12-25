@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/models/account_card_model.dart';
 
 import '../../core/widgets/divider.dart';
 
+@RoutePage()
 class TransactionPage extends StatefulWidget {
   final AccountModel account;
-  const TransactionPage({Key? key, required this.account}) : super(key: key);
+  const TransactionPage({super.key, required this.account});
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();

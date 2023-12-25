@@ -1,18 +1,20 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
+import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:nectar_ui/view/shop_page/widgets/custom_dots.dart';
 import 'package:nectar_ui/view/shop_page/widgets/custom_stream_builder.dart';
+
 import '../../../core/constant/icon_enum.dart';
-import 'package:nectar_ui/core/extensions/string_extensions.dart';
-
-import '../../core/services/firestore.dart';
 import '../../core/init/lang/locale_keys.g.dart';
+import '../../core/services/firestore.dart';
 
+@RoutePage()
 class ShopPage extends StatefulWidget {
-  const ShopPage({Key? key}) : super(key: key);
+  const ShopPage({super.key});
 
   @override
   State<ShopPage> createState() => _ShopPageState();
@@ -39,7 +41,7 @@ class _ShopPageState extends State<ShopPage> {
                     padding: const AppPadding.onlyLeft(),
                     child: Text(
                       "Istanbul, Zeytinburnu",
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                   )
                 ],
@@ -55,8 +57,7 @@ class _ShopPageState extends State<ShopPage> {
             children: [
               StreamBuilder<QuerySnapshot>(
                   stream: FireCloudStore.banner,
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.hasError) {
                       return Text('Error: ${snapshot.error}');
                     }

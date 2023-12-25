@@ -3,21 +3,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/models/account_card_model.dart';
+import 'package:nectar_ui/core/navigator/app_router.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
+import 'package:nectar_ui/core/widgets/custom_bottom_sheet.dart';
 import 'package:nectar_ui/view/account_page/components/top_sheets/profile_edit_page.dart';
+
 import '../../../core/constant/app_constant.dart';
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/constant/app_icon.dart';
 import '../../core/helper/text_scale_size.dart';
 import '../../core/init/lang/locale_keys.g.dart';
-import '../../core/navigator/app_router.dart';
-import '../../core/widgets/custom_bottom_sheet.dart';
 
+@RoutePage()
 class AccountPage extends StatefulWidget {
   const AccountPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   State<AccountPage> createState() => _AccountPageState();
 }
@@ -25,8 +27,7 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   FirebaseAuth auth = FirebaseAuth.instance;
   final List<AccountModel> accountCards = AccountModels.accountCards;
-  List<String> accountCardTitles =
-      AccountModels.accountCards.map((e) => e.title).toList();
+  List<String> accountCardTitles = AccountModels.accountCards.map((e) => e.title).toList();
   @override
   void initState() {
     super.initState();
@@ -83,7 +84,7 @@ class _AccountPageState extends State<AccountPage> {
                         children: [
                           Text(
                             "Hüseyin Şahinli",
-                            style: Theme.of(context).textTheme.headline1,
+                            style: Theme.of(context).textTheme.displayLarge,
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                           IconButton(
@@ -91,8 +92,7 @@ class _AccountPageState extends State<AccountPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ProfileEditPage(),
+                                    builder: (context) => const ProfileEditPage(),
                                   ));
                             },
                             icon: IconEnums.pencil.toImage,
@@ -102,7 +102,7 @@ class _AccountPageState extends State<AccountPage> {
                       Text(
                         auth.currentUser!.email.toString(),
                         textScaleFactor: ScaleSize.textScaleFactor(context),
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],
                   ),
@@ -139,7 +139,7 @@ class _AccountPageState extends State<AccountPage> {
                     title: Text(
                       accountCardTitles[index],
                       textScaleFactor: ScaleSize.textScaleFactor(context),
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.displayMedium,
                     ),
                     trailing: AppIcons.accountForward,
                   ),

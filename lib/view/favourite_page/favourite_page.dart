@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/extensions/context_extensions.dart';
 import 'package:nectar_ui/core/extensions/string_extensions.dart';
@@ -6,6 +7,7 @@ import 'package:nectar_ui/core/padding/app_padding.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
+@RoutePage()
 class FavouritePage extends StatefulWidget {
   const FavouritePage({Key? key}) : super(key: key);
 
@@ -49,7 +51,7 @@ class _FavouritePageState extends State<FavouritePage> {
             child: Center(
               child: Text(
                 LocaleKeys.favourite_addToAllCart.locale,
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
           ),

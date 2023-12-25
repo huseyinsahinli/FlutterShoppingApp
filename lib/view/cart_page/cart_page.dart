@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nectar_ui/core/constant/app_icon.dart';
 import 'package:nectar_ui/core/extensions/double_extensions.dart';
@@ -5,6 +6,7 @@ import 'package:nectar_ui/core/extensions/string_extensions.dart';
 import 'package:nectar_ui/core/init/lang/locale_keys.g.dart';
 import 'package:nectar_ui/core/padding/app_padding.dart';
 import 'package:provider/provider.dart';
+
 import '../../../core/constant/icon_enum.dart';
 import '../../../core/widgets/divider.dart';
 import '../../core/helper/db_helper.dart';
@@ -12,6 +14,7 @@ import '../../core/helper/text_scale_size.dart';
 import '../../core/models/cart_model.dart';
 import '../../core/providers/cart_provider.dart';
 
+@RoutePage()
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
 
@@ -45,8 +48,7 @@ class _CartPageState extends State<CartPage> {
                 return Expanded(
                   child: snapshot.data!.isNotEmpty
                       ? ListView.separated(
-                          separatorBuilder: (context, index) =>
-                              const CustomDivider(),
+                          separatorBuilder: (context, index) => const CustomDivider(),
                           itemCount: snapshot.data!.length,
                           itemBuilder: (context, index) {
                             var product = snapshot.data![index];
@@ -69,41 +71,27 @@ class _CartPageState extends State<CartPage> {
                                         child: Padding(
                                           padding: const AppPadding.onlyLeft(),
                                           child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
                                                 product.productName!,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headline1,
+                                                style: Theme.of(context).textTheme.displayLarge,
                                                 textAlign: TextAlign.start,
-                                                textScaleFactor:
-                                                    ScaleSize.textScaleFactor(
-                                                        context),
+                                                textScaleFactor: ScaleSize.textScaleFactor(context),
                                               ),
                                               5.0.sizedBoxOnlyHeight,
                                               Text(
                                                 "${product.productQuantity} kg",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText2,
+                                                style: Theme.of(context).textTheme.bodyMedium,
                                                 textAlign: TextAlign.start,
-                                                textScaleFactor:
-                                                    ScaleSize.textScaleFactor(
-                                                        context),
+                                                textScaleFactor: ScaleSize.textScaleFactor(context),
                                               ),
                                               10.0.sizedBoxOnlyHeight,
                                               Text(
                                                 "\$${product.productPrice}",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headline2,
-                                                textScaleFactor:
-                                                    ScaleSize.textScaleFactor(
-                                                        context),
+                                                style: Theme.of(context).textTheme.displayMedium,
+                                                textScaleFactor: ScaleSize.textScaleFactor(context),
                                               ),
                                             ],
                                           ),
@@ -116,161 +104,111 @@ class _CartPageState extends State<CartPage> {
                                   alignment: Alignment.topRight,
                                   child: Padding(
                                     padding: const AppPadding.allLow(),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          SizedBox(
-                                            width: 45.67,
-                                            height: 45.67,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                foregroundColor: Colors.grey,
-                                                backgroundColor: Colors.white,
-                                                elevation: 0,
-                                                shape: RoundedRectangleBorder(
-                                                  side: const BorderSide(
-                                                    color: Color(0xffF0F0F0),
-                                                    width: 1,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          17.0),
-                                                ),
+                                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                                      SizedBox(
+                                        width: 45.67,
+                                        height: 45.67,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            foregroundColor: Colors.grey,
+                                            backgroundColor: Colors.white,
+                                            elevation: 0,
+                                            shape: RoundedRectangleBorder(
+                                              side: const BorderSide(
+                                                color: Color(0xffF0F0F0),
+                                                width: 1,
                                               ),
-                                              onPressed: () {
-                                                if (!isTappedAdd) {
-                                                  isTappedAdd = true;
-                                                  int quantity =
-                                                      product.productQuantity!;
-                                                  double price = double.parse(
-                                                      product
-                                                          .productInitialPrice
-                                                          .toString());
-                                                  quantity++;
-                                                  double newPrice =
-                                                      price * quantity;
+                                              borderRadius: BorderRadius.circular(17.0),
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            if (!isTappedAdd) {
+                                              isTappedAdd = true;
+                                              int quantity = product.productQuantity!;
+                                              double price = double.parse(product.productInitialPrice.toString());
+                                              quantity++;
+                                              double newPrice = price * quantity;
 
-                                                  dbHelper
-                                                      .updateQuanity(Product(
-                                                          id: product.id,
-                                                          productId:
-                                                              product.productId,
-                                                          productName: product
-                                                              .productName,
-                                                          productInitialPrice:
-                                                              product
-                                                                  .productInitialPrice,
-                                                          productPrice:
-                                                              newPrice,
-                                                          productStock: product
-                                                              .productStock,
-                                                          productQuantity:
-                                                              quantity,
-                                                          productImage: product
-                                                              .productImage))
-                                                      .then((value) {
-                                                    newPrice = 0;
-                                                    cart.addTotalprice(
-                                                        double.parse(product
-                                                            .productInitialPrice
-                                                            .toString()));
-                                                    isTappedAdd = false;
-                                                  }).onError(
-                                                          (error, stackTrace) {
-                                                    // print(error.toString());
-                                                  });
-                                                }
-                                              },
-                                              child: IconEnums.plus.toImage,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const AppPadding.allLow(),
-                                            child: Text(
-                                              product.productQuantity
-                                                  .toString(),
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .subtitle1,
-                                              textScaleFactor:
-                                                  ScaleSize.textScaleFactor(
-                                                      context),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 45.67,
-                                            height: 45.67,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                foregroundColor: Colors.grey,
-                                                backgroundColor: Colors.white,
-                                                elevation: 0,
-                                                shape: RoundedRectangleBorder(
-                                                  side: const BorderSide(
-                                                    color: Color(0xffF0F0F0),
-                                                    width: 1,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          17.0),
-                                                ),
+                                              dbHelper
+                                                  .updateQuanity(Product(
+                                                      id: product.id,
+                                                      productId: product.productId,
+                                                      productName: product.productName,
+                                                      productInitialPrice: product.productInitialPrice,
+                                                      productPrice: newPrice,
+                                                      productStock: product.productStock,
+                                                      productQuantity: quantity,
+                                                      productImage: product.productImage))
+                                                  .then((value) {
+                                                newPrice = 0;
+                                                cart.addTotalprice(double.parse(product.productInitialPrice.toString()));
+                                                isTappedAdd = false;
+                                              }).onError((error, stackTrace) {
+                                                // print(error.toString());
+                                              });
+                                            }
+                                          },
+                                          child: IconEnums.plus.toImage,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const AppPadding.allLow(),
+                                        child: Text(
+                                          product.productQuantity.toString(),
+                                          style: Theme.of(context).textTheme.titleMedium,
+                                          textScaleFactor: ScaleSize.textScaleFactor(context),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 45.67,
+                                        height: 45.67,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            foregroundColor: Colors.grey,
+                                            backgroundColor: Colors.white,
+                                            elevation: 0,
+                                            shape: RoundedRectangleBorder(
+                                              side: const BorderSide(
+                                                color: Color(0xffF0F0F0),
+                                                width: 1,
                                               ),
-                                              onPressed: () {
-                                                if (!isTappedRemove) {
-                                                  isTappedRemove = true;
-                                                  int quantity =
-                                                      product.productQuantity!;
-                                                  double price = double.parse(
-                                                      product
-                                                          .productInitialPrice
-                                                          .toString());
-                                                  if (quantity > 1) {
-                                                    quantity--;
-                                                    double newPrice =
-                                                        price * quantity;
-
-                                                    dbHelper
-                                                        .updateQuanity(Product(
-                                                            id: product.id,
-                                                            productId: product
-                                                                .productId,
-                                                            productName: product
-                                                                .productName,
-                                                            productInitialPrice:
-                                                                product
-                                                                    .productInitialPrice,
-                                                            productPrice:
-                                                                newPrice,
-                                                            productStock: product
-                                                                .productStock,
-                                                            productQuantity:
-                                                                quantity,
-                                                            productImage: product
-                                                                .productImage))
-                                                        .then((value) {
-                                                      newPrice = 0;
-                                                      cart.removeTotalPrice(
-                                                          double.parse(product
-                                                              .productInitialPrice
-                                                              .toString()));
-                                                      isTappedRemove = false;
-                                                    }).onError((error,
-                                                            stackTrace) {});
-                                                  } else {
-                                                    isTappedRemove = false;
-                                                    cart.removeProductItem(
-                                                        product);
-                                                  }
-                                                }
-                                              },
-                                              child: product.productQuantity! >
-                                                      1
-                                                  ? AppIcons.productsRemove
-                                                  : AppIcons.productsRemoveAll,
+                                              borderRadius: BorderRadius.circular(17.0),
                                             ),
                                           ),
-                                        ]),
+                                          onPressed: () {
+                                            if (!isTappedRemove) {
+                                              isTappedRemove = true;
+                                              int quantity = product.productQuantity!;
+                                              double price = double.parse(product.productInitialPrice.toString());
+                                              if (quantity > 1) {
+                                                quantity--;
+                                                double newPrice = price * quantity;
+
+                                                dbHelper
+                                                    .updateQuanity(Product(
+                                                        id: product.id,
+                                                        productId: product.productId,
+                                                        productName: product.productName,
+                                                        productInitialPrice: product.productInitialPrice,
+                                                        productPrice: newPrice,
+                                                        productStock: product.productStock,
+                                                        productQuantity: quantity,
+                                                        productImage: product.productImage))
+                                                    .then((value) {
+                                                  newPrice = 0;
+                                                  cart.removeTotalPrice(double.parse(product.productInitialPrice.toString()));
+                                                  isTappedRemove = false;
+                                                }).onError((error, stackTrace) {});
+                                              } else {
+                                                isTappedRemove = false;
+                                                cart.removeProductItem(product);
+                                              }
+                                            }
+                                          },
+                                          child: product.productQuantity! > 1 ? AppIcons.productsRemove : AppIcons.productsRemoveAll,
+                                        ),
+                                      ),
+                                    ]),
                                   ),
                                 ),
                               ],
@@ -282,13 +220,9 @@ class _CartPageState extends State<CartPage> {
                           children: [
                             Text(
                               LocaleKeys.cart_productCart_emptyCart.locale,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .copyWith(
+                              style: Theme.of(context).textTheme.displayLarge!.copyWith(
                                     color: Colors.green[200],
-                                    fontSize:
-                                        ScaleSize.textScaleFactor(context),
+                                    fontSize: ScaleSize.textScaleFactor(context),
                                   ),
                             ),
                           ],
@@ -314,7 +248,7 @@ class _CartPageState extends State<CartPage> {
                       child: FittedBox(
                         child: Text(
                           LocaleKeys.cart_checkout.locale,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: Theme.of(context).textTheme.bodyLarge,
                           textScaleFactor: ScaleSize.textScaleFactor(context),
                         ),
                       ),
@@ -331,7 +265,7 @@ class _CartPageState extends State<CartPage> {
                           padding: const AppPadding.allLow() / 2,
                           child: Text(
                             "\$${cart.getTotalPrice()}",
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                             textScaleFactor: ScaleSize.textScaleFactor(context),
                           ),
                         ),
